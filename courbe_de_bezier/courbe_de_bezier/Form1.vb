@@ -5,6 +5,8 @@ Public Class Form1
     Dim drawer As Drawer
     Dim bezier As Bezier
 
+    Dim numeric_indicator_value_changed_trigger As Boolean = False
+
     Public Sub New()
         InitializeComponent()
 
@@ -42,10 +44,15 @@ Public Class Form1
 
 
 
-        Dim mouse_point_selected As PointF = bezier.selectionPoint(mouse_point_converted)
+        Dim point As PointF
 
-        If (not mouse_point_selected.IsEmpty) Then
-            drawer.drawPoint(New Pen(Color.Red), mouse_point_selected, 10, 10)
+        If (bezier.selectionPoint(mouse_point_converted, point) = True) Then
+            If (bezier.point_selectionne_enum <> Bezier.pointEnum.aucun) Then
+                drawer.clearDrawing()
+                drawer.drawBezier(bezier)
+            End If
+            drawer.drawPoint(New Pen(Color.Red), point, 10, 10)
+
         End If
 
         ' Dim mouse_point_converted_ As New PointF
@@ -69,7 +76,12 @@ Public Class Form1
         NumericUpDown_longueur.Value = bezier.longueur
     End Sub
 
-    Private Sub NumericUpDown_x_deb_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown_x_deb.ValueChanged, NumericUpDown_y_deb.ValueChanged, NumericUpDown_y_fin.ValueChanged, NumericUpDown_x_fin.ValueChanged, NumericUpDown_x_deb_tg.ValueChanged, NumericUpDown_y_deb_tg.ValueChanged, NumericUpDown_x_fin_tg.ValueChanged, NumericUpDown_y_fin_tg.ValueChanged
+    Private Sub NumericUpDown_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown_x_deb.ValueChanged, NumericUpDown_y_deb.ValueChanged, NumericUpDown_y_fin.ValueChanged, NumericUpDown_x_fin.ValueChanged, NumericUpDown_x_deb_tg.ValueChanged, NumericUpDown_y_deb_tg.ValueChanged, NumericUpDown_x_fin_tg.ValueChanged, NumericUpDown_y_fin_tg.ValueChanged
+        If (numeric_indicator_value_changed_trigger = False) Then
+            Return
+        End If
+
+
         Dim obj As System.Windows.Forms.NumericUpDown = DirectCast(sender, System.Windows.Forms.NumericUpDown)
 
         If (obj Is NumericUpDown_x_deb) Then
@@ -95,5 +107,64 @@ Public Class Form1
 
         NumericUpDown_longueur.Value = bezier.longueur
 
+    End Sub
+
+    'Quand la souris se déplace
+    Private Sub bezier_drawing_MouseMove(sender As Object, e As MouseEventArgs) Handles bezier_drawing.MouseMove
+        Dim mouse_point As Point
+        Dim mouse_point_converted As PointF
+
+        If (bezier.point_selectionne_enum <> Bezier.pointEnum.aucun) Then
+            numeric_indicator_value_changed_trigger = False
+            mouse_point = e.Location()
+            mouse_point_converted = drawer.conversionToMarker(mouse_point)
+
+            drawer.drawBezier(bezier)
+            Try
+                Select Case bezier.point_selectionne_enum
+                    Case Bezier.pointEnum.p_deb
+                        bezier.p_deb = mouse_point_converted
+                        drawer.drawPoint(New Pen(Color.Red), bezier.p_deb, 10, 10)
+                        NumericUpDown_x_deb.Value = bezier.p_deb.X
+                        NumericUpDown_y_deb.Value = bezier.p_deb.Y
+                    Case Bezier.pointEnum.p_fin
+                        bezier.p_fin = mouse_point_converted
+                        drawer.drawPoint(New Pen(Color.Red), bezier.p_fin, 10, 10)
+                        NumericUpDown_x_fin.Value = bezier.p_fin.X
+                        NumericUpDown_y_fin.Value = bezier.p_fin.Y
+                    Case Bezier.pointEnum.p_tg_deb
+                        bezier.p_tg_deb = mouse_point_converted
+                        drawer.drawPoint(New Pen(Color.Red), bezier.p_tg_deb, 10, 10)
+                        NumericUpDown_x_deb_tg.Value = bezier.p_tg_deb.X
+                        NumericUpDown_y_deb_tg.Value = bezier.p_tg_deb.Y
+                    Case Bezier.pointEnum.p_tg_fin
+                        bezier.p_tg_fin = mouse_point_converted
+                        drawer.drawPoint(New Pen(Color.Red), bezier.p_tg_fin, 10, 10)
+                        NumericUpDown_x_fin_tg.Value = bezier.p_tg_fin.X
+                        NumericUpDown_y_fin_tg.Value = bezier.p_tg_fin.Y
+                End Select
+                'Ralenti
+                'NumericUpDown_longueur.Value = bezier.getDistance()
+            Catch ex As ArgumentOutOfRangeException
+                MessageBox.Show("Error:  " & ex.Message.ToString())
+
+                'Déselectionne le point
+                bezier.point_selectionne_enum = Bezier.pointEnum.aucun
+                drawer.drawBezier(bezier)
+            End Try
+
+        Else
+            numeric_indicator_value_changed_trigger = True
+        End If
+
+    End Sub
+
+    'Quand le clic gauche est relaché
+    Private Sub bezier_drawing_MouseUp(sender As Object, e As MouseEventArgs) Handles bezier_drawing.MouseUp
+        'Déselectionne le point
+        bezier.point_selectionne_enum = Bezier.pointEnum.aucun
+        drawer.drawBezier(bezier)
+
+        NumericUpDown_longueur.Value = bezier.getDistance()
     End Sub
 End Class

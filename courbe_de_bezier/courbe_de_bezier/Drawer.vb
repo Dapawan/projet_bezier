@@ -131,8 +131,8 @@ Public Class Drawer
     Public Sub drawBezier(ByVal bezier As Bezier)
         ' We clear old drawing
         clearDrawing()
-        drawMarker()
-        drawGrid()
+        'drawMarker()
+        'drawGrid()
 
         ' Dessine la courbe
         drawLines(New Pen(bezier.couleur), bezier.points)

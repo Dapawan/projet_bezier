@@ -1,6 +1,16 @@
 ﻿Imports System.Drawing.Drawing2D
 
 Public Class Bezier
+
+    Enum pointEnum
+        aucun
+        p_deb
+        p_fin
+        p_tg_deb
+        p_tg_fin
+    End Enum
+
+
     ' Points de départ et de fin
     Public p_deb As PointF
     Public p_fin As PointF
@@ -18,6 +28,7 @@ Public Class Bezier
     ' Longueur
     Dim longueur_courbe As Double
 
+    Dim point_select As pointEnum
 
     Public Sub New(p_deb As PointF, p_fin As PointF, p_tg_deb As PointF, p_tg_fin As PointF, nbr_segment As Single, couleur_courbe As Color)
         Me.p_deb = p_deb
@@ -26,6 +37,8 @@ Public Class Bezier
         Me.p_tg_fin = p_tg_fin
         Me.nbr_segment = nbr_segment
         Me.couleur_courbe = couleur_courbe
+
+        point_selectionne_enum = pointEnum.aucun
     End Sub
 
     Public Property nombre_segment As Single
@@ -58,14 +71,20 @@ Public Class Bezier
 
     Public Property longueur As Double
         Get
-            If (longueur_courbe = 0) Then
-                longueur_courbe = getDistance()
-            End If
-
+            longueur_courbe = getDistance()
             Return longueur_courbe
         End Get
         Set(value As Double)
             longueur_courbe = value
+        End Set
+    End Property
+
+    Public Property point_selectionne_enum As pointEnum
+        Get
+            Return point_select
+        End Get
+        Set(value As pointEnum)
+            point_select = value
         End Set
     End Property
 
@@ -115,21 +134,32 @@ Public Class Bezier
     End Function
 
     ' Retourne le point sélectionné parmis les 4 points du bezier
-    Public Function selectionPoint(ByVal point_de_selection As PointF) As PointF
-        Dim point As PointF
+    Public Function selectionPoint(ByVal point_de_selection As PointF, ByRef point_selectionne As PointF) As Boolean
+        Dim result As Boolean = True
 
-        If (Me.p_deb.Equals(point_de_selection)) Then
-            point = Me.p_deb
-        ElseIf (Me.p_fin.Equals(point_de_selection)) Then
-            point = Me.p_fin
-        ElseIf (Me.p_tg_deb.Equals(point_de_selection)) Then
-            point = Me.p_tg_deb
-        ElseIf (Me.p_tg_fin.Equals(point_de_selection)) Then
-            point = Me.p_tg_fin
+        If (getRect(Me.p_deb, 0.1, 0.1).Contains(point_de_selection)) Then
+            point_selectionne = Me.p_deb
+            point_selectionne_enum = pointEnum.p_deb
+        ElseIf (getRect(Me.p_fin, 0.1, 0.1).Contains(point_de_selection)) Then
+            point_selectionne = Me.p_fin
+            point_selectionne_enum = pointEnum.p_fin
+        ElseIf (getRect(Me.p_tg_deb, 0.1, 0.1).Contains(point_de_selection)) Then
+            point_selectionne = Me.p_tg_deb
+            point_selectionne_enum = pointEnum.p_tg_deb
+        ElseIf (getRect(Me.p_tg_fin, 0.1, 0.1).Contains(point_de_selection)) Then
+            point_selectionne = Me.p_tg_fin
+            point_selectionne_enum = pointEnum.p_tg_fin
+        Else
+            result = False
+            point_selectionne_enum = pointEnum.aucun
         End If
 
-        Return point
+        Return result
     End Function
 
+    'Retourne un rectangle contenant en son centre le point
+    Private Function getRect(ByVal point As PointF, ByVal width As Double, ByVal height As Double) As RectangleF
+        Return New RectangleF(point.X - (width / 2), point.Y - (width / 2), width, height)
+    End Function
 
 End Class
