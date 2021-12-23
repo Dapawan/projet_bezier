@@ -43,6 +43,10 @@ Partial Class Form1
         Me.NumericUpDown_y_fin_tg = New System.Windows.Forms.NumericUpDown()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.ComboBoxColor = New System.Windows.Forms.ComboBox()
+        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.bezier_drawing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown_y_deb, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown_x_deb, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -264,11 +268,50 @@ Partial Class Form1
         Me.Label10.TabIndex = 2
         Me.Label10.Text = "y_fin_tg"
         '
+        'ComboBoxColor
+        '
+        Me.ComboBoxColor.FormattingEnabled = True
+        Me.ComboBoxColor.Items.AddRange(New Object() {"Rouge", "Bleu", "Vert"})
+        Me.ComboBoxColor.Location = New System.Drawing.Point(947, 506)
+        Me.ComboBoxColor.Name = "ComboBoxColor"
+        Me.ComboBoxColor.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBoxColor.TabIndex = 3
+        '
+        'CheckedListBox1
+        '
+        Me.CheckedListBox1.FormattingEnabled = True
+        Me.CheckedListBox1.Location = New System.Drawing.Point(1074, 506)
+        Me.CheckedListBox1.Name = "CheckedListBox1"
+        Me.CheckedListBox1.Size = New System.Drawing.Size(178, 94)
+        Me.CheckedListBox1.TabIndex = 4
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(947, 533)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "+"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(947, 577)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "-"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 661)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.CheckedListBox1)
+        Me.Controls.Add(Me.ComboBoxColor)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label8)
@@ -329,4 +372,8 @@ Partial Class Form1
     Friend WithEvents NumericUpDown_y_fin_tg As NumericUpDown
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
+    Friend WithEvents ComboBoxColor As ComboBox
+    Friend WithEvents CheckedListBox1 As CheckedListBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

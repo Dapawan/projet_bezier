@@ -128,23 +128,47 @@ Public Class Drawer
         bezier_drawing.Invalidate()
     End Sub
 
-    Public Sub drawBezier(ByVal bezier As Bezier)
+    Public Sub drawBeziers(ByRef bezier_list As List(Of Bezier))
         ' We clear old drawing
         clearDrawing()
+        For Each bezier In bezier_list
+            If bezier.show.Equals(True) Then
+                drawBezier(bezier, False)
+            End If
+        Next
+    End Sub
+
+    Public Sub drawBezier(ByRef bezier As Bezier, ByVal clear_drawing As Boolean)
+        If clear_drawing.Equals(True) Then
+            ' We clear old drawing
+            clearDrawing()
+        End If
+
         'drawMarker()
         'drawGrid()
 
-        ' Dessine la courbe
-        drawLines(New Pen(bezier.couleur), bezier.points)
-        ' Dessine les points
-        drawPoint(New Pen(bezier.couleur), bezier.p_deb, 5, 5)
-        drawPoint(New Pen(bezier.couleur), bezier.p_fin, 5, 5)
-
-        drawPoint(New Pen(bezier.couleur), bezier.p_tg_deb, 5, 5)
-        drawPoint(New Pen(bezier.couleur), bezier.p_tg_fin, 5, 5)
         'Dessine les tangentes
         Dim coloredPen As New Pen(bezier.couleur)
+        If bezier.currentlySelected.Equals(True) Then
+            coloredPen.Width = 2
+        Else
+            coloredPen.Width = 1
+        End If
 
+        ' Dessine la courbe
+        drawLines(coloredPen, bezier.points)
+        ' Dessine les points
+        drawPoint(coloredPen, bezier.p_deb, 5, 5)
+        drawPoint(coloredPen, bezier.p_fin, 5, 5)
+
+        drawPoint(coloredPen, bezier.p_tg_deb, 5, 5)
+        drawPoint(coloredPen, bezier.p_tg_fin, 5, 5)
+
+        If bezier.currentlySelected.Equals(True) Then
+            coloredPen.Width = 2
+        Else
+            coloredPen.Width = 1
+        End If
         coloredPen.DashStyle = DashStyle.DashDotDot
         drawLine(coloredPen, bezier.p_deb, bezier.p_tg_deb)
 

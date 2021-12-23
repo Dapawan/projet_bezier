@@ -1,5 +1,4 @@
 ﻿Imports System.Drawing.Drawing2D
-
 Public Class Bezier
 
     Enum pointEnum
@@ -27,6 +26,13 @@ Public Class Bezier
     Dim liste_points As PointF()
     ' Longueur
     Dim longueur_courbe As Double
+    ' Currently selected
+    Dim selected As Boolean
+    ' Hide / show
+    Dim hide_show As Boolean
+    Shared compteur_courbe As Single = 0
+    ' Numéro bezier => Valeur unique => Permet l'identification
+    Dim numero As Single
 
     Dim point_select As pointEnum
 
@@ -39,6 +45,10 @@ Public Class Bezier
         Me.couleur_courbe = couleur_courbe
 
         point_selectionne_enum = pointEnum.aucun
+        Me.currentlySelected = True 'By default => New bezier is showed + selected
+        Me.show = True
+        Me.uid = compteur_courbe
+        compteur_courbe += 1
     End Sub
 
     Public Property nombre_segment As Single
@@ -88,6 +98,33 @@ Public Class Bezier
         End Set
     End Property
 
+    Public Property show As Boolean
+        Get
+            Return hide_show
+        End Get
+        Set(value As Boolean)
+            hide_show = value
+        End Set
+    End Property
+
+    Public Property currentlySelected As Boolean
+        Get
+            Return selected
+        End Get
+        Set(value As Boolean)
+            selected = value
+        End Set
+    End Property
+
+    Public Property uid As Single
+        Get
+            Return numero
+        End Get
+        Set(value As Single)
+            numero = value
+        End Set
+    End Property
+
     Public Function getPoints() As PointF()
         Return getPoints(Me.nombre_segment)
     End Function
@@ -121,7 +158,7 @@ Public Class Bezier
         Return getDistance(Me.getPoints())
     End Function
 
-    Public Function getDistance(ByVal liste_points() As PointF)
+    Public Function getDistance(ByRef liste_points() As PointF)
         Dim distance As Double = 0
         If (liste_points.Length >= 2) Then
             For i As Single = 0 To liste_points.Length - 2
@@ -156,6 +193,16 @@ Public Class Bezier
 
         Return result
     End Function
+    ' Retourne vrai si un bezier de la liste est sélectionné
+    Public Function IsBezierSelected(ByRef list_bezier As List(Of Bezier))
+        For Each bezier In list_bezier
+            If bezier.currentlySelected.Equals(True) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
 
     'Retourne un rectangle contenant en son centre le point
     Private Function getRect(ByVal point As PointF, ByVal width As Double, ByVal height As Double) As RectangleF
