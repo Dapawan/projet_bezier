@@ -9,6 +9,8 @@ Public Class Form1
     Dim numeric_indicator_value_changed_trigger As Boolean = False
     Dim check_selected_index_value_changed_trigger As Boolean = False
 
+    Dim show_name_bezier As Boolean = True
+
     Public Sub New()
         InitializeComponent()
 
@@ -27,11 +29,6 @@ Public Class Form1
     End Sub
 
     Private Sub bezier_drawing_MouseDown(sender As Object, e As MouseEventArgs) Handles bezier_drawing.MouseDown
-        If bezier Is Nothing Then 'Do nothing if there isn't any bezier selected
-            Return
-        End If
-
-
         Dim mouse_point As Point = e.Location()
 
         Dim mouse_point_converted As PointF = drawer.conversionToMarker(mouse_point)
@@ -43,13 +40,13 @@ Public Class Form1
             If (bezier_tmp.show.Equals(True)) Then
                 If (bezier_tmp.selectionPoint(mouse_point_converted, point) = True) Then
                     ' New bezier selected
-                    If Not bezier.Equals(bezier_tmp) Then
+                    If bezier Is Nothing OrElse Not bezier.Equals(bezier_tmp) Then
                         SetSelectedBezier(bezier_tmp, True) 'Set new current bezier + set as selected item
                     End If
 
                     If (bezier_tmp.point_selectionne_enum <> Bezier.pointEnum.aucun) Then
                         drawer.clearDrawing()
-                        drawer.drawBeziers(bezier_list)
+                        drawer.drawBeziers(bezier_list, show_name_bezier)
 
                     End If
                     drawer.drawPoint(New Pen(Color.Red), point, 10, 10)
@@ -58,6 +55,9 @@ Public Class Form1
             End If
         Next
 
+        ' Nothing selected 
+        UnSelectBezier()
+        drawer.drawBeziers(bezier_list, show_name_bezier)
         ' Dim mouse_point_converted_ As New PointF
 
         ' mouse_point_converted_.X = mouse_point_converted.X - 10
@@ -77,7 +77,7 @@ Public Class Form1
 
         bezier.nombre_segment = NumericUpDown_segment.Value
 
-        drawer.drawBeziers(bezier_list)
+        drawer.drawBeziers(bezier_list, show_name_bezier)
         ' drawer.drawBezierFromLib(New Pen(Color.Red), bezier)
 
         NumericUpDown_longueur.Value = bezier.longueur
@@ -113,7 +113,7 @@ Public Class Form1
             bezier.p_fin.Y = NumericUpDown_y_fin.Value
         End If
 
-        drawer.drawBeziers(bezier_list)
+        drawer.drawBeziers(bezier_list, show_name_bezier)
         ' drawer.drawBezierFromLib(New Pen(Color.Red), bezier)
 
         NumericUpDown_longueur.Value = bezier.longueur
@@ -134,7 +134,7 @@ Public Class Form1
             mouse_point = e.Location()
             mouse_point_converted = drawer.conversionToMarker(mouse_point)
 
-            drawer.drawBeziers(bezier_list)
+            drawer.drawBeziers(bezier_list, show_name_bezier)
             Try
                 Select Case bezier.point_selectionne_enum
                     Case Bezier.pointEnum.p_deb
@@ -169,7 +169,7 @@ Public Class Form1
 
                 'Déselectionne le point
                 bezier.point_selectionne_enum = Bezier.pointEnum.aucun
-                drawer.drawBeziers(bezier_list)
+                drawer.drawBeziers(bezier_list, show_name_bezier)
             End Try
 
         Else
@@ -186,7 +186,7 @@ Public Class Form1
 
         'Déselectionne le point
         bezier.point_selectionne_enum = Bezier.pointEnum.aucun
-        drawer.drawBeziers(bezier_list)
+        drawer.drawBeziers(bezier_list, show_name_bezier)
 
         NumericUpDown_longueur.Value = bezier.getDistance()
     End Sub
@@ -198,7 +198,7 @@ Public Class Form1
 
         bezier.couleur = getColorCombobox()
 
-        drawer.drawBeziers(bezier_list)
+        drawer.drawBeziers(bezier_list, show_name_bezier)
     End Sub
 
     Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox1.ItemCheck
@@ -216,7 +216,7 @@ Public Class Form1
             bezier_list.ElementAt(index).point_selectionne_enum = Bezier.pointEnum.aucun
         End If
 
-        drawer.drawBeziers(bezier_list)
+        drawer.drawBeziers(bezier_list, show_name_bezier)
     End Sub
 
     Private Sub CheckedListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CheckedListBox1.SelectedIndexChanged
@@ -243,6 +243,17 @@ Public Class Form1
         AddBezier()
     End Sub
 
+    ' Show bezier name on each
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        show_name_bezier = Not show_name_bezier
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    ' Save jpeg
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        drawer.saveDrawing()
+    End Sub
+
     Private Sub AddBezier()
 
         'Avoid selected index trigger
@@ -259,8 +270,41 @@ Public Class Form1
         SetSelectedBezier(bezier_tmp, True)
         check_selected_index_value_changed_trigger = True
 
-        drawer.drawBeziers(bezier_list)
+        drawer.drawBeziers(bezier_list, show_name_bezier)
     End Sub
+
+    Private Sub UnSelectBezier()
+        Dim index As Single
+        'Avoid selected index trigger
+        check_selected_index_value_changed_trigger = False
+
+        index = getIndexListBox(bezier.uid.ToString())
+        If index.Equals(-1) Then
+            MessageBox.Show("Error index not found on list ")
+            Return
+        End If
+        CheckedListBox1.SetSelected(index, False) ' Unselect it
+
+        bezier.currentlySelected = False
+        allowUserCtrl(False)
+        bezier = Nothing
+
+        check_selected_index_value_changed_trigger = True
+    End Sub
+
+    Private Sub allowUserCtrl(ByVal enable As Boolean)
+        NumericUpDown_segment.Enabled = enable
+        NumericUpDown_x_deb.Enabled = enable
+        NumericUpDown_y_deb.Enabled = enable
+        NumericUpDown_x_fin.Enabled = enable
+        NumericUpDown_y_fin.Enabled = enable
+        NumericUpDown_x_deb_tg.Enabled = enable
+        NumericUpDown_x_fin_tg.Enabled = enable
+        NumericUpDown_y_deb_tg.Enabled = enable
+        NumericUpDown_y_fin_tg.Enabled = enable
+        ComboBoxColor.Enabled = enable
+    End Sub
+
 
     Private Sub SetSelectedBezier(ByRef bezier_selected As Bezier, ByVal set_selected_item As Boolean)
         If bezier_selected.Equals(bezier) Then
@@ -276,6 +320,7 @@ Public Class Form1
             bezier.point_selectionne_enum = Bezier.pointEnum.aucun
         End If
 
+        allowUserCtrl(True)
 
         ' Avoid numeric trigger
         numeric_indicator_value_changed_trigger = False
@@ -370,7 +415,7 @@ Public Class Form1
             check_selected_index_value_changed_trigger = True
 
 
-            drawer.drawBeziers(bezier_list)
+            drawer.drawBeziers(bezier_list, show_name_bezier)
         End If
     End Sub
 End Class

@@ -128,17 +128,17 @@ Public Class Drawer
         bezier_drawing.Invalidate()
     End Sub
 
-    Public Sub drawBeziers(ByRef bezier_list As List(Of Bezier))
+    Public Sub drawBeziers(ByRef bezier_list As List(Of Bezier), ByVal show_name As Boolean)
         ' We clear old drawing
         clearDrawing()
         For Each bezier In bezier_list
             If bezier.show.Equals(True) Then
-                drawBezier(bezier, False)
+                drawBezier(bezier, False, show_name)
             End If
         Next
     End Sub
 
-    Public Sub drawBezier(ByRef bezier As Bezier, ByVal clear_drawing As Boolean)
+    Public Sub drawBezier(ByRef bezier As Bezier, ByVal clear_drawing As Boolean, ByVal show_name As Boolean)
         If clear_drawing.Equals(True) Then
             ' We clear old drawing
             clearDrawing()
@@ -157,6 +157,12 @@ Public Class Drawer
 
         ' Dessine la courbe
         drawLines(coloredPen, bezier.points)
+
+        If show_name.Equals(True) Then
+            ' Indique le nom de la courbe
+            drawString(coloredPen, bezier.uid.ToString(), bezier.p_deb)
+        End If
+
         ' Dessine les points
         drawPoint(coloredPen, bezier.p_deb, 5, 5)
         drawPoint(coloredPen, bezier.p_fin, 5, 5)

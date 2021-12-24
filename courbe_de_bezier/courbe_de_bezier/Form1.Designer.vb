@@ -47,6 +47,8 @@ Partial Class Form1
         Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.bezier_drawing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown_y_deb, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown_x_deb, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -303,12 +305,32 @@ Partial Class Form1
         Me.Button2.Text = "-"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(947, 626)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 5
+        Me.Button3.Text = "Show detail"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(1042, 626)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 5
+        Me.Button4.Text = "Save"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 661)
         Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CheckedListBox1)
         Me.Controls.Add(Me.ComboBoxColor)
@@ -376,4 +398,6 @@ Partial Class Form1
     Friend WithEvents CheckedListBox1 As CheckedListBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
 End Class
