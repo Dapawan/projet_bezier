@@ -49,6 +49,8 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
         CType(Me.bezier_drawing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown_y_deb, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown_x_deb, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -307,7 +309,7 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(947, 626)
+        Me.Button3.Location = New System.Drawing.Point(934, 626)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 5
@@ -316,12 +318,30 @@ Partial Class Form1
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(1042, 626)
+        Me.Button4.Location = New System.Drawing.Point(1015, 626)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 5
-        Me.Button4.Text = "Save"
+        Me.Button4.Text = "Save_img"
         Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(1177, 626)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 5
+        Me.Button5.Text = "Read"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(1096, 626)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(80, 23)
+        Me.Button8.TabIndex = 5
+        Me.Button8.Text = "Save_courbe"
+        Me.Button8.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -329,6 +349,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 661)
         Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button1)
@@ -400,4 +422,6 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button8 As Button
 End Class

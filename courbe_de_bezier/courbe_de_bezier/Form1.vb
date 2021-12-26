@@ -254,6 +254,70 @@ Public Class Form1
         drawer.saveDrawing()
     End Sub
 
+    ' Read
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
+        Dim sfdPic As New OpenFileDialog()
+        Dim Path As String = "C:\Bureau"
+        Dim Dir As String = System.IO.Path.GetDirectoryName(Path)
+
+        Dim title As String = "Sauvegarde des courbes"
+        Dim btn = MessageBoxButtons.YesNo
+        Dim ico = MessageBoxIcon.Information
+
+        Try
+            If Not System.IO.Directory.Exists(Dir) Then
+                System.IO.Directory.CreateDirectory(Dir)
+            End If
+
+            With sfdPic
+                .Title = "Ouvre les courbes sous"
+                .Filter = "Fichiers texte (*.txt)|*.txt"
+                .AddExtension = True
+                .DefaultExt = ".txt"
+                '.FileName = "ma_liste_de_courbes.txt"
+                .ValidateNames = True
+                .InitialDirectory = Dir
+                .RestoreDirectory = True
+                .CheckFileExists = True
+                .ReadOnlyChecked = True
+                .CheckPathExists = True
+
+                If .ShowDialog = DialogResult.OK Then
+                    bezier_list = Bezier.ReadAll(sfdPic.FileName)
+                    MessageBox.Show("Courbes lues avec succès à : " + sfdPic.FileName)
+                Else
+                    Return
+                End If
+
+            End With
+        Catch ex As Exception
+            MessageBox.Show("Error: Reading Failed -> " & ex.Message.ToString())
+            Return
+        Finally
+            sfdPic.Dispose()
+        End Try
+
+        'Avoid selected index trigger
+        check_selected_index_value_changed_trigger = False
+
+        'Clear all last items 
+        CheckedListBox1.Items.Clear()
+
+        For Each bezier_tmp As Bezier In bezier_list
+            ' Add it through our list display
+            CheckedListBox1.Items.Add(bezier_tmp.uid.ToString()) ' "Courbe de bézier n° " + Bezier.uid.ToString())
+            CheckedListBox1.SetItemChecked(CheckedListBox1.Items.Count() - 1, True) ' Set default checked
+        Next
+
+        SetSelectedBezier(bezier_list(bezier_list.Count - 1), True)
+
+
+        check_selected_index_value_changed_trigger = True
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
     Private Sub AddBezier()
 
         'Avoid selected index trigger
@@ -274,6 +338,10 @@ Public Class Form1
     End Sub
 
     Private Sub UnSelectBezier()
+        If bezier Is Nothing Then
+            Return
+        End If
+
         Dim index As Single
         'Avoid selected index trigger
         check_selected_index_value_changed_trigger = False
@@ -417,5 +485,45 @@ Public Class Form1
 
             drawer.drawBeziers(bezier_list, show_name_bezier)
         End If
+    End Sub
+    'Save bezier list
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Dim sfdPic As New SaveFileDialog()
+        Dim Path As String = "C:\Bureau"
+        Dim Dir As String = System.IO.Path.GetDirectoryName(Path)
+
+        Dim title As String = "Sauvegarde des courbes"
+        Dim btn = MessageBoxButtons.YesNo
+        Dim ico = MessageBoxIcon.Information
+
+        Try
+            If Not System.IO.Directory.Exists(Dir) Then
+                System.IO.Directory.CreateDirectory(Dir)
+            End If
+
+            With sfdPic
+                .Title = "Enregistre les courbes sous"
+                .Filter = "Fichiers texte (*.txt)|*.txt"
+                .AddExtension = True
+                .DefaultExt = ".txt"
+                .FileName = "ma_liste_de_courbes.txt"
+                .ValidateNames = True
+                .OverwritePrompt = True
+                .InitialDirectory = Dir
+                .RestoreDirectory = True
+
+                If .ShowDialog = DialogResult.OK Then
+                    Bezier.WriteAll(bezier_list, sfdPic.FileName)
+                    MessageBox.Show("Courbe enregistrée avec succès à : " + sfdPic.FileName)
+                Else
+                    Return
+                End If
+
+            End With
+        Catch ex As Exception
+            MessageBox.Show("Error: Saving Failed -> " & ex.Message.ToString())
+        Finally
+            sfdPic.Dispose()
+        End Try
     End Sub
 End Class

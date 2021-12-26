@@ -84,7 +84,7 @@ Public Class Drawer
     End Sub
 
     ' Draw lines
-    Public Sub drawLines(ByVal pen As Pen, ByVal list_points() As PointF)
+    Public Sub drawLines(ByVal pen As Pen, ByRef list_points() As PointF)
         If bezier_drawing.Image Is Nothing Then
             Dim bmp As New Bitmap(bezier_drawing.Width, bezier_drawing.Height)
             Using g As Graphics = Graphics.FromImage(bmp)

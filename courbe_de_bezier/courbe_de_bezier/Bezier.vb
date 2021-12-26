@@ -35,7 +35,61 @@ Public Class Bezier
     Dim numero As Single
 
     Dim point_select As pointEnum
+    Shared Function WriteAll(ByRef list_bezier As List(Of Bezier), ByVal path As String)
+        Dim file As System.IO.StreamWriter
+        file = My.Computer.FileSystem.OpenTextFileWriter(path, False) ' Override file content
+        file.Close()
 
+        For Each bezier As Bezier In list_bezier
+            Write(path, bezier)
+        Next
+    End Function
+
+    Shared Sub Write(ByVal path As String, ByRef bezier As Bezier)
+        Dim file As System.IO.StreamWriter
+        file = My.Computer.FileSystem.OpenTextFileWriter(path, True)
+        Dim str As String = (bezier.p_deb.X.ToString() + ";" + bezier.p_deb.Y.ToString() + ";" + bezier.p_fin.X.ToString() + ";" + bezier.p_fin.Y.ToString() + ";" + bezier.p_tg_deb.X.ToString() + ";" + bezier.p_tg_deb.Y.ToString() + ";" + bezier.p_tg_fin.X.ToString() + ";" + bezier.p_tg_fin.Y.ToString() + ";" + bezier.couleur.ToArgb.ToString() + ";" + bezier.nombre_segment.ToString() + ";" + bezier.uid.ToString())
+        file.WriteLine(str)
+        file.Close()
+    End Sub
+
+
+    Shared Function ReadAll(ByVal path As String)
+        Dim list_bezier As List(Of Bezier) = New List(Of Bezier)
+
+        Dim fileReader As String
+        Dim array_string As String()
+        Dim uid As Single = 0
+        If System.IO.File.Exists(path) = True Then
+
+            Dim objReader As New System.IO.StreamReader(path)
+
+            Do While objReader.Peek() <> -1
+
+                fileReader = objReader.ReadLine()
+                array_string = fileReader.Split(";")
+                Dim p_deb As PointF = New PointF(Single.Parse(array_string(0)), Single.Parse(array_string(1)))
+                Dim p_fin As PointF = New PointF(Single.Parse(array_string(2)), Single.Parse(array_string(3)))
+                Dim p_tg_deb As PointF = New PointF(Single.Parse(array_string(4)), Single.Parse(array_string(5)))
+                Dim p_tg_fin As PointF = New PointF(Single.Parse(array_string(6)), Single.Parse(array_string(7)))
+                Dim couleur As Color = Color.FromArgb(Integer.Parse(array_string(8))) 'FromName(array_string(8))
+                Dim nombre_segment As Single = Single.Parse(array_string(9))
+                uid = Single.Parse(array_string(10))
+                ' Set UID courbe
+                Dim bezier As Bezier = New Bezier(p_deb, p_fin, p_tg_deb, p_tg_fin, nombre_segment, couleur) With {
+                    .uid = uid
+                }
+                list_bezier.Add(bezier)
+            Loop
+
+            objReader.Close()
+
+            'Compteur courbe => Doit = dernière courbe UID + 1
+            compteur_courbe = uid + 1
+        End If
+
+        Return list_bezier
+    End Function
     Public Sub New(p_deb As PointF, p_fin As PointF, p_tg_deb As PointF, p_tg_fin As PointF, nbr_segment As Single, couleur_courbe As Color)
         Me.p_deb = p_deb
         Me.p_fin = p_fin
