@@ -46,3 +46,16 @@ C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\proj
 C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.exe
 C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.xml
 C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.pdb
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\bin\Debug\courbe_de_bezier.exe.config
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\bin\Debug\courbe_de_bezier.exe
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\bin\Debug\courbe_de_bezier.pdb
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\bin\Debug\courbe_de_bezier.xml
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.vbprojAssemblyReference.cache
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.Form1.resources
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.Resources.resources
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.vbproj.GenerateResource.cache
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.vbproj.CoreCompileInputs.cache
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.exe
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.xml
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.pdb
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.Form_params.resources

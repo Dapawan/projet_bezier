@@ -11,6 +11,18 @@ Public Class Form1
 
     Dim show_name_bezier As Boolean = True
 
+    'Params window => Only once
+    Dim form_params As Form_params
+
+    ' Params 
+    Dim filename_screenshot As String = ""
+    Dim auto_incr_screenshot As Boolean
+    Dim default_path_screenshot As String = ""
+    Dim filename_file As String = ""
+    Dim auto_incr_file As Boolean
+    Dim default_path_file As String = ""
+
+
     Public Sub New()
         InitializeComponent()
 
@@ -525,5 +537,20 @@ Public Class Form1
         Finally
             sfdPic.Dispose()
         End Try
+    End Sub
+
+    Private Sub Button_params_Click(sender As Object, e As EventArgs) Handles Button_params.Click
+        form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+        form_params.Owner = Me
+
+        ' We can only interact with this dialog ! 
+        form_params.ShowDialog()
+
+        'Get back parameters
+        form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+        'MessageBox.Show(default_path_screenshot)
+
     End Sub
 End Class
