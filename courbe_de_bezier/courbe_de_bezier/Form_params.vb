@@ -156,4 +156,12 @@
         End If
 
     End Sub
+
+    Private Sub auto_incr_changed(sender As Object, e As EventArgs) Handles CheckBox_auto_incr_screenshot.CheckedChanged, CheckBox_auto_incr_file.CheckedChanged
+        If sender Is CheckBox_auto_incr_screenshot Then
+            Me.auto_incr_screenshot = CheckBox_auto_incr_screenshot.Checked()
+        Else
+            Me.auto_incr_file = CheckBox_auto_incr_file.Checked()
+        End If
+    End Sub
 End Class
