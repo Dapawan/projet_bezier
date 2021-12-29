@@ -82,6 +82,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_delete.Designer.vb">
+      <DependentUpon>Form_delete.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_delete.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form_params.Designer.vb">
       <DependentUpon>Form_params.vb</DependentUpon>
     </Compile>
@@ -107,6 +113,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_delete.resx">
+      <DependentUpon>Form_delete.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_params.resx">
       <DependentUpon>Form_params.vb</DependentUpon>

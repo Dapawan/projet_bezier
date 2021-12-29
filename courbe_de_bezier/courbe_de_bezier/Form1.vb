@@ -75,6 +75,35 @@ Public Class Form1
         My.Settings.Save()
     End Sub
 
+    Private Sub removeFilesPattern(ByVal screenshot As Boolean)
+        'On a besoin du pattern
+        'Regarder avec l'auto incr
+        Dim pattern As String = ""
+        Dim path As String = ""
+
+        If screenshot.Equals(True) Then
+            path = default_path_screenshot
+            pattern = "*.jpg"
+        Else
+            path = default_path_file
+            pattern = "*.txt"
+        End If
+
+        Dim list_files As String() = System.IO.Directory.GetFiles(path, pattern, System.IO.SearchOption.TopDirectoryOnly)
+
+        For Each filename As String In list_files
+            My.Computer.FileSystem.DeleteFile(
+              filename,
+              FileIO.UIOption.OnlyErrorDialogs,
+              FileIO.RecycleOption.SendToRecycleBin,
+              FileIO.UICancelOption.ThrowException)
+        Next
+
+
+
+        'On fait la recherche des fichiers et on suppr
+    End Sub
+
     Private Sub bezier_drawing_MouseDown(sender As Object, e As MouseEventArgs) Handles bezier_drawing.MouseDown
         Dim mouse_point As Point = e.Location()
 
@@ -482,17 +511,13 @@ Public Class Form1
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
 
         Dim sfdPic As New OpenFileDialog()
-        Dim Path As String = "C:\Bureau"
-        Dim Dir As String = System.IO.Path.GetDirectoryName(Path)
+        Dim Path As String = default_path_file
 
-        Dim title As String = "Sauvegarde des courbes"
+        Dim title As String = "Ouvrir l'ensemble de courbes"
         Dim btn = MessageBoxButtons.YesNo
         Dim ico = MessageBoxIcon.Information
 
         Try
-            If Not System.IO.Directory.Exists(Dir) Then
-                System.IO.Directory.CreateDirectory(Dir)
-            End If
 
             With sfdPic
                 .Title = "Ouvre les courbes sous"
@@ -501,7 +526,7 @@ Public Class Form1
                 .DefaultExt = ".txt"
                 '.FileName = "ma_liste_de_courbes.txt"
                 .ValidateNames = True
-                .InitialDirectory = Dir
+                .InitialDirectory = Path
                 .RestoreDirectory = True
                 .CheckFileExists = True
                 .ReadOnlyChecked = True
@@ -605,6 +630,46 @@ Public Class Form1
         save_settings()
 
         'MessageBox.Show(default_path_screenshot)
+
+    End Sub
+
+    Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
+        Dim form As Form_delete = New Form_delete()
+
+        form.Owner = Me
+
+        If (form.ShowDialog() = DialogResult.OK) Then
+            Dim delete_screenshot As Boolean
+            Dim delete_files As Boolean
+
+            form.getResult(delete_screenshot, delete_files)
+
+            'Remove screenshots
+            If (delete_screenshot.Equals(True)) Then
+                Dim result As DialogResult = MessageBox.Show("Do you really want to remove all .jpeg files in " + default_path_screenshot + "?", "REMOVE", MessageBoxButtons.YesNo)
+                If result = DialogResult.Yes Then
+                    removeFilesPattern(True)
+                    MessageBox.Show("Files .jpeg removed successfully")
+                Else
+                    MessageBox.Show("Operation cancelled")
+                End If
+
+            End If
+
+            'Removes files
+            If (delete_files.Equals(True)) Then
+                Dim result As DialogResult = MessageBox.Show("Do you really want to remove all .txt files in " + default_path_file + "?", "REMOVE", MessageBoxButtons.YesNo)
+                If result = DialogResult.Yes Then
+                    removeFilesPattern(False)
+                    MessageBox.Show("Files .txt removed successfully")
+                Else
+                    MessageBox.Show("Operation cancelled")
+                End If
+
+            End If
+        End If
+
+
 
     End Sub
 End Class
