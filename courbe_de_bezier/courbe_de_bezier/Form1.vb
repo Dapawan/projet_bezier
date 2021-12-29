@@ -37,7 +37,42 @@ Public Class Form1
 
         ' Save img 
         ' drawer.saveDrawing()
+        My.Settings.Reload()
 
+        If (My.Settings.file_path.Length.Equals(0) And My.Settings.screenshot_path.Length.Equals(0)) Then
+            ' SET DEFAULT VALUES
+            'Init value params
+            form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+            form_params.Owner = Me
+            'Get back parameters
+            form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+            save_settings()
+        Else
+            'Restore saved params
+
+            filename_screenshot = My.Settings.screenshot_name
+            auto_incr_screenshot = My.Settings.screenshot_auto_incr
+            default_path_screenshot = My.Settings.screenshot_path
+
+            filename_file = My.Settings.file_name
+            auto_incr_file = My.Settings.file_auto_incr
+            default_path_file = My.Settings.file_path
+        End If
+
+    End Sub
+
+    Private Sub save_settings()
+        My.Settings.screenshot_name = filename_screenshot
+        My.Settings.screenshot_auto_incr = auto_incr_screenshot
+        My.Settings.screenshot_path = default_path_screenshot
+
+        My.Settings.file_name = filename_file
+        My.Settings.file_auto_incr = auto_incr_file
+        My.Settings.file_path = default_path_file
+
+        My.Settings.Save()
     End Sub
 
     Private Sub bezier_drawing_MouseDown(sender As Object, e As MouseEventArgs) Handles bezier_drawing.MouseDown
@@ -250,85 +285,6 @@ Public Class Form1
         Next
     End Sub
 
-    'Ajout de courbe de bezier
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        AddBezier()
-    End Sub
-
-    ' Show bezier name on each
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        show_name_bezier = Not show_name_bezier
-        drawer.drawBeziers(bezier_list, show_name_bezier)
-    End Sub
-
-    ' Save jpeg
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        drawer.saveDrawing()
-    End Sub
-
-    ' Read
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-
-        Dim sfdPic As New OpenFileDialog()
-        Dim Path As String = "C:\Bureau"
-        Dim Dir As String = System.IO.Path.GetDirectoryName(Path)
-
-        Dim title As String = "Sauvegarde des courbes"
-        Dim btn = MessageBoxButtons.YesNo
-        Dim ico = MessageBoxIcon.Information
-
-        Try
-            If Not System.IO.Directory.Exists(Dir) Then
-                System.IO.Directory.CreateDirectory(Dir)
-            End If
-
-            With sfdPic
-                .Title = "Ouvre les courbes sous"
-                .Filter = "Fichiers texte (*.txt)|*.txt"
-                .AddExtension = True
-                .DefaultExt = ".txt"
-                '.FileName = "ma_liste_de_courbes.txt"
-                .ValidateNames = True
-                .InitialDirectory = Dir
-                .RestoreDirectory = True
-                .CheckFileExists = True
-                .ReadOnlyChecked = True
-                .CheckPathExists = True
-
-                If .ShowDialog = DialogResult.OK Then
-                    bezier_list = Bezier.ReadAll(sfdPic.FileName)
-                    MessageBox.Show("Courbes lues avec succès à : " + sfdPic.FileName)
-                Else
-                    Return
-                End If
-
-            End With
-        Catch ex As Exception
-            MessageBox.Show("Error: Reading Failed -> " & ex.Message.ToString())
-            Return
-        Finally
-            sfdPic.Dispose()
-        End Try
-
-        'Avoid selected index trigger
-        check_selected_index_value_changed_trigger = False
-
-        'Clear all last items 
-        CheckedListBox1.Items.Clear()
-
-        For Each bezier_tmp As Bezier In bezier_list
-            ' Add it through our list display
-            CheckedListBox1.Items.Add(bezier_tmp.uid.ToString()) ' "Courbe de bézier n° " + Bezier.uid.ToString())
-            CheckedListBox1.SetItemChecked(CheckedListBox1.Items.Count() - 1, True) ' Set default checked
-        Next
-
-        SetSelectedBezier(bezier_list(bezier_list.Count - 1), True)
-
-
-        check_selected_index_value_changed_trigger = True
-
-        drawer.drawBeziers(bezier_list, show_name_bezier)
-    End Sub
 
     Private Sub AddBezier()
 
@@ -472,6 +428,10 @@ Public Class Form1
         Return Color.Black
     End Function
 
+    'Ajout de courbe de bezier
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        AddBezier()
+    End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Remove selected bezier
         Dim index As Single
@@ -498,9 +458,30 @@ Public Class Form1
             drawer.drawBeziers(bezier_list, show_name_bezier)
         End If
     End Sub
-    'Save bezier list
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Dim sfdPic As New SaveFileDialog()
+    ' Show bezier name on each
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        show_name_bezier = Not show_name_bezier
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    ' Save jpeg
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        ' Si nom empty => On ouvre l'explorateur et l'utiisateur choisit
+        If (auto_incr_screenshot.Equals(False)) Then
+            drawer.saveDrawing(default_path_screenshot)
+        Else
+            ' Auto-incr checked
+            Dim complete_path As String = Form_params.getCompleteFilename(default_path_screenshot, True, filename_screenshot)
+            bezier_drawing.Image.Save(complete_path, Imaging.ImageFormat.Jpeg)
+            MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
+        End If
+
+    End Sub
+
+    ' Read
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
+        Dim sfdPic As New OpenFileDialog()
         Dim Path As String = "C:\Bureau"
         Dim Dir As String = System.IO.Path.GetDirectoryName(Path)
 
@@ -514,29 +495,100 @@ Public Class Form1
             End If
 
             With sfdPic
-                .Title = "Enregistre les courbes sous"
+                .Title = "Ouvre les courbes sous"
                 .Filter = "Fichiers texte (*.txt)|*.txt"
                 .AddExtension = True
                 .DefaultExt = ".txt"
-                .FileName = "ma_liste_de_courbes.txt"
+                '.FileName = "ma_liste_de_courbes.txt"
                 .ValidateNames = True
-                .OverwritePrompt = True
                 .InitialDirectory = Dir
                 .RestoreDirectory = True
+                .CheckFileExists = True
+                .ReadOnlyChecked = True
+                .CheckPathExists = True
 
                 If .ShowDialog = DialogResult.OK Then
-                    Bezier.WriteAll(bezier_list, sfdPic.FileName)
-                    MessageBox.Show("Courbe enregistrée avec succès à : " + sfdPic.FileName)
+                    bezier_list = Bezier.ReadAll(sfdPic.FileName)
+                    MessageBox.Show("Courbes lues avec succès à : " + sfdPic.FileName)
                 Else
                     Return
                 End If
 
             End With
         Catch ex As Exception
-            MessageBox.Show("Error: Saving Failed -> " & ex.Message.ToString())
+            MessageBox.Show("Error: Reading Failed -> " & ex.Message.ToString())
+            Return
         Finally
             sfdPic.Dispose()
         End Try
+
+        'Avoid selected index trigger
+        check_selected_index_value_changed_trigger = False
+
+        'Clear all last items 
+        CheckedListBox1.Items.Clear()
+
+        For Each bezier_tmp As Bezier In bezier_list
+            ' Add it through our list display
+            CheckedListBox1.Items.Add(bezier_tmp.uid.ToString()) ' "Courbe de bézier n° " + Bezier.uid.ToString())
+            CheckedListBox1.SetItemChecked(CheckedListBox1.Items.Count() - 1, True) ' Set default checked
+        Next
+
+        SetSelectedBezier(bezier_list(bezier_list.Count - 1), True)
+
+
+        check_selected_index_value_changed_trigger = True
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    'Save bezier list
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        ' Using params for file section
+
+        ' Si nom empty => On ouvre l'explorateur et l'utiisateur choisit
+        If (auto_incr_file.Equals(False)) Then
+            Dim sfdPic As New SaveFileDialog()
+            Dim Path As String = default_path_file
+
+            Dim title As String = "Sauvegarde des courbes"
+            Dim btn = MessageBoxButtons.YesNo
+            Dim ico = MessageBoxIcon.Information
+
+            Try
+
+                With sfdPic
+                    .Title = "Enregistre les courbes sous"
+                    .Filter = "Fichiers texte (*.txt)|*.txt"
+                    .AddExtension = True
+                    .DefaultExt = ".txt"
+                    .FileName = "ma_liste_de_courbes.txt"
+                    .ValidateNames = True
+                    .OverwritePrompt = True
+                    .InitialDirectory = Path
+                    .RestoreDirectory = True
+
+                    If .ShowDialog = DialogResult.OK Then
+                        Bezier.WriteAll(bezier_list, sfdPic.FileName)
+                        MessageBox.Show("Courbe enregistrée avec succès à : " + sfdPic.FileName)
+                    Else
+                        Return
+                    End If
+
+                End With
+            Catch ex As Exception
+                MessageBox.Show("Error: Saving Failed -> " & ex.Message.ToString())
+            Finally
+                sfdPic.Dispose()
+            End Try
+        Else
+            ' Auto-incr checked
+            Dim complete_path As String = Form_params.getCompleteFilename(default_path_file, False, filename_file)
+            Bezier.WriteAll(bezier_list, complete_path)
+            MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
+
+        End If
+
     End Sub
 
     Private Sub Button_params_Click(sender As Object, e As EventArgs) Handles Button_params.Click
@@ -549,6 +601,8 @@ Public Class Form1
 
         'Get back parameters
         form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+        save_settings()
 
         'MessageBox.Show(default_path_screenshot)
 

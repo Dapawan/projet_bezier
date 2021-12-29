@@ -8,23 +8,19 @@ Public Class Drawer
     End Sub
 
 
-    Public Sub saveDrawing()
+    Public Sub saveDrawing(ByVal default_path As String)
         If bezier_drawing.Image Is Nothing Then
             Return
         Else
             Dim sfdPic As New SaveFileDialog()
-            Dim Path As String = "C:\Bureau"
-            Dim Dir As String = System.IO.Path.GetDirectoryName(Path)
+            Dim Path As String = default_path
 
             Dim title As String = "Code A Minute - iBasskung."
             Dim btn = MessageBoxButtons.YesNo
             Dim ico = MessageBoxIcon.Information
 
             Try
-                If Not System.IO.Directory.Exists(Dir) Then
-                    System.IO.Directory.CreateDirectory(Dir)
-                End If
-
+            
                 With sfdPic
                     .Title = "Enregistre la courbe sous"
                     .Filter = "Jpg, Jpeg Images|*.jpg;*.jpeg|PNG Image|*.png|BMP Image|*.bmp"
@@ -33,7 +29,7 @@ Public Class Drawer
                     .FileName = "maCourbe.jpg"
                     .ValidateNames = True
                     .OverwritePrompt = True
-                    .InitialDirectory = Dir
+                    .InitialDirectory = Path
                     .RestoreDirectory = True
 
                     If .ShowDialog = DialogResult.OK Then

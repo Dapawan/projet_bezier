@@ -7,6 +7,8 @@
     Dim auto_incr_file As Boolean
     Dim default_path_file As String
 
+    Dim trigger_value_changed As Boolean = False
+
     Public Sub New(ByRef filename_screenshot As String, ByRef auto_incr_screenshot As Boolean, ByRef default_path_screenshot As String, ByRef filename_file As String, ByRef auto_incr_file As Boolean, ByRef default_path_file As String)
         InitializeComponent()
 
@@ -41,6 +43,8 @@
     End Sub
 
     Private Sub refreshValuesDisplayed()
+        trigger_value_changed = False 'Avoid processing value changed
+
         TextBox_screenshot_name.Text = Me.filename_screenshot
         CheckBox_auto_incr_screenshot.Checked = Me.auto_incr_screenshot
         TextBox_screenshot_default_path.Text = Me.default_path_screenshot
@@ -48,6 +52,8 @@
         TextBox_file_name.Text = Me.filename_file
         CheckBox_auto_incr_file.Checked = Me.auto_incr_file
         TextBox_file_default_path.Text = Me.default_path_file
+
+        trigger_value_changed = True
     End Sub
 
     Private Sub defaultPaths(ByVal default_path_file As Boolean, ByVal default_path_screen As Boolean)
@@ -113,6 +119,10 @@
     End Sub
 
     Private Sub Textbox_filename(sender As Object, e As EventArgs) Handles TextBox_screenshot_name.TextChanged, TextBox_file_name.TextChanged
+        If trigger_value_changed.Equals(False) Then
+            Return
+        End If
+
         Dim filename As String = ""
 
         If sender Is TextBox_screenshot_name Then
@@ -121,7 +131,7 @@
             filename = TextBox_file_name.Text
         End If
 
-        If (filename.Intersect(System.IO.Path.GetInvalidFileNameChars()).Any()) Then
+        If (filename.Contains(".") Or filename.Intersect(System.IO.Path.GetInvalidFileNameChars()).Any()) Then
             MessageBox.Show("Invalid filename !")
             refreshValuesDisplayed()
         Else
@@ -136,6 +146,10 @@
     End Sub
 
     Private Sub TextBox_Path(sender As Object, e As EventArgs) Handles TextBox_screenshot_default_path.TextChanged, TextBox_file_default_path.TextChanged
+        If trigger_value_changed.Equals(False) Then
+            Return
+        End If
+
         Dim path As String = ""
 
         If sender Is TextBox_screenshot_default_path Then
@@ -158,10 +172,44 @@
     End Sub
 
     Private Sub auto_incr_changed(sender As Object, e As EventArgs) Handles CheckBox_auto_incr_screenshot.CheckedChanged, CheckBox_auto_incr_file.CheckedChanged
+        If trigger_value_changed.Equals(False) Then
+            Return
+        End If
+
         If sender Is CheckBox_auto_incr_screenshot Then
             Me.auto_incr_screenshot = CheckBox_auto_incr_screenshot.Checked()
         Else
             Me.auto_incr_file = CheckBox_auto_incr_file.Checked()
         End If
     End Sub
+
+    Public Shared Function getCompleteFilename(ByVal path As String, ByVal screenshot As Boolean, ByVal name As String)
+        Dim extension_file As String = ".txt"
+        Dim prefix_file As String = "bezier"
+
+        Dim filename As String = ""
+        Dim complete_path As String = ""
+        Dim cnt As Single = 0
+        If (screenshot.Equals(True)) Then
+            extension_file = ".jpg"
+            prefix_file = "screen"
+        End If
+
+        Dim dt As DateTime = DateTime.Now
+
+        Do
+            If (name.Length.Equals(0)) Then
+                filename = (prefix_file + "_" + cnt.ToString() + "__" + dt.ToString("dd_MM_yyyy__HH_mm") + extension_file)
+            Else
+                filename = (name + "_" + cnt.ToString() + extension_file)
+            End If
+
+            cnt += 1
+
+            complete_path = path + "\" + filename
+        Loop Until (Not System.IO.File.Exists(complete_path))
+
+        Return complete_path
+    End Function
+
 End Class
