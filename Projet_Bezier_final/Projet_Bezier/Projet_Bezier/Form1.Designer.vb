@@ -141,6 +141,7 @@ Partial Class Form1
         resources.ApplyResources(Me.x_nud_start, "x_nud_start")
         Me.x_nud_start.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.x_nud_start.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.x_nud_start.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
         Me.x_nud_start.Name = "x_nud_start"
         '
         'curve_length_lb
@@ -170,6 +171,7 @@ Partial Class Form1
         resources.ApplyResources(Me.y_nud_start, "y_nud_start")
         Me.y_nud_start.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.y_nud_start.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.y_nud_start.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
         Me.y_nud_start.Name = "y_nud_start"
         '
         'xtg_nud_start
@@ -178,6 +180,7 @@ Partial Class Form1
         resources.ApplyResources(Me.xtg_nud_start, "xtg_nud_start")
         Me.xtg_nud_start.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.xtg_nud_start.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.xtg_nud_start.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
         Me.xtg_nud_start.Name = "xtg_nud_start"
         '
         'ytg_nud_start
@@ -186,6 +189,7 @@ Partial Class Form1
         resources.ApplyResources(Me.ytg_nud_start, "ytg_nud_start")
         Me.ytg_nud_start.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.ytg_nud_start.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ytg_nud_start.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
         Me.ytg_nud_start.Name = "ytg_nud_start"
         '
         'coord_extremity_lb
@@ -244,6 +248,7 @@ Partial Class Form1
         resources.ApplyResources(Me.y_nud_end, "y_nud_end")
         Me.y_nud_end.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.y_nud_end.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.y_nud_end.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
         Me.y_nud_end.Name = "y_nud_end"
         '
         'x_nud_end
@@ -252,6 +257,7 @@ Partial Class Form1
         resources.ApplyResources(Me.x_nud_end, "x_nud_end")
         Me.x_nud_end.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.x_nud_end.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.x_nud_end.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
         Me.x_nud_end.Name = "x_nud_end"
         '
         'ytg_Y_lb_end
@@ -270,6 +276,7 @@ Partial Class Form1
         resources.ApplyResources(Me.ytg_nud_end, "ytg_nud_end")
         Me.ytg_nud_end.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.ytg_nud_end.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ytg_nud_end.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
         Me.ytg_nud_end.Name = "ytg_nud_end"
         '
         'xtg_nud_end
@@ -278,6 +285,7 @@ Partial Class Form1
         resources.ApplyResources(Me.xtg_nud_end, "xtg_nud_end")
         Me.xtg_nud_end.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.xtg_nud_end.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.xtg_nud_end.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
         Me.xtg_nud_end.Name = "xtg_nud_end"
         '
         'point_begin_ext_lb
@@ -710,9 +718,6 @@ Partial Class Form1
         '
         resources.ApplyResources(Me.curve_select_name_lb, "curve_select_name_lb")
         Me.curve_select_name_lb.Name = "curve_select_name_lb"
-        '
-        'FolderBrowserDialog1
-        '
         '
         'Form1
         '

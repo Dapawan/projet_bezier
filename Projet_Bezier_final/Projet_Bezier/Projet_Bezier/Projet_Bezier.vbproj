@@ -74,17 +74,31 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bezier.vb" />
     <Compile Include="Control.Designer.vb">
       <DependentUpon>Control.vb</DependentUpon>
     </Compile>
     <Compile Include="Control.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Drawer.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListDisplayBezier.Designer.vb" />
+    <Compile Include="FormListDisplayBezier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_delete.Designer.vb" />
+    <Compile Include="Form_delete.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_params.Designer.vb" />
+    <Compile Include="Form_params.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -125,6 +139,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormListDisplayBezier.resx" />
+    <EmbeddedResource Include="Form_delete.resx" />
+    <EmbeddedResource Include="Form_params.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>

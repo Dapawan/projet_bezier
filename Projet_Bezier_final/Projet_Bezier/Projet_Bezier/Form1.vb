@@ -21,7 +21,35 @@ Public Class Form1
     Dim g As Graphics
 
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Dim drawer As Drawer
+    Dim bezier As Bezier 'Current bezier
+    Dim bezier_list As New List(Of Bezier)
+
+    Dim numeric_indicator_value_changed_trigger As Boolean = False
+    Dim check_selected_index_value_changed_trigger As Boolean = False
+
+    Dim show_name_bezier As Boolean = True
+
+    'Params window => Only once
+    Dim form_params As Form_params
+
+    Dim pattern_print_length As String = "0.00"
+
+    ' Params 
+    Dim filename_screenshot As String = ""
+    Dim auto_incr_screenshot As Boolean
+    Dim default_path_screenshot As String = ""
+    Dim filename_file As String = ""
+    Dim auto_incr_file As Boolean
+    Dim default_path_file As String = ""
+
+
+    Public Sub New()
+
+        ' Cet appel est requis par le concepteur.
+        InitializeComponent()
+
+        ' Ajoutez une initialisation quelconque après l'appel InitializeComponent().
         tracePBW = trace_pb.Width
         tracePBH = trace_pb.Height
         tracePBI = trace_pb.Image
@@ -30,10 +58,650 @@ Public Class Form1
         new_b = New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
         g = Graphics.FromImage(new_b)
 
-    End Sub
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs)
+
+        '
+
+        drawer = New Drawer(trace_pb)
+
+        AddBezier()
+
+        My.Settings.Reload()
+
+        If (My.Settings.file_path.Length.Equals(0) And My.Settings.screenshot_path.Length.Equals(0)) Then
+            ' SET DEFAULT VALUES
+            'Init value params
+            form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+            form_params.Owner = Me
+            'Get back parameters
+            form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+            save_settings()
+        Else
+            'Restore saved params
+
+            filename_screenshot = My.Settings.screenshot_name
+            auto_incr_screenshot = My.Settings.screenshot_auto_incr
+            default_path_screenshot = My.Settings.screenshot_path
+
+            filename_file = My.Settings.file_name
+            auto_incr_file = My.Settings.file_auto_incr
+            default_path_file = My.Settings.file_path
+        End If
 
     End Sub
+
+    Private Sub save_settings()
+        My.Settings.screenshot_name = filename_screenshot
+        My.Settings.screenshot_auto_incr = auto_incr_screenshot
+        My.Settings.screenshot_path = default_path_screenshot
+
+        My.Settings.file_name = filename_file
+        My.Settings.file_auto_incr = auto_incr_file
+        My.Settings.file_path = default_path_file
+
+        My.Settings.Save()
+    End Sub
+
+    Private Sub removeFilesPattern(ByVal screenshot As Boolean)
+        'On a besoin du pattern
+        'Regarder avec l'auto incr
+        Dim pattern As String = ""
+        Dim path As String = ""
+
+        If screenshot.Equals(True) Then
+            path = default_path_screenshot
+            pattern = "*.jpg"
+        Else
+            path = default_path_file
+            pattern = "*.txt"
+        End If
+
+        Dim list_files As String() = System.IO.Directory.GetFiles(path, pattern, System.IO.SearchOption.TopDirectoryOnly)
+
+        For Each filename As String In list_files
+            My.Computer.FileSystem.DeleteFile(
+              filename,
+              FileIO.UIOption.OnlyErrorDialogs,
+              FileIO.RecycleOption.SendToRecycleBin,
+              FileIO.UICancelOption.ThrowException)
+        Next
+
+
+
+        'On fait la recherche des fichiers et on suppr
+    End Sub
+
+    Private Sub bezier_drawing_MouseDown(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseDown
+        Dim mouse_point As Point = e.Location()
+
+        Dim mouse_point_converted As PointF = drawer.conversionToMarker(mouse_point)
+
+
+
+        Dim point As PointF
+        For Each bezier_tmp In bezier_list
+            If (bezier_tmp.show.Equals(True)) Then
+                If (bezier_tmp.selectionPoint(mouse_point_converted, point) = True) Then
+                    ' New bezier selected
+                    If bezier Is Nothing OrElse Not bezier.Equals(bezier_tmp) Then
+                        SetSelectedBezier(bezier_tmp, True) 'Set new current bezier + set as selected item
+                    End If
+
+                    If (bezier_tmp.point_selectionne_enum <> Bezier.pointEnum.aucun) Then
+                        drawer.clearDrawing()
+                        drawer.drawBeziers(bezier_list, show_name_bezier)
+
+                    End If
+                    drawer.drawPoint(New Pen(Color.Red), point, 10, 10)
+                    Return ' Do it only once
+                End If
+            End If
+        Next
+
+        ' Nothing selected 
+        UnSelectBezier()
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    Private Sub NumericUpDown_segment_ValueChanged(sender As Object, e As EventArgs) Handles segment_nud.ValueChanged
+        If drawer Is Nothing Then
+            Return
+        End If
+
+        If bezier Is Nothing Then 'Do nothing if there isn't any bezier selected
+            Return
+        End If
+
+        bezier.nombre_segment = segment_nud.Value
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+        ' drawer.drawBezierFromLib(New Pen(Color.Red), bezier)
+
+        curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
+    End Sub
+
+    Private Sub NumericUpDown_ValueChanged(sender As Object, e As EventArgs) Handles x_nud_start.ValueChanged, y_nud_start.ValueChanged, y_nud_end.ValueChanged, x_nud_end.ValueChanged, xtg_nud_start.ValueChanged, ytg_nud_start.ValueChanged, xtg_nud_end.ValueChanged, ytg_nud_end.ValueChanged
+        If (numeric_indicator_value_changed_trigger = False) Then
+            Return
+        End If
+
+        If bezier Is Nothing Then 'Do nothing if there isn't any bezier selected
+            Return
+        End If
+
+
+        Dim obj As System.Windows.Forms.NumericUpDown = DirectCast(sender, System.Windows.Forms.NumericUpDown)
+
+        If (obj Is x_nud_start) Then
+            bezier.p_deb.X = x_nud_start.Value
+        ElseIf (obj Is y_nud_start) Then
+            bezier.p_deb.Y = y_nud_start.Value
+        ElseIf (obj Is xtg_nud_start) Then
+            bezier.p_tg_deb.X = xtg_nud_start.Value
+        ElseIf (obj Is ytg_nud_start) Then
+            bezier.p_tg_deb.Y = ytg_nud_start.Value
+        ElseIf (obj Is xtg_nud_end) Then
+            bezier.p_tg_fin.X = xtg_nud_end.Value
+        ElseIf (obj Is ytg_nud_end) Then
+            bezier.p_tg_fin.Y = ytg_nud_end.Value
+        ElseIf (obj Is x_nud_end) Then
+            bezier.p_fin.X = x_nud_end.Value
+        ElseIf (obj Is y_nud_end) Then
+            bezier.p_fin.Y = y_nud_end.Value
+        End If
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+        ' drawer.drawBezierFromLib(New Pen(Color.Red), bezier)
+
+        curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
+
+    End Sub
+
+    'Quand la souris se déplace
+    Private Sub bezier_drawing_MouseMove(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseMove
+        If bezier Is Nothing Then 'Do nothing if there isn't any bezier selected
+            Return
+        End If
+
+        Dim mouse_point As Point
+        Dim mouse_point_converted As PointF
+
+        If (bezier.point_selectionne_enum <> Bezier.pointEnum.aucun) Then
+            numeric_indicator_value_changed_trigger = False
+            mouse_point = e.Location()
+            mouse_point_converted = drawer.conversionToMarker(mouse_point)
+
+            drawer.drawBeziers(bezier_list, show_name_bezier)
+            Try
+                Select Case bezier.point_selectionne_enum
+                    Case Bezier.pointEnum.p_deb
+                        bezier.p_deb = mouse_point_converted
+                        drawer.drawPoint(New Pen(Color.Red), bezier.p_deb, 10, 10)
+                        x_nud_start.Value = bezier.p_deb.X
+                        y_nud_start.Value = bezier.p_deb.Y
+                        curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
+                    Case Bezier.pointEnum.p_fin
+                        bezier.p_fin = mouse_point_converted
+                        drawer.drawPoint(New Pen(Color.Red), bezier.p_fin, 10, 10)
+                        x_nud_end.Value = bezier.p_fin.X
+                        y_nud_end.Value = bezier.p_fin.Y
+                        curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
+                    Case Bezier.pointEnum.p_tg_deb
+                        bezier.p_tg_deb = mouse_point_converted
+                        drawer.drawPoint(New Pen(Color.Red), bezier.p_tg_deb, 10, 10)
+                        xtg_nud_start.Value = bezier.p_tg_deb.X
+                        ytg_nud_start.Value = bezier.p_tg_deb.Y
+                        curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
+                    Case Bezier.pointEnum.p_tg_fin
+                        bezier.p_tg_fin = mouse_point_converted
+                        drawer.drawPoint(New Pen(Color.Red), bezier.p_tg_fin, 10, 10)
+                        xtg_nud_end.Value = bezier.p_tg_fin.X
+                        ytg_nud_end.Value = bezier.p_tg_fin.Y
+                        curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
+                End Select
+                'Ralenti
+                'curve_lenght_OUTPUT_lb.Text = bezier.getDistance()
+            Catch ex As ArgumentOutOfRangeException
+                MessageBox.Show("Error:  " & ex.Message.ToString())
+
+                'Déselectionne le point
+                bezier.point_selectionne_enum = Bezier.pointEnum.aucun
+                drawer.drawBeziers(bezier_list, show_name_bezier)
+            End Try
+
+        Else
+            numeric_indicator_value_changed_trigger = True
+        End If
+
+    End Sub
+
+    'Quand le clic gauche est relaché
+    Private Sub bezier_drawing_MouseUp(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseUp
+        If bezier Is Nothing Then 'Do nothing if there isn't any bezier selected
+            Return
+        End If
+
+        'Déselectionne le point
+        bezier.point_selectionne_enum = Bezier.pointEnum.aucun
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+
+        curve_lenght_OUTPUT_lb.Text = bezier.getDistance()
+    End Sub
+
+    Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles list_curve_clb.ItemCheck
+        'Get new selected item
+        ' Dim test As Object = list_curve_clb.SelectedItem
+        Dim state As CheckState = e.NewValue
+        Dim index As Integer = e.Index
+
+        If state.Equals(CheckState.Checked) Then
+            bezier_list.ElementAt(index).show = True
+            ' Set new shown bezier as current bezier
+            SetSelectedBezier(bezier_list.ElementAt(index), True)
+        Else
+            bezier_list.ElementAt(index).show = False
+            bezier_list.ElementAt(index).point_selectionne_enum = Bezier.pointEnum.aucun
+        End If
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    Private Sub CheckedListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles list_curve_clb.SelectedIndexChanged
+        If list_curve_clb.SelectedItem Is Nothing Then
+            Return
+        End If
+        ' Avoid trigger 
+        If check_selected_index_value_changed_trigger.Equals(False) Then
+            Return
+        End If
+
+        'Get back uid from string
+        Dim uid As Single = Single.Parse(list_curve_clb.SelectedItem)
+        For Each bezier_tmp In bezier_list
+            If bezier_tmp.uid.Equals(uid) Then
+                SetSelectedBezier(bezier_tmp, False) ' Don't select item => It's already done
+                Return 'Do it only once
+            End If
+        Next
+    End Sub
+
+
+    Private Sub AddBezier()
+
+        'Avoid selected index trigger
+        check_selected_index_value_changed_trigger = False
+
+        Dim bezier_tmp As New Bezier(New PointF(0, 0), New PointF(0.5, -0.5), New PointF(0.5, 0.8), New PointF(0.5, -0.8), segment_nud.Value, ColorTranslator.FromHtml(hexacode_tb.Text))
+        bezier_list.Add(bezier_tmp)
+
+        ' Add it through our list display
+        list_curve_clb.Items.Add(bezier_tmp.uid.ToString()) ' "Courbe de bézier n° " + Bezier.uid.ToString())
+        list_curve_clb.SetItemChecked(bezier_list.Count() - 1, True) ' Set default checked
+
+
+        SetSelectedBezier(bezier_tmp, True)
+        check_selected_index_value_changed_trigger = True
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    Private Sub UnSelectBezier()
+        If bezier Is Nothing Then
+            Return
+        End If
+
+        Dim index As Single
+        'Avoid selected index trigger
+        check_selected_index_value_changed_trigger = False
+
+        index = getIndexListBox(bezier.uid.ToString())
+        If index.Equals(-1) Then
+            MessageBox.Show("Error index not found on list ")
+            Return
+        End If
+        list_curve_clb.SetSelected(index, False) ' Unselect it
+
+        bezier.currentlySelected = False
+        allowUserCtrl(False)
+        bezier = Nothing
+
+        check_selected_index_value_changed_trigger = True
+    End Sub
+
+    Private Sub allowUserCtrl(ByVal enable As Boolean)
+        segment_nud.Enabled = enable
+        x_nud_start.Enabled = enable
+        y_nud_start.Enabled = enable
+        x_nud_end.Enabled = enable
+        y_nud_end.Enabled = enable
+        xtg_nud_start.Enabled = enable
+        xtg_nud_end.Enabled = enable
+        ytg_nud_start.Enabled = enable
+        ytg_nud_end.Enabled = enable
+        pick_color_btn.Enabled = enable
+        hexacode_tb.Enabled = enable
+        coord_large_tb.Enabled = enable
+        coord_thin_tb.Enabled = enable
+        selected_tb.Enabled = enable
+    End Sub
+
+
+    Private Sub SetSelectedBezier(ByRef bezier_selected As Bezier, ByVal set_selected_item As Boolean)
+        If bezier_selected.Equals(bezier) Then
+            Return
+        End If
+
+        bezier_selected.currentlySelected = True
+
+        If (Not bezier Is Nothing) Then
+            bezier.currentlySelected = False
+
+            ' Avoid pt control on the last bezier
+            bezier.point_selectionne_enum = Bezier.pointEnum.aucun
+        End If
+
+        allowUserCtrl(True)
+
+        ' Avoid numeric trigger
+        numeric_indicator_value_changed_trigger = False
+        'Avoid selected index trigger
+        check_selected_index_value_changed_trigger = False
+        ' Set bezier selected as this one 
+        bezier = bezier_selected
+        ' Refresh display
+        x_nud_start.Value = bezier.p_deb.X
+        y_nud_start.Value = bezier.p_deb.Y
+
+        x_nud_end.Value = bezier.p_fin.X
+        y_nud_end.Value = bezier.p_fin.Y
+
+        xtg_nud_start.Value = bezier.p_tg_deb.X
+        ytg_nud_start.Value = bezier.p_tg_deb.Y
+
+        xtg_nud_end.Value = bezier.p_tg_fin.X
+        ytg_nud_end.Value = bezier.p_tg_fin.Y
+
+        segment_nud.Value = bezier.nombre_segment
+        curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
+
+        Dim i As Single = 0
+        Dim index As Single
+        If set_selected_item.Equals(True) Then
+            ' Set item as selected
+            For i = 0 To list_curve_clb.Items.Count - 1 ' Deselect all
+                list_curve_clb.SetSelected(i, False)
+            Next
+            index = getIndexListBox(bezier.uid.ToString())
+            If index.Equals(-1) Then
+                MessageBox.Show("Error index not found on list ")
+                Return
+            End If
+            list_curve_clb.SetSelected(index, True) ' Select it
+
+        End If
+
+        numeric_indicator_value_changed_trigger = True
+        check_selected_index_value_changed_trigger = True
+    End Sub
+
+    ' Return index on list box of specified uid
+    Private Function getIndexListBox(ByVal uid As String)
+        Dim i As Single = 0
+        For Each item In list_curve_clb.Items
+            If item.Equals(bezier.uid.ToString()) Then
+                Return i
+            End If
+            i += 1
+        Next
+        Return -1 'Not found
+    End Function
+
+    'Ajout de courbe de bezier
+    Private Sub AddCurve_Click(sender As Object, e As EventArgs) Handles add_curve_btn.Click
+        AddBezier()
+    End Sub
+    'Remove bezier
+    Private Sub DeleteCurve_Click(sender As Object, e As EventArgs) Handles delete_curve_btn.Click
+        'Remove selected bezier
+        Dim index As Single
+
+        If list_curve_clb.Items.Count <> 0 Then
+            ' We can remove this bezier
+
+            index = getIndexListBox(bezier.uid.ToString())
+            If index.Equals(-1) Then
+                MessageBox.Show("Error index not found on list (remove)")
+                Return
+            End If
+
+
+            'Avoid selected index trigger
+            check_selected_index_value_changed_trigger = False
+
+            list_curve_clb.Items.RemoveAt(index)
+            bezier_list.Remove(bezier)
+
+            check_selected_index_value_changed_trigger = True
+
+
+            drawer.drawBeziers(bezier_list, show_name_bezier)
+        End If
+    End Sub
+    ' Show bezier name on each
+    Private Sub CurveInfo_Click(sender As Object, e As EventArgs) Handles curve_info_btn.Click
+        show_name_bezier = Not show_name_bezier
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    ' Save jpeg
+    Private Sub TakeScreenshot_Click(sender As Object, e As EventArgs) Handles take_screenshot_btn.Click
+        ' Si nom empty => On ouvre l'explorateur et l'utiisateur choisit
+        If (auto_incr_screenshot.Equals(False)) Then
+            drawer.saveDrawing(default_path_screenshot)
+        Else
+            ' Auto-incr checked
+            Dim complete_path As String = Form_params.getCompleteFilename(default_path_screenshot, True, filename_screenshot)
+            Dim img As Bitmap = DrawFilledRectangle(1280, trace_pb.Image.Height)
+            drawer.drawStringBezierList(img, bezier_list)
+            CombineImages(trace_pb.Image, img).Save(complete_path, Imaging.ImageFormat.Jpeg)
+            MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
+        End If
+
+    End Sub
+
+
+    ' Read
+    Private Sub LoadFile_Click(sender As Object, e As EventArgs) Handles load_file_btn.Click
+
+        Dim sfdPic As New OpenFileDialog()
+        Dim Path As String = default_path_file
+
+        Dim title As String = "Ouvrir l'ensemble de courbes"
+        Dim btn = MessageBoxButtons.YesNo
+        Dim ico = MessageBoxIcon.Information
+
+        Try
+
+            With sfdPic
+                .Title = "Ouvre les courbes sous"
+                .Filter = "Fichiers texte (*.txt)|*.txt"
+                .AddExtension = True
+                .DefaultExt = ".txt"
+                '.FileName = "ma_liste_de_courbes.txt"
+                .ValidateNames = True
+                .InitialDirectory = Path
+                .RestoreDirectory = True
+                .CheckFileExists = True
+                .ReadOnlyChecked = True
+                .CheckPathExists = True
+
+                If .ShowDialog = DialogResult.OK Then
+                    bezier_list = Bezier.ReadAll(sfdPic.FileName)
+                    MessageBox.Show("Courbes lues avec succès à : " + sfdPic.FileName)
+                Else
+                    Return
+                End If
+
+            End With
+        Catch ex As Exception
+            MessageBox.Show("Error: Reading Failed -> " & ex.Message.ToString())
+            Return
+        Finally
+            sfdPic.Dispose()
+        End Try
+
+        'Avoid selected index trigger
+        check_selected_index_value_changed_trigger = False
+
+        'Clear all last items 
+        list_curve_clb.Items.Clear()
+
+        For Each bezier_tmp As Bezier In bezier_list
+            ' Add it through our list display
+            list_curve_clb.Items.Add(bezier_tmp.uid.ToString()) ' "Courbe de bézier n° " + Bezier.uid.ToString())
+            list_curve_clb.SetItemChecked(list_curve_clb.Items.Count() - 1, bezier_tmp.show) ' Set default checked
+        Next
+
+        SetSelectedBezier(bezier_list(bezier_list.Count - 1), True)
+
+
+        check_selected_index_value_changed_trigger = True
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    'Save bezier list
+    Private Sub SaveFile_Click(sender As Object, e As EventArgs) Handles save_file_btn.Click
+        ' Using params for file section
+
+        ' Si nom empty => On ouvre l'explorateur et l'utiisateur choisit
+        If (auto_incr_file.Equals(False)) Then
+            Dim sfdPic As New SaveFileDialog()
+            Dim Path As String = default_path_file
+
+            Dim title As String = "Sauvegarde des courbes"
+            Dim btn = MessageBoxButtons.YesNo
+            Dim ico = MessageBoxIcon.Information
+
+            Try
+
+                With sfdPic
+                    .Title = "Enregistre les courbes sous"
+                    .Filter = "Fichiers texte (*.txt)|*.txt"
+                    .AddExtension = True
+                    .DefaultExt = ".txt"
+                    .FileName = "ma_liste_de_courbes.txt"
+                    .ValidateNames = True
+                    .OverwritePrompt = True
+                    .InitialDirectory = Path
+                    .RestoreDirectory = True
+
+                    If .ShowDialog = DialogResult.OK Then
+                        Bezier.WriteAll(bezier_list, sfdPic.FileName)
+                        MessageBox.Show("Courbe enregistrée avec succès à : " + sfdPic.FileName)
+                    Else
+                        Return
+                    End If
+
+                End With
+            Catch ex As Exception
+                MessageBox.Show("Error: Saving Failed -> " & ex.Message.ToString())
+            Finally
+                sfdPic.Dispose()
+            End Try
+        Else
+            ' Auto-incr checked
+            Dim complete_path As String = Form_params.getCompleteFilename(default_path_file, False, filename_file)
+            Bezier.WriteAll(bezier_list, complete_path)
+            MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
+
+        End If
+
+    End Sub
+
+    Private Sub Button_params_Click(sender As Object, e As EventArgs) Handles parameter_btn.Click
+        form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+        form_params.Owner = Me
+
+        ' We can only interact with this dialog ! 
+        form_params.ShowDialog()
+
+        'Get back parameters
+        form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+
+        save_settings()
+    End Sub
+
+    Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles delete_file_btn.Click
+        Dim form As Form_delete = New Form_delete()
+
+        form.Owner = Me
+
+        If (form.ShowDialog() = DialogResult.OK) Then
+            Dim delete_screenshot As Boolean
+            Dim delete_files As Boolean
+
+            form.getResult(delete_screenshot, delete_files)
+
+            'Remove screenshots
+            If (delete_screenshot.Equals(True)) Then
+                Dim result As DialogResult = MessageBox.Show("Do you really want to remove all .jpeg files in " + default_path_screenshot + "?", "REMOVE", MessageBoxButtons.YesNo)
+                If result = DialogResult.Yes Then
+                    removeFilesPattern(True)
+                    MessageBox.Show("Files .jpeg removed successfully")
+                Else
+                    MessageBox.Show("Operation cancelled")
+                End If
+
+            End If
+
+            'Removes files
+            If (delete_files.Equals(True)) Then
+                Dim result As DialogResult = MessageBox.Show("Do you really want to remove all .txt files in " + default_path_file + "?", "REMOVE", MessageBoxButtons.YesNo)
+                If result = DialogResult.Yes Then
+                    removeFilesPattern(False)
+                    MessageBox.Show("Files .txt removed successfully")
+                Else
+                    MessageBox.Show("Operation cancelled")
+                End If
+
+            End If
+        End If
+
+
+
+    End Sub
+
+    Private Sub Button_list_bezier_Click(sender As Object, e As EventArgs) Handles curve_list_btn.Click
+        Dim form As FormListDisplayBezier = New FormListDisplayBezier(bezier_list)
+
+        form.Owner = Me
+        form.ShowDialog()
+
+    End Sub
+
+    Public Function CombineImages(ByVal img1 As Image, ByVal img2 As Image) As Image
+        Dim bmp As New Bitmap(Math.Max(img1.Width, img2.Width), img1.Height + img2.Height)
+        Dim g As Graphics = Graphics.FromImage(bmp)
+
+        g.DrawImage(img1, 0, 0, img2.Width, img1.Height)
+        g.DrawImage(img2, 0, img1.Height, img2.Width, img2.Width)
+        g.Dispose()
+
+        Return bmp
+    End Function
+
+    Private Function DrawFilledRectangle(ByVal x As Integer, ByVal y As Integer)
+        Dim bmp As Bitmap = New Bitmap(x, y)
+        Using graph As Graphics = Graphics.FromImage(bmp)
+            Dim ImageSize As Rectangle = New Rectangle(0, 0, x, y)
+            graph.FillRectangle(Brushes.White, ImageSize)
+        End Using
+        Return bmp
+    End Function
+
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles zoom_in_btn.Click
         'tracePB.Size = New System.Drawing.Size(140, 140)
@@ -118,6 +786,11 @@ Public Class Form1
 
             'hexacode_tb.Text = "#" & String.Format("{0:00}", Hex(color.R)) & String.Format("{1:00}", Hex(color.G)) & String.Format("{2:00}", Hex(color.B))
             hexacode_tb.Text = String.Format("#{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
+
+            'Change color
+            bezier.couleur = color
+
+            drawer.drawBeziers(bezier_list, show_name_bezier)
 
         End If
     End Sub
@@ -335,6 +1008,11 @@ Public Class Form1
                 color = ColorTranslator.FromHtml(color_read)
                 color_pb.BackColor = color ' update with user selected color.
                 hexacode_tb.Text = color_read
+
+                'Change color
+                bezier.couleur = color
+
+                drawer.drawBeziers(bezier_list, show_name_bezier)
 
             Catch ex As Exception
                 MessageBox.Show("Code Hexa incorrect" & " et " & hexacode_tb.Text, "Erreur", MessageBoxButtons.OKCancel)
