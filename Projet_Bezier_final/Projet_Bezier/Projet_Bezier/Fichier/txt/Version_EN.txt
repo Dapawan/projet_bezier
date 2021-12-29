@@ -1,0 +1,7 @@
+This application allow the manipulation of 
+Bezeier Curves, allowing save / restore 
+of those curves in picture format or text
+reusable at will.
+
+It is supplied with a notice
+downloadable from Help> Notice.

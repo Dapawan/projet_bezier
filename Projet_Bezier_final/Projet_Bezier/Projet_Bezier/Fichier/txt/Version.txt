@@ -1,0 +1,7 @@
+Cette application permet la manipulation de 
+courbe de Béziers, elle permet notamment 
+la sauvegarde de ces dites courbes sous 
+format image ou texte, réutilisable à souhait.
+
+Elle est fournie avec une notice 
+téléchargeable via Aide > Notice.

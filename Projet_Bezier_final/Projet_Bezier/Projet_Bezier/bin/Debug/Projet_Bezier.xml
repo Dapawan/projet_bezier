@@ -1,0 +1,459 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Projet_Bezier
+</name>
+</assembly>
+<members>
+<member name="T:Projet_Bezier.My.Resources.Resources">
+<summary>
+  Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.ResourceManager">
+<summary>
+  Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Culture">
+<summary>
+  Remplace la propriété CurrentUICulture du thread actuel pour toutes
+  les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.add_folder">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.add_plus">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.article">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.bezier_icon">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.BG">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.bg_test_1">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.black_camera">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.camera_aperture">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.camera_setting">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.check_mark_box_line">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.close_window">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.collapse_plus">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.computer_folder_open">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.computer_folder_open_resized">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.computer_folder_open_resized_2">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.computer_folder_open_resized_3">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.computer_folder_open_resized_3_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.computer_keyboard_wireless">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Control">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Control_v2">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Control_v3">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Control_v4">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Control_v5">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Control1">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.ctrl_control_button">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Distribution">
+<summary>
+  Recherche une chaîne localisée semblable à Distribution :
+- Philippe GEISSERT 
+- Aurélien ECKERLEN.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.download_file">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.draw_screenshot">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.earth">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.en_language">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.expand_minus">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.fr_language">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.grid">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.grid_2">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.grid_2_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.info">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.info_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Info_version">
+<summary>
+  Recherche une chaîne localisée semblable à Révision : 01-V1
+Parution : 30/12/2021
+Licence : Apache 2.0
+
+.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Info_version_EN">
+<summary>
+  Recherche une chaîne localisée semblable à Revision : 01-V1
+Release : 30/12/2021
+License : Apache 2.0
+
+.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.list_view">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.list_view_resized">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.list_view_resized_2">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.list_view_resized_2_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.list_view_resized_3">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.list_view_resized_3_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.list_view_resized_3_color_2">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_32">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_64">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_out">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_out_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_reset">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_reset_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.minus">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Notice">
+<summary>
+  Recherche une ressource localisée de type System.Byte[].
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.open_book">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.open_file_folder">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.paint_brush_drawing">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.paint_brush_drawing_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.paint_brush_drawing_color_v2">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.pause_round">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.pictures">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.pictures_resized_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.play_round">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.push_pin_blue">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.recycle_bin_line">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.recycle_bin_line_resized">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.recycle_bin_line_resized_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.remove_cross">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.save">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.save_resized">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.save_resized_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.save_resized_color_2">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.screenshot">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.settings_gear">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.settings_gear_color">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.settings_gear_color_2">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.t">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.vector_bezier_icon_138060">
+<summary>
+  Recherche une ressource localisée de type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Version">
+<summary>
+  Recherche une chaîne localisée semblable à Cette application permet la manipulation de 
+courbe de Béziers, elle permet notamment 
+la sauvegarde de ces dites courbes sous 
+format image ou texte, réutilisable à souhait.
+
+Elle est fournie avec une notice 
+téléchargeable via Aide &gt; Notice..
+</summary>
+</member>
+<member name="P:Projet_Bezier.My.Resources.Resources.Version_EN">
+<summary>
+  Recherche une chaîne localisée semblable à This application allow the manipulation of 
+Bezeier Curves, allowing save / restore 
+of those curves in picture format or text
+reusable at will.
+
+It is supplied with a notice
+downloadable from Help&gt; Notice.
+.
+</summary>
+</member>
+</members>
+</doc>

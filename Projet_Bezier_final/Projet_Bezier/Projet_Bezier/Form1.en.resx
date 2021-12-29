@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="curve_length_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="curve_length_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 20</value>
+  </data>
+  <data name="curve_length_lb.Text" xml:space="preserve">
+    <value>Curve length :</value>
+  </data>
+  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 26</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Color :</value>
+  </data>
+  <data name="coord_extremity_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="coord_extremity_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 26</value>
+  </data>
+  <data name="coord_extremity_lb.Text" xml:space="preserve">
+    <value>Coordinates of the ends :</value>
+  </data>
+  <data name="x_X_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="y_Y_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="xtg_X_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ytg_Y_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="coord_tan_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="coord_tan_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 26</value>
+  </data>
+  <data name="coord_tan_lb.Text" xml:space="preserve">
+    <value>Tangent coordinates :</value>
+  </data>
+  <data name="curve_lenght_L_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="coord_large_tb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="y_Y_lb_end.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="x_X_lb_end.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ytg_Y_lb_end.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="xtg_X_lb_end.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="point_begin_ext_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="point_begin_ext_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="point_begin_ext_lb.Text" xml:space="preserve">
+    <value>Starting points :</value>
+  </data>
+  <data name="point_end_ext_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="point_end_ext_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 20</value>
+  </data>
+  <data name="point_end_ext_lb.Text" xml:space="preserve">
+    <value>Ending points :</value>
+  </data>
+  <data name="point_end_tan_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="point_end_tan_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 20</value>
+  </data>
+  <data name="point_end_tan_lb.Text" xml:space="preserve">
+    <value>Ending points :</value>
+  </data>
+  <data name="point_begin_tan_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="point_begin_tan_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="point_begin_tan_lb.Text" xml:space="preserve">
+    <value>Starting points :</value>
+  </data>
+  <data name="curve_select_name_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="curve_select_name_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 26</value>
+  </data>
+  <data name="curve_select_name_lb.Text" xml:space="preserve">
+    <value>Selected curve / Name :</value>
+  </data>
+  <data name="coord_thin_tb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="diz_selector_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="diz_selector_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="diz_selector_lb.Text" xml:space="preserve">
+    <value>Selector by tenth :</value>
+  </data>
+  <data name="cent_selector_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cent_selector_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 20</value>
+  </data>
+  <data name="cent_selector_lb.Text" xml:space="preserve">
+    <value>Selector by hundredth :</value>
+  </data>
+  <data name="LargeLB.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ThinLB.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="seg_number_S_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="seg_number_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="seg_number_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="seg_number_lb.Text" xml:space="preserve">
+    <value>Segments number :</value>
+  </data>
+  <data name="selected_tb.Text" xml:space="preserve">
+    <value>Curve 1</value>
+  </data>
+  <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="FichierToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="OuvrirBezierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="OuvrirBezierToolStripMenuItem.Text" xml:space="preserve">
+    <value>Open Bezier</value>
+  </data>
+  <data name="EnregistrerBezierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="EnregistrerBezierToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save Bezier</value>
+  </data>
+  <data name="SupprimerFichiersBezierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="SupprimerFichiersBezierToolStripMenuItem.Text" xml:space="preserve">
+    <value>Delete Bezier File</value>
+  </data>
+  <data name="PrendreUnCaptureToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="PrendreUnCaptureToolStripMenuItem.Text" xml:space="preserve">
+    <value>Take a screenshot</value>
+  </data>
+  <data name="ParcourirCaptureToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ParcourirCaptureToolStripMenuItem.Text" xml:space="preserve">
+    <value>Browse screenshots</value>
+  </data>
+  <data name="ParamètresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ParamètresToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="EditionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 20</value>
+  </data>
+  <data name="EditionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="AjouterCourbeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="AjouterCourbeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Add curve</value>
+  </data>
+  <data name="MasquerCourbeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="MasquerCourbeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Hide curve</value>
+  </data>
+  <data name="SupprimerCourbeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="SupprimerCourbeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Delete curve</value>
+  </data>
+  <data name="SupprimerToutesLesCourbesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="SupprimerToutesLesCourbesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Delete all curves</value>
+  </data>
+  <data name="CouleurToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="CouleurToolStripMenuItem.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="AffichageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="AffichageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="ZoomDefautToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ZoomDefautToolStripMenuItem.Text" xml:space="preserve">
+    <value>Zoom default</value>
+  </data>
+  <data name="AfficherGrilleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="AfficherGrilleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show / Hide Grid</value>
+  </data>
+  <data name="InfoCoubesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="InfoCoubesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Curves index</value>
+  </data>
+  <data name="InfoCourbesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="InfoCourbesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Curves list info</value>
+  </data>
+  <data name="ControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="NoticeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="VersionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="LangueToolStripMenuItem.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="FrançaisToolStripMenuItem.Text" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="AnglaisToolStripMenuItem.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="x_Xind_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="y_Yind_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="xtg_Xind_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ytg_Yind_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ytg_Yind_lb_end.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="xtg_Xind_lb_end.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="y_Yind_lb_end.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="x_Xind_lb_end.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="curve_lenght_OUTPUT_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="parameter_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="save_file_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="browse_screenshot_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="load_file_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="curve_list_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="curve_info_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="hide_curve_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="delete_all_curve_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="color_pb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pick_color_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="take_screenshot_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="delete_curve_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="add_curve_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="delete_file_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="zoom_out_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="hide_grid_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="zoom_reset_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="zoom_in_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="trace_pb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAAAAAAAEAIADFDAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgEAAAA9ntg7QAADIxJ
+        REFUeNrt3Xl0FeUZx/HvTXKzhy0kLEFxwVKjgApaREAIiOBxw5WCHpfWeo621irac/C0cuxp61K1HmvV
+        ti4QW7QgbXGtCqIeQCoIyKayKRiWBAIJWUjuTaZ/uJxWNLnv5GbuzDu/z/yZuTczz/PMvHNn3nlfEBER
+        ERERERERERERERERERERERERERERERERERERERERERERERERERGR1Iv4dLuy6EEJfcknwkF2UsE+mpWu
+        cBTAkZQxjlMoJocMIE4je1jJQt5kh1JmtxJuZw3NON+wNLGKW+mjINkqjYm8Q8s3Jv/LJc5ixvu24ZIO
+        yOQGdreZ/C+XCq4nqoDZJcp0ahNKv4NDDTeToaDZ5FpqEk6/g8N+rlDQ7HE624zS7+CwiWEKnB26MN84
+        /Q4Oz5Kn4NngcupdFUAt5yt4HZX6S6l8ppHr6pMFTOMtGjz/URj5YnGI0YKTxG9OA9KI4BD3bmdSbTgL
+        KHL52Rpe87gA0ojQQBUfs4kK9tFIi4vvyCGbTAroQSFdySeXPPLIJkoaUaIs5SmvSiD1Z4AzXKcfunKp
+        x1u7ncUsYQW7qaPJ4HNR8ulOf46khL6U0IdC8sgikyjph2Uhg1le7VCqCyCTISkvwcS0spo5vMgWYgaf
+        6kIvSjmB4ziW/nQlh8yE/pdnUl0AeRwdiPRv5inKDR5F5VPCyQxjMAMp9POvlVQXQFYHGgCv1PIMj7Ah
+        wbW7M4jRDGcwRWT7v7JTXQDpvg/SB9zN/ITa+wKGMJ4yTqS7/xPvlwJoNWpRvRZnPjPZmEAZ92c8F3Ia
+        hcFJvT8KIEaNb2NTxx+5h+p21spkCFM4l2OC+Xgq1RvdwHaG+jIyVfySpznU5jrZnMFUJgW5k0rqC2A9
+        k30Yl53czpw2f45F+R4/4LzgnfT9VQDwLnXku/xsC5Uu7sS1J8I+ZvKPNtcp5QYupTjYyfdHAbzHBk5z
+        XTzXUdsJt4KbqWrjr0VcwfUMDH7y/VEAlTzPMNJcHf/PJnCFnlxpjGIGZeqPlExHsdLV4+BllHi8pT2Z
+        QYWrbTVbZiV0w9giV1JnHKQaLvN4K0/iX8Q8SH8ICyCHh2g1ClEL95Hl4RamcwnrPEl+KAsAinnOIECt
+        lNPTw63L5Tb2epb+UBYAlFBOPKHwxHia3h5uWSEP0OBh+kNaANCDuxI4ziq5k24eblVfnkmwMFUAHZbB
+        2bzcxgXhQV5gvKc/wfozz+Pkh7oAALpxEbPZ8rWewvVsYRYX0MXTbenPghSk36HcuwLw52uWmfRjEAPp
+        Q8EX4wN8xFo+83iEgL48zEWd/D+aOUQTTdRTy0EaiBHDYRFPetUp1O/v2WYQSVGPgZ48xNRO+eYmaqli
+        G9vYzh72UEk1TcSJ0fLFj+G4d93C/X5LM56i/5vHL5iS9MTvYj1rWccGdlFHfVLfKbC0AFIVlZ/wI1fP
+        J77ZQTayjOWsYBd1Cq//XU51ki7nDrGK+zmHYg1qERyn8WFSkl/Ni1xFiVIfLL35dxKSv5dZjKVA4Qya
+        KL9tZ5SiRJ5TzmZMEN4JkMNN7mDrH2MhF5KjQAbTMazoUPp38PMAvOkk3yKT33cg+S28wihd8AXZ+R04
+        /ddwL70UwiDrxZuu07+dq8P8/M4Ot7ru7/cBZyt8QXcCH7lM/zINVxd8GTzgMv3vBGaEE2nDCHa6Sv9S
+        TlTwgi+LJ12lf7VO/nY4k0oX6d/KWIXOjuP/aVdP+qYqdHYY6eL4b+IOdaWxQ5THXBz/c+iq0NlhqIu3
+        fVdxvAJnhwh3u7jrf5kCZ4tj2WhcAA97+laydKqbjN/6e59jFTZbdDd+/tfAVQqbPSYZzFP2+TJX3Tzt
+        kcGfDNO/h9EKmz2OZ6vx5Z+mq7TILYbdv7cyWEGzR3cWGx7/v0niu4KScuM5YJT+TZTaGYhwVnWEiYZ3
+        8+d6PiapdKISVhsd/5/Y2/6H8wwwgu8Yrb+A9SoAe0SZZPT23l7+3gmD0kvKHMcWowZgnsupbXUG8KlR
+        HGGwdiNzaVAB2CObs4zu6K3hTZvDEb4COIrTDdZuZT6VKgCbjDaaZmIHL9kdjrAVQA5nGfXnXcxmFYBN
+        jmG4wdoNvODx8LQqgE422miSx40ssT0g4SqAHMaRbrD+K+wO2QFiuVK2G9wAqjL6vaAzQACMpq/B2itY
+        pwKwiVkD0MprHAzV4WE9swagIhxjf4TpDDDK6BfAcjapAGySzTiDW0BxXrP5EVAYHc+nRn2AvhuOsITn
+        DDDK6BfAMj5RAdjEtAFYxKHQHBqhYNYAfBqWBiA8Z4AxRg+B3w1LAxCWAshlgsEtoDgL1QDY5SSjkUA/
+        DdMYQOE4A4wzmm5+OdtUADbpwgSDmTzUAFhnBHuNJn+w9DXQ8J4BzqHQYO1QNQBhKIDeTDJYu4WFNIap
+        AOx3CQ1qAMJ7BsjkXKMXQd8NVwNgfwEMYIzB2nHeCFsDYHsBnGP0ImgFb4Ur/bYXQE8uNNrDJeF5BhCO
+        AhjNyQZrx3iDprAVgM1yeM5oIIjNDFDQbHIGVUYF8GQYRwK1twlIZwo9DdZv5GViOmrsMcSoD5DDKqM+
+        gzoD+FyEKRxp9InX2aWjxh4nsNno+N9PmYJmjzTjyaDepLvCZo8hbDNKfws/U9DsEeUPxvMAh6YbeBiM
+        YY9hATyuiWDtUcA846kgJyps9rjGqAOIg8MiXQDaY4DhTAAOcX6ssNkii0eMp4JdzzEKnC0uo8a4AH5t
+        8M6A+Fqp8enfYQenKHB26MrfjNPv8Kgmg7RDBjNoMk5/JSMVOjtMpdrF8f8UWQqdDcYazwP8+fE/SqGz
+        wTAXF38ODn8hU8ELvkEscZX+CqOZA8SnBvOOq/Q7/M5o4HjxpVNZ6jL9H4VpGBhbncUal+mPcYvCF2xZ
+        XM0nLtPvsIhihTDIenEvta7TX825CmFwRTidl2lxnX6HB/XzL7iKuN3whY+vL+/p8W9Q5XA+rxPrUPqr
+        uUiBDKJMRjKbAx1KvkMLv9XTv+DJYyxPGPf0/ablVaMRQyXlIvRlKvPZl4TkO3zIMIU0OKkvYjz3sYrG
+        pCTfoZrLFdbD+e+FiHyKOZmRjGAgXZP2rYe4h+eVbr8WQBq55NOHUk5kEKX0Nhrbr30tPM7DxJXuw3nZ
+        IzaDDCJESCOdKBlk0YNietGbIziaoymiSyf10HmGm9mXkuhm4Pi78LwrgAyupYw0MoiSRwEF5JFFNlmd
+        fl/ueW5ip6dRzeQIBjGQPhTgUMdOPmYtn4V7DLJMypN0OWe2LKC/p/vZlcnMZgv1/7cV9WylnIvpFuYC
+        mOV58luZ52n6M5jAi9R96/bU8TITw3oryvsCiFPu6cBP3ZlJZbtbtZdfGc1foAJwuTTwoNEwcR3Vl1kJ
+        PqeI81f6qQA6d9nLdHI93Lsiw/eSngtflxQvC2AtF3va5TOb+w17KLTyUJLvdagAvjrB/pMhHu/b9130
+        T6rjShVA8ped3OFpyw/Qj+WutnUlR6kAkrnEeI2yFIx9ehNxl70Tbkt9WuwZHWsTj/IMVW2sUdwJ9xwd
+        unCZy+uNNC5hFpUqgI6rZB6PsbbNdSZzJz1xkv6/0ztwPV/KqbykAuiYal7iCZa2OdR7GlO412gCeW/k
+        M1wF0BF7eJVylrQz128m13IXRb7cg1JyaVABmGthCy8xl/fbfcJWyHRupMCn+3GkCsDcPv7DC7zOVloT
+        OMJmcpGP3wPulupHQ8EqgGrWsYiFrOFgAmtnMZkZDPL1HkVTPWVHMAqgmUrWsIy3Wcf+BD9zAjcyjS4+
+        37NGWlQA366e/WxhDStZwXbqEv5cP6byQ44LQGlXpbqXkP8KoJlGaviUzWxiAxuoojaBtv5LUQZwHpcz
+        JCDjf2yjPjwFcHhrF6eFGM00Ucc+dlNBBTvZziccoM5oErds8ujDqZRxptFswanlsJrmsBRAK28TJ0aM
+        Vpo5RAP1NFDHAaqp5iDNHKLR4Fj/Ujq5FNKP4xhAERHecvEdHUlhLhNcv7+wlyWprkFvu4VHcGjFSeoN
+        2QjpRIl89YjF62M4lz9zqctPL2CawZWN+NQFLkcrqXNdOOIrecxxVQDzfHt/UgwN5WPj9G/VQJU2ucJw
+        sOoDXKOg2SSDnxqMX1LLdI1UYpso11GRUPp3cYPGKbNRhPEsbqd/YJy3mWDtnO1Cb25h1bfMXdLEaqZ7
+        +rJaQlUrydaPMsYxlF5kE8UhziF28z6LWMQOv22sCqBzZNKDfv8zPkAF1am+6y8iIiIiIiIiIiIiIiIi
+        IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIv71X14bpx1RsfRhAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Bezier curves</value>
+  </data>
+</root>

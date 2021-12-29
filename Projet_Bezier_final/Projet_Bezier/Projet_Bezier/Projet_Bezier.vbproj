@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BEF6D37A-5891-49E3-8EEF-0BC2B12D07AE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Projet_Bezier.My.MyApplication</StartupObject>
+    <RootNamespace>Projet_Bezier</RootNamespace>
+    <AssemblyName>Projet_Bezier</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Projet_Bezier.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Projet_Bezier.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control.Designer.vb">
+      <DependentUpon>Control.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Version.Designer.vb">
+      <DependentUpon>Version.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Version.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Control.resx">
+      <DependentUpon>Control.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.en.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.fr-FR.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.fr.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Version.resx">
+      <DependentUpon>Version.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\magnifier-glass-zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\magnifier-glass-zoom-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\magnifier-glass-zoom_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\magnifier-glass-zoom_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\black-camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\camera-setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\draw-screenshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\screenshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\camera-aperture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\paint-brush-drawing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\add-plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\close-window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\collapse-plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\expand-minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\recycle-bin-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\remove-cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\pause-round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\play-round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\check-mark-box-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\BG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\computer-folder-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\download-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\open-file-folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\pictures.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\add-folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\computer-folder-open-resized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\save_resized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\bg_test_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\settings-gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\list-view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\push-pin-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\list-view-resized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\list-view-resized-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\computer-folder-open-resized-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\computer-folder-open-resized-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\recycle-bin-line-resized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\recycle-bin-line-resized-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\computer-folder-open-resized-3-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\pictures-resized-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\save_resized-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\save_resized-color-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\magnifier-glass-zoom-reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\grid-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\magnifier-glass-zoom-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\magnifier-glass-zoom-out-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\magnifier-glass-zoom-reset-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\grid-2-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\info-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\list-view-resized-2-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\list-view-resized-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\list-view-resized-3-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\list-view-resized-3-color-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\settings-gear-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\settings-gear-color-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\earth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\open-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\computer-keyboard-wireless.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\ctrl-control-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\article.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\paint-brush-drawing-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\paint-brush-drawing-color-v2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\en-language.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\fr-language.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\Control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\Control-v2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\Control-v3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\Control-v4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\Control-v5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Notice.pdf" />
+    <None Include="Resources\txt\Info.txt" />
+    <None Include="Resources\txt\Version.txt" />
+    <None Include="bin\Debug\Version.txt.txt" />
+    <None Include="Fichier\txt\Version.txt" />
+    <None Include="Fichier\txt\Info.txt" />
+    <None Include="Fichier\txt\Info_version.txt" />
+    <None Include="icon\vector_bezier_icon_138060.png" />
+    <None Include="icon\bezier_icon.png" />
+    <None Include="Fichier\txt\Distribution.txt" />
+    <None Include="Fichier\txt\Version_EN.txt" />
+    <None Include="Fichier\txt\Info_version_EN.txt" />
+    <Content Include="Version.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
