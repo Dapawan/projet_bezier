@@ -501,11 +501,14 @@ Public Class Form1
         Else
             ' Auto-incr checked
             Dim complete_path As String = Form_params.getCompleteFilename(default_path_screenshot, True, filename_screenshot)
-            bezier_drawing.Image.Save(complete_path, Imaging.ImageFormat.Jpeg)
+            Dim img As Bitmap = DrawFilledRectangle(1280, bezier_drawing.Image.Height)
+            drawer.drawStringBezierList(img, bezier_list)
+            CombineImages(bezier_drawing.Image, img).Save(complete_path, Imaging.ImageFormat.Jpeg)
             MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
         End If
 
     End Sub
+
 
     ' Read
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -556,7 +559,7 @@ Public Class Form1
         For Each bezier_tmp As Bezier In bezier_list
             ' Add it through our list display
             CheckedListBox1.Items.Add(bezier_tmp.uid.ToString()) ' "Courbe de bézier n° " + Bezier.uid.ToString())
-            CheckedListBox1.SetItemChecked(CheckedListBox1.Items.Count() - 1, True) ' Set default checked
+            CheckedListBox1.SetItemChecked(CheckedListBox1.Items.Count() - 1, bezier_tmp.show) ' Set default checked
         Next
 
         SetSelectedBezier(bezier_list(bezier_list.Count - 1), True)
@@ -672,4 +675,40 @@ Public Class Form1
 
 
     End Sub
+
+    Private Sub Button_list_bezier_Click(sender As Object, e As EventArgs) Handles Button_list_bezier.Click
+        Dim form As FormListDisplayBezier = New FormListDisplayBezier(bezier_list)
+
+        form.Owner = Me
+        form.ShowDialog()
+
+    End Sub
+
+    Private Function TakeScreenShot(ByVal Control As Control) As Bitmap
+        Dim tmpImg As New Bitmap(Control.Width, Control.Height)
+        'Using g As Graphics = Graphics.FromImage(tmpImg)
+        'g.CopyFromScreen(Control.PointToScreen(New Point(0, 0)), New Point(0, 0), New Size(Control.Width, Control.Height))
+        'End Using
+        Return tmpImg
+    End Function
+
+    Public Function CombineImages(ByVal img1 As Image, ByVal img2 As Image) As Image
+        Dim bmp As New Bitmap(Math.Max(img1.Width, img2.Width), img1.Height + img2.Height)
+        Dim g As Graphics = Graphics.FromImage(bmp)
+
+        g.DrawImage(img1, 0, 0, img2.Width, img1.Height)
+        g.DrawImage(img2, 0, img1.Height, img2.Width, img2.Width)
+        g.Dispose()
+
+        Return bmp
+    End Function
+
+    Private Function DrawFilledRectangle(ByVal x As Integer, ByVal y As Integer)
+        Dim bmp As Bitmap = New Bitmap(x, y)
+        Using graph As Graphics = Graphics.FromImage(bmp)
+            Dim ImageSize As Rectangle = New Rectangle(0, 0, x, y)
+            graph.FillRectangle(Brushes.White, ImageSize)
+        End Using
+        Return bmp
+    End Function
 End Class

@@ -60,3 +60,4 @@ C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bez
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.pdb
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.Form_params.resources
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.Form_delete.resources
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\courbe_de_bezier\courbe_de_bezier\obj\Debug\courbe_de_bezier.FormListDisplayBezier.resources

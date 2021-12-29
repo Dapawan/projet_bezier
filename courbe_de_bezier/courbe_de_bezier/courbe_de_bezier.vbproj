@@ -82,6 +82,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormListDisplayBezier.Designer.vb">
+      <DependentUpon>FormListDisplayBezier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormListDisplayBezier.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form_delete.Designer.vb">
       <DependentUpon>Form_delete.vb</DependentUpon>
     </Compile>
@@ -113,6 +119,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListDisplayBezier.resx">
+      <DependentUpon>FormListDisplayBezier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_delete.resx">
       <DependentUpon>Form_delete.vb</DependentUpon>

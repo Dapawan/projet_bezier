@@ -45,10 +45,20 @@ Public Class Bezier
         Next
     End Function
 
+    Public Overrides Function ToString() As String
+        Return ("courbe n° " + uid.ToString() + "   pt_deb" + pointToString(p_deb) + " pt_fin" + pointToString(p_fin) + " pt_tg_deb" + pointToString(p_tg_deb) + " pt_tg_fin" + pointToString(p_tg_fin) + " couleur : " + ColorTranslator.ToHtml(couleur) + " nbr_seg = " + nombre_segment.ToString() + " longueur = " + longueur.ToString("0.0#") + " affiché : " + show.ToString())
+    End Function
+
+
+    Private Function pointToString(ByVal point As PointF)
+        Return ("(" + point.X.ToString("0.0#") + " ; " + point.Y.ToString("0.0#") + ")")
+    End Function
+
+    'Public Function ToString
     Shared Sub Write(ByVal path As String, ByRef bezier As Bezier)
         Dim file As System.IO.StreamWriter
         file = My.Computer.FileSystem.OpenTextFileWriter(path, True)
-        Dim str As String = (bezier.p_deb.X.ToString() + ";" + bezier.p_deb.Y.ToString() + ";" + bezier.p_fin.X.ToString() + ";" + bezier.p_fin.Y.ToString() + ";" + bezier.p_tg_deb.X.ToString() + ";" + bezier.p_tg_deb.Y.ToString() + ";" + bezier.p_tg_fin.X.ToString() + ";" + bezier.p_tg_fin.Y.ToString() + ";" + bezier.couleur.ToArgb.ToString() + ";" + bezier.nombre_segment.ToString() + ";" + bezier.uid.ToString())
+        Dim str As String = (bezier.p_deb.X.ToString() + ";" + bezier.p_deb.Y.ToString() + ";" + bezier.p_fin.X.ToString() + ";" + bezier.p_fin.Y.ToString() + ";" + bezier.p_tg_deb.X.ToString() + ";" + bezier.p_tg_deb.Y.ToString() + ";" + bezier.p_tg_fin.X.ToString() + ";" + bezier.p_tg_fin.Y.ToString() + ";" + bezier.couleur.ToArgb.ToString() + ";" + bezier.nombre_segment.ToString() + ";" + bezier.uid.ToString() + ";" + bezier.hide_show.ToString())
         file.WriteLine(str)
         file.Close()
     End Sub
@@ -75,9 +85,11 @@ Public Class Bezier
                 Dim couleur As Color = Color.FromArgb(Integer.Parse(array_string(8))) 'FromName(array_string(8))
                 Dim nombre_segment As Single = Single.Parse(array_string(9))
                 uid = Single.Parse(array_string(10))
+                Dim hide_show As Boolean = Boolean.Parse(array_string(11))
                 ' Set UID courbe
                 Dim bezier As Bezier = New Bezier(p_deb, p_fin, p_tg_deb, p_tg_fin, nombre_segment, couleur) With {
-                    .uid = uid
+                    .uid = uid,
+                    .hide_show = hide_show
                 }
                 list_bezier.Add(bezier)
             Loop

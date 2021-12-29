@@ -7,7 +7,24 @@ Public Class Drawer
         Me.bezier_drawing = bezier_drawing
     End Sub
 
+    Public Sub drawStringBezierList(ByRef img As Bitmap, ByRef bezier_list As List(Of Bezier))
+        Dim str As String = "Légende : " + vbNewLine
+        Dim coloredPen As New Pen(Color.Black)
 
+        Using g As Graphics = Graphics.FromImage(img)
+            g.DrawString(str, New Font("Tahoma", 11), coloredPen.Brush, New PointF(0, 0))
+        End Using
+
+        Dim cnt As Single = 1
+
+        For Each bezier As Bezier In bezier_list
+            coloredPen.Color = bezier.couleur
+            Using g As Graphics = Graphics.FromImage(img)
+                g.DrawString(bezier.ToString().Replace(" ", "  "), New Font("Tahoma", 11), coloredPen.Brush, New PointF(0, cnt * 14))
+            End Using
+            cnt += 1
+        Next
+    End Sub
     Public Sub saveDrawing(ByVal default_path As String)
         If bezier_drawing.Image Is Nothing Then
             Return
@@ -15,7 +32,6 @@ Public Class Drawer
             Dim sfdPic As New SaveFileDialog()
             Dim Path As String = default_path
 
-            Dim title As String = "Code A Minute - iBasskung."
             Dim btn = MessageBoxButtons.YesNo
             Dim ico = MessageBoxIcon.Information
 

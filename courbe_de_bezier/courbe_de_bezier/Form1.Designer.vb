@@ -53,6 +53,7 @@ Partial Class Form1
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button_params = New System.Windows.Forms.Button()
         Me.Button_delete = New System.Windows.Forms.Button()
+        Me.Button_list_bezier = New System.Windows.Forms.Button()
         CType(Me.bezier_drawing, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown_y_deb, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown_x_deb, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -363,11 +364,21 @@ Partial Class Form1
         Me.Button_delete.Text = "Corbeille"
         Me.Button_delete.UseVisualStyleBackColor = True
         '
+        'Button_list_bezier
+        '
+        Me.Button_list_bezier.Location = New System.Drawing.Point(195, 643)
+        Me.Button_list_bezier.Name = "Button_list_bezier"
+        Me.Button_list_bezier.Size = New System.Drawing.Size(75, 23)
+        Me.Button_list_bezier.TabIndex = 7
+        Me.Button_list_bezier.Text = "list_bezier"
+        Me.Button_list_bezier.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1261, 717)
+        Me.Controls.Add(Me.Button_list_bezier)
         Me.Controls.Add(Me.Button_delete)
         Me.Controls.Add(Me.Button_params)
         Me.Controls.Add(Me.Button2)
@@ -448,4 +459,5 @@ Partial Class Form1
     Friend WithEvents Button8 As Button
     Friend WithEvents Button_params As Button
     Friend WithEvents Button_delete As Button
+    Friend WithEvents Button_list_bezier As Button
 End Class
