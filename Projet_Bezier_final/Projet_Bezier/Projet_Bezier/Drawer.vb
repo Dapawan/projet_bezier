@@ -6,7 +6,11 @@ Public Class Drawer
     Public Sub New(bezier_drawing As PictureBox)
         Me.bezier_drawing = bezier_drawing
 
+        HideShowGrid(False)
 
+    End Sub
+
+    Public Sub HideShowGrid(ByVal hide As Boolean)
         If Not bezier_drawing.BackgroundImage Is Nothing Then
             bezier_drawing.BackgroundImage.Dispose()
         End If
@@ -18,7 +22,10 @@ Public Class Drawer
         bezier_drawing.BackgroundImage = bmp
         'Draw on bg img
         drawMarker()
-        drawGrid()
+        If (hide.Equals(False)) Then
+            drawGrid()
+        End If
+
     End Sub
 
     Public Sub drawStringBezierList(ByRef img As Bitmap, ByRef bezier_list As List(Of Bezier))

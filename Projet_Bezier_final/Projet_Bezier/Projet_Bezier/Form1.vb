@@ -34,6 +34,7 @@ Public Class Form1
     Dim form_params As Form_params
 
     Dim pattern_print_length As String = "0.00"
+    Dim hide_show_grid As Boolean = False
 
     ' Params 
     Dim filename_screenshot As String = ""
@@ -739,7 +740,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub zoom_out_Click(sender As Object, e As EventArgs) Handles zoom_reset_btn.Click, hide_grid_btn.Click, zoom_out_btn.Click
+    Private Sub zoom_out_Click(sender As Object, e As EventArgs) Handles zoom_reset_btn.Click, zoom_out_btn.Click
         If tracePBW > trace_pb.Width Then 'block zoomout over the orignal resolution
 
             tracePBW = tracePBW / 1.1
@@ -947,65 +948,6 @@ Public Class Form1
         ThinLB.Text = coord_thin_tb.Value / 100
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles delete_curve_btn.Click
-        Dim bmp As New Bitmap(trace_pb.Width, trace_pb.Height)
-
-        Dim b As Bitmap = DirectCast(trace_pb.Image, Bitmap)
-        Dim new_b As New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
-        Dim g As Graphics = Graphics.FromImage(new_b)
-
-        g.DrawImage(b, New Point(0, 5)) 'Moves the picture down by 5
-        g.Save()
-
-
-        trace_pb.Image = new_b
-        trace_pb.Invalidate()
-    End Sub
-
-    Private Sub tracePB_DragDrop(sender As Object, e As DragEventArgs) Handles trace_pb.DragDrop
-        Dim bmp As New Bitmap(trace_pb.Width, trace_pb.Height)
-
-        Dim b As Bitmap = DirectCast(trace_pb.Image, Bitmap)
-        Dim new_b As New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
-        Dim g As Graphics = Graphics.FromImage(new_b)
-
-        g.DrawImage(b, New Point(0, 5)) 'Moves the picture down by 5
-        g.Save()
-
-
-        trace_pb.Image = new_b
-        trace_pb.Invalidate()
-    End Sub
-
-    Private Sub tracePB_MouseDown(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseDown
-        allowDrag = True
-    End Sub
-
-    Private Sub tracePB_MouseMove(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseMove
-        'If allowDrag Then
-        'Dim bmp As Bitmap
-        ' If bmp Is Not Nothing Then
-        '         bmp = New Bitmap(tracePB.Width, tracePB.Height)
-
-
-        'g.DrawImage(b, New Point(e.X, e.Y)) 'Moves the picture down by 5
-        ' g.Save()
-        ' g.TranslateTransform(e.X, e.Y)
-        ' tracePB.Image.Dispose()
-        ' tracePB.Image = new_b
-        ' tracePB.Invalidate()
-        ' End If
-        ' End If
-    End Sub
-
-    Private Sub tracePB_MouseUp(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseUp
-        allowDrag = False
-    End Sub
-
-    Private Sub PictureBox1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles trace_pb.Paint
-        ' e.Graphics.DrawImage(new_b)
-    End Sub
-
     Private Sub hexacode_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles hexacode_tb.KeyDown
         If e.KeyCode = Keys.Enter Then
             Dim color_read As String
@@ -1116,5 +1058,14 @@ Public Class Form1
             My.Computer.FileSystem.WriteAllBytes(path & name, FByte, True)
         End If
 
+    End Sub
+
+    Private Sub browse_screenshot_btn_Click(sender As Object, e As EventArgs) Handles browse_screenshot_btn.Click
+        Process.Start("explorer.exe", String.Format("/n, /e, {0}", default_path_screenshot)) 'Open explorer with screenshot path
+    End Sub
+
+    Private Sub hide_grid_btn_Click(sender As Object, e As EventArgs) Handles hide_grid_btn.Click
+        hide_show_grid = Not hide_show_grid
+        drawer.HideShowGrid(hide_show_grid)
     End Sub
 End Class
