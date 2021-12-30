@@ -54,11 +54,7 @@ Public Class Form1
         tracePBH = trace_pb.Height
         tracePBI = trace_pb.Image
 
-        'b = DirectCast(trace_pb.Image, Bitmap)
-        'new_b = New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
-        'g = Graphics.FromImage(new_b)
-
-        trace_pb.BackgroundImage = New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
+        'trace_pb.BackgroundImage = New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
         '
 
         drawer = New Drawer(trace_pb)
@@ -138,8 +134,19 @@ Public Class Form1
         Dim mouse_point_converted As PointF = drawer.conversionToMarker(mouse_point)
 
 
-
+        ' First we check if the current selected curve is still selected
         Dim point As PointF
+
+        If (Not bezier Is Nothing AndAlso bezier.currentlySelected = True) Then
+            If (bezier.selectionPoint(mouse_point_converted, point) = True) Then
+                'Our bezier is still selected
+                drawer.clearDrawing()
+                drawer.drawBeziers(bezier_list, show_name_bezier)
+                drawer.drawPoint(New Pen(Color.Red), point, 10, 10)
+                Return
+            End If
+        End If
+
         For Each bezier_tmp In bezier_list
             If (bezier_tmp.show.Equals(True)) Then
                 If (bezier_tmp.selectionPoint(mouse_point_converted, point) = True) Then
@@ -321,9 +328,12 @@ Public Class Form1
         For Each bezier_tmp In bezier_list
             If bezier_tmp.uid.Equals(uid) Then
                 SetSelectedBezier(bezier_tmp, False) ' Don't select item => It's already done
+                drawer.drawBeziers(bezier_list, show_name_bezier)
                 Return 'Do it only once
             End If
         Next
+
+
     End Sub
 
 
@@ -388,7 +398,7 @@ Public Class Form1
 
 
     Private Sub SetSelectedBezier(ByRef bezier_selected As Bezier, ByVal set_selected_item As Boolean)
-        If bezier_selected.Equals(bezier) Then
+        If Not bezier Is Nothing AndAlso bezier_selected.uid.Equals(bezier.uid) Then
             Return
         End If
 
@@ -409,6 +419,7 @@ Public Class Form1
         check_selected_index_value_changed_trigger = False
         ' Set bezier selected as this one 
         bezier = bezier_selected
+        bezier.currentlySelected = True
         ' Refresh display
         x_nud_start.Value = bezier.p_deb.X
         y_nud_start.Value = bezier.p_deb.Y
@@ -504,7 +515,7 @@ Public Class Form1
             Dim complete_path As String = Form_params.getCompleteFilename(default_path_screenshot, True, filename_screenshot)
             Dim img As Bitmap = DrawFilledRectangle(1280, trace_pb.Image.Height)
             drawer.drawStringBezierList(img, bezier_list)
-            CombineImages(trace_pb.Image, img).Save(complete_path, Imaging.ImageFormat.Jpeg)
+            CombineImages(CombineBG_FG(trace_pb.BackgroundImage, trace_pb.Image), img).Save(complete_path, Imaging.ImageFormat.Jpeg)
             MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
         End If
 
@@ -682,6 +693,21 @@ Public Class Form1
 
     End Sub
 
+    Public Function CombineBG_FG(ByRef bg As Image, ByRef fg As Image) As Image
+        If (bg.Width <> fg.Width Or bg.Height <> fg.Height) Then
+            Return Nothing
+        End If
+
+        Dim bmp As New Bitmap(bg.Width, bg.Height)
+        Dim g As Graphics = Graphics.FromImage(bmp)
+
+        g.DrawImage(bg, 0, 0, bg.Width, bg.Height)
+        g.DrawImage(fg, 0, 0, bg.Width, bg.Width)
+        g.Dispose()
+
+        Return bmp
+    End Function
+
     Public Function CombineImages(ByVal img1 As Image, ByVal img2 As Image) As Image
         Dim bmp As New Bitmap(Math.Max(img1.Width, img2.Width), img1.Height + img2.Height)
         Dim g As Graphics = Graphics.FromImage(bmp)
@@ -793,12 +819,6 @@ Public Class Form1
             drawer.drawBeziers(bezier_list, show_name_bezier)
 
         End If
-    End Sub
-
-
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles add_curve_btn.Click
-        list_curve_clb.Items.Add("test")
     End Sub
 
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs)

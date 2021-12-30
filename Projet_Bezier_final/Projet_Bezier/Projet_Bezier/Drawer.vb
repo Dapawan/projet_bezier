@@ -5,6 +5,20 @@ Public Class Drawer
 
     Public Sub New(bezier_drawing As PictureBox)
         Me.bezier_drawing = bezier_drawing
+
+
+        If Not bezier_drawing.BackgroundImage Is Nothing Then
+            bezier_drawing.BackgroundImage.Dispose()
+        End If
+
+        Dim bmp As New Bitmap(bezier_drawing.Width, bezier_drawing.Height)
+        Using g As Graphics = Graphics.FromImage(bmp)
+            g.Clear(Color.White)
+        End Using
+        bezier_drawing.BackgroundImage = bmp
+        'Draw on bg img
+        drawMarker()
+        drawGrid()
     End Sub
 
     Public Sub drawStringBezierList(ByRef img As Bitmap, ByRef bezier_list As List(Of Bezier))
@@ -106,8 +120,12 @@ Public Class Drawer
         End Using
     End Sub
 
-    Public Sub drawString(ByVal pen As Pen, ByVal stringToDisplay As String, ByVal position As PointF)
-        Using g As Graphics = Graphics.FromImage(bezier_drawing.Image)
+    Public Sub drawString(ByVal pen As Pen, ByVal stringToDisplay As String, ByVal position As PointF, ByVal bg As Boolean)
+        Dim img As Image = bezier_drawing.Image
+        If (bg.Equals(True)) Then
+            img = bezier_drawing.BackgroundImage
+        End If
+        Using g As Graphics = Graphics.FromImage(img)
             g.DrawString(stringToDisplay, New Font("Tahoma", 11), pen.Brush, conversionFromMarker(position))
         End Using
     End Sub
@@ -122,6 +140,7 @@ Public Class Drawer
     Public Sub drawBeziers(ByRef bezier_list As List(Of Bezier), ByVal show_name As Boolean)
         ' We clear old drawing
         clearDrawing()
+
         For Each bezier In bezier_list
             If bezier.show.Equals(True) Then
                 drawBezier(bezier, False, show_name)
@@ -134,9 +153,6 @@ Public Class Drawer
             ' We clear old drawing
             clearDrawing()
         End If
-
-        'drawMarker()
-        'drawGrid()
 
         'Dessine les tangentes
         Dim coloredPen As New Pen(bezier.couleur)
@@ -151,7 +167,7 @@ Public Class Drawer
 
         If show_name.Equals(True) Then
             ' Indique le nom de la courbe
-            drawString(coloredPen, bezier.uid.ToString(), bezier.p_deb)
+            drawString(coloredPen, bezier.uid.ToString(), bezier.p_deb, False)
         End If
 
         ' Dessine les points
@@ -167,9 +183,9 @@ Public Class Drawer
             coloredPen.Width = 1
         End If
         coloredPen.DashStyle = DashStyle.DashDotDot
-        drawLine(coloredPen, bezier.p_deb, bezier.p_tg_deb)
+        drawLine(coloredPen, bezier.p_deb, bezier.p_tg_deb, False)
 
-        drawLine(coloredPen, bezier.p_fin, bezier.p_tg_fin)
+        drawLine(coloredPen, bezier.p_fin, bezier.p_tg_fin, False)
     End Sub
 
     ' Draw grid
@@ -185,14 +201,14 @@ Public Class Drawer
         For x As Double = -1 To 1 Step 0.05
             x = Math.Round(x, 2)
             If (x <> 0.0) Then
-                drawLine(coloredPen, New PointF(x, 1), New PointF(x, -1))
+                drawLine(coloredPen, New PointF(x, 1), New PointF(x, -1), True)
             End If
         Next
 
         For y As Double = -1 To 1 Step 0.05
             y = Math.Round(y, 2)
             If (y <> 0.0) Then
-                drawLine(coloredPen, New PointF(-1, y), New PointF(1, y))
+                drawLine(coloredPen, New PointF(-1, y), New PointF(1, y), True)
             End If
         Next
 
@@ -205,14 +221,14 @@ Public Class Drawer
         For x As Double = -1 To 1 Step 0.1
             x = Math.Round(x, 2)
             If (x <> 0.0) Then
-                drawLine(coloredPen, New PointF(x, 1), New PointF(x, -1))
+                drawLine(coloredPen, New PointF(x, 1), New PointF(x, -1), True)
             End If
         Next
 
         For y As Double = -1 To 1 Step 0.1
             y = Math.Round(y, 2)
             If (y <> 0.0) Then
-                drawLine(coloredPen, New PointF(-1, y), New PointF(1, y))
+                drawLine(coloredPen, New PointF(-1, y), New PointF(1, y), True)
             End If
         Next
 
@@ -225,18 +241,18 @@ Public Class Drawer
 
         coloredPen.Width = 2
 
-        drawLine(coloredPen, New PointF(-1, 0), New PointF(1, 0))
-        drawLine(coloredPen, New PointF(0, -1), New PointF(0, 1))
+        drawLine(coloredPen, New PointF(-1, 0), New PointF(1, 0), True)
+        drawLine(coloredPen, New PointF(0, -1), New PointF(0, 1), True)
 
         ' Draw arrow
 
         ' Right arrow
-        drawLine(coloredPen, New PointF(1, 0), New PointF(0.95, 0.05))
-        drawLine(coloredPen, New PointF(1, 0), New PointF(0.95, -0.05))
+        drawLine(coloredPen, New PointF(1, 0), New PointF(0.95, 0.05), True)
+        drawLine(coloredPen, New PointF(1, 0), New PointF(0.95, -0.05), True)
 
         ' Upper arrow
-        drawLine(coloredPen, New PointF(0, 1), New PointF(0.05, 0.95))
-        drawLine(coloredPen, New PointF(0, 1), New PointF(-0.05, 0.95))
+        drawLine(coloredPen, New PointF(0, 1), New PointF(0.05, 0.95), True)
+        drawLine(coloredPen, New PointF(0, 1), New PointF(-0.05, 0.95), True)
 
 
         ' Draw values x position
@@ -253,7 +269,7 @@ Public Class Drawer
                 Continue For
             End If
 
-            drawString(New Pen(Color.Black), x.ToString(), New PointF(x_pos, 0))
+            drawString(New Pen(Color.Black), x.ToString(), New PointF(x_pos, 0), True)
         Next
 
         ' Draw values y position
@@ -271,14 +287,18 @@ Public Class Drawer
                 Continue For
             End If
 
-            drawString(New Pen(Color.Black), y.ToString(), New PointF(0, y_pos))
+            drawString(New Pen(Color.Black), y.ToString(), New PointF(0, y_pos), True)
         Next
 
     End Sub
 
     ' Draw using marker point line
-    Public Sub drawLine(ByVal pen As Pen, ByVal start_point_marker As PointF, ByVal end_point_marker As PointF)
-        Using g As Graphics = Graphics.FromImage(bezier_drawing.Image)
+    Public Sub drawLine(ByVal pen As Pen, ByVal start_point_marker As PointF, ByVal end_point_marker As PointF, ByVal bg As Boolean)
+        Dim img As Image = bezier_drawing.Image
+        If (bg.Equals(True)) Then
+            img = bezier_drawing.BackgroundImage
+        End If
+        Using g As Graphics = Graphics.FromImage(img)
             g.DrawLine(pen, conversionFromMarker(start_point_marker), conversionFromMarker(end_point_marker))
         End Using
     End Sub

@@ -420,6 +420,7 @@
     <None Include="Fichier\txt\Distribution.txt" />
     <None Include="Fichier\txt\Version_EN.txt" />
     <None Include="Fichier\txt\Info_version_EN.txt" />
+    <Content Include="icon\BG_1.png" />
     <Content Include="Version.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
