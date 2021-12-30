@@ -54,11 +54,11 @@ Public Class Form1
         tracePBH = trace_pb.Height
         tracePBI = trace_pb.Image
 
-        b = DirectCast(trace_pb.Image, Bitmap)
-        new_b = New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
-        g = Graphics.FromImage(new_b)
+        'b = DirectCast(trace_pb.Image, Bitmap)
+        'new_b = New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
+        'g = Graphics.FromImage(new_b)
 
-
+        trace_pb.BackgroundImage = New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
         '
 
         drawer = New Drawer(trace_pb)
@@ -1079,14 +1079,6 @@ Public Class Form1
 
     Private Sub VersionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VersionsToolStripMenuItem.Click
         Version.Show()
-    End Sub
-
-    Private Sub delete_file_btn_Click(sender As Object, e As EventArgs) Handles delete_file_btn.Click
-        Dim current As CultureInfo = CultureInfo.CurrentCulture
-
-        If current.Name.Equals("fr-FR") Then
-            MessageBox.Show("Code Hexa incorrect", "Info", MessageBoxButtons.OKCancel)
-        End If
     End Sub
 
     Private Sub NoticeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NoticeToolStripMenuItem.Click

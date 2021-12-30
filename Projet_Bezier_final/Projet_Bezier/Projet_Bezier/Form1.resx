@@ -390,7 +390,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_X_lb_start.ZOrder" xml:space="preserve">
-    <value>66</value>
+    <value>65</value>
   </data>
   <data name="y_Y_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -621,7 +621,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_X_lb_end.ZOrder" xml:space="preserve">
-    <value>65</value>
+    <value>64</value>
   </data>
   <data name="y_nud_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -1142,6 +1142,12 @@
   <data name="&gt;&gt;selected_tb.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
+  <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="FichierToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
   <data name="OuvrirBezierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
   </data>
@@ -1178,11 +1184,11 @@
   <data name="ParamètresToolStripMenuItem.Text" xml:space="preserve">
     <value>Paramètres</value>
   </data>
-  <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+  <data name="EditionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
   </data>
-  <data name="FichierToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fichier</value>
+  <data name="EditionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Editions</value>
   </data>
   <data name="AjouterCourbeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>227, 22</value>
@@ -1214,15 +1220,36 @@
   <data name="CouleurToolStripMenuItem.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
-  <data name="EditionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="EditionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Editions</value>
-  </data>
   <metadata name="main_menu_ms.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>140, 3</value>
   </metadata>
+  <data name="main_menu_ms.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="main_menu_ms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1264, 24</value>
+  </data>
+  <data name="main_menu_ms.TabIndex" type="System.Int32, mscorlib">
+    <value>214</value>
+  </data>
+  <data name="&gt;&gt;main_menu_ms.Name" xml:space="preserve">
+    <value>main_menu_ms</value>
+  </data>
+  <data name="&gt;&gt;main_menu_ms.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;main_menu_ms.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;main_menu_ms.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="AffichageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="AffichageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Affichage</value>
+  </data>
   <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 22</value>
   </data>
@@ -1259,11 +1286,11 @@
   <data name="InfoCourbesToolStripMenuItem.Text" xml:space="preserve">
     <value>Info courbes</value>
   </data>
-  <data name="AffichageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 20</value>
+  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
   </data>
-  <data name="AffichageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Affichage</value>
+  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
   <data name="ControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 22</value>
@@ -1283,6 +1310,12 @@
   <data name="VersionsToolStripMenuItem.Text" xml:space="preserve">
     <value>Version</value>
   </data>
+  <data name="LangueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="LangueToolStripMenuItem.Text" xml:space="preserve">
+    <value>Langue</value>
+  </data>
   <data name="FrançaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 22</value>
   </data>
@@ -1294,39 +1327,6 @@
   </data>
   <data name="AnglaisToolStripMenuItem.Text" xml:space="preserve">
     <value>Anglais</value>
-  </data>
-  <data name="LangueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="LangueToolStripMenuItem.Text" xml:space="preserve">
-    <value>Langue</value>
-  </data>
-  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
-  <data name="main_menu_ms.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="main_menu_ms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1264, 24</value>
-  </data>
-  <data name="main_menu_ms.TabIndex" type="System.Int32, mscorlib">
-    <value>214</value>
-  </data>
-  <data name="&gt;&gt;main_menu_ms.Name" xml:space="preserve">
-    <value>main_menu_ms</value>
-  </data>
-  <data name="&gt;&gt;main_menu_ms.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;main_menu_ms.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;main_menu_ms.ZOrder" xml:space="preserve">
-    <value>12</value>
   </data>
   <data name="x_Xind_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1353,7 +1353,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_Xind_lb_start.ZOrder" xml:space="preserve">
-    <value>64</value>
+    <value>63</value>
   </data>
   <data name="y_Yind_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2008,7 +2008,7 @@
     <value>NoControl</value>
   </data>
   <data name="trace_pb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 25</value>
+    <value>12, 27</value>
   </data>
   <data name="trace_pb.Size" type="System.Drawing.Size, System.Drawing">
     <value>900, 600</value>
@@ -2026,7 +2026,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;trace_pb.ZOrder" xml:space="preserve">
-    <value>63</value>
+    <value>66</value>
   </data>
   <data name="curve_select_name_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

@@ -73,10 +73,12 @@ Public Class Drawer
     End Sub
 
     Public Sub clearDrawing()
+        If Not bezier_drawing.Image Is Nothing Then
+            bezier_drawing.Image.Dispose()
+        End If
+
         Dim bmp As New Bitmap(bezier_drawing.Width, bezier_drawing.Height)
-        Using g As Graphics = Graphics.FromImage(bmp)
-            g.Clear(Color.White)
-        End Using
+        bmp.MakeTransparent()
         bezier_drawing.Image = bmp
     End Sub
 
@@ -89,7 +91,9 @@ Public Class Drawer
             End Using
             bezier_drawing.Image = bmp
         End If
-        Using g As Graphics = Graphics.FromImage(bezier_drawing.Image)
+        ' Create a blank bitmap with the same dimensions
+        Dim tempBitmap As Bitmap = New Bitmap(bezier_drawing.Image.Width, bezier_drawing.Image.Height)
+        Using g As Graphics = Graphics.FromImage(tempBitmap)
             g.DrawBezier(pen, conversionFromMarker(bezier.p_deb), conversionFromMarker(bezier.p_tg_deb), conversionFromMarker(bezier.p_tg_fin), conversionFromMarker(bezier.p_fin))
         End Using
         bezier_drawing.Invalidate()
@@ -97,47 +101,22 @@ Public Class Drawer
 
     ' Draw lines
     Public Sub drawLines(ByVal pen As Pen, ByRef list_points() As PointF)
-        If bezier_drawing.Image Is Nothing Then
-            Dim bmp As New Bitmap(bezier_drawing.Width, bezier_drawing.Height)
-            Using g As Graphics = Graphics.FromImage(bmp)
-                g.Clear(Color.White)
-            End Using
-            bezier_drawing.Image = bmp
-        End If
         Using g As Graphics = Graphics.FromImage(bezier_drawing.Image)
             g.DrawLines(pen, conversionFromMarker(list_points))
-
         End Using
-        bezier_drawing.Invalidate()
     End Sub
 
     Public Sub drawString(ByVal pen As Pen, ByVal stringToDisplay As String, ByVal position As PointF)
-        If bezier_drawing.Image Is Nothing Then
-            Dim bmp As New Bitmap(bezier_drawing.Width, bezier_drawing.Height)
-            Using g As Graphics = Graphics.FromImage(bmp)
-                g.Clear(Color.White)
-            End Using
-            bezier_drawing.Image = bmp
-        End If
         Using g As Graphics = Graphics.FromImage(bezier_drawing.Image)
             g.DrawString(stringToDisplay, New Font("Tahoma", 11), pen.Brush, conversionFromMarker(position))
         End Using
-        bezier_drawing.Invalidate()
     End Sub
 
     Public Sub drawPoint(ByVal pen As Pen, ByVal position As PointF, ByVal width As Single, ByVal height As Single)
-        If bezier_drawing.Image Is Nothing Then
-            Dim bmp As New Bitmap(bezier_drawing.Width, bezier_drawing.Height)
-            Using g As Graphics = Graphics.FromImage(bmp)
-                g.Clear(Color.White)
-            End Using
-            bezier_drawing.Image = bmp
-        End If
         Using g As Graphics = Graphics.FromImage(bezier_drawing.Image)
             position = conversionFromMarker(position)
             g.FillRectangle(pen.Brush, position.X - (width / 2), position.Y - (height / 2), width, height)
         End Using
-        bezier_drawing.Invalidate()
     End Sub
 
     Public Sub drawBeziers(ByRef bezier_list As List(Of Bezier), ByVal show_name As Boolean)
@@ -299,19 +278,9 @@ Public Class Drawer
 
     ' Draw using marker point line
     Public Sub drawLine(ByVal pen As Pen, ByVal start_point_marker As PointF, ByVal end_point_marker As PointF)
-
-        If bezier_drawing.Image Is Nothing Then
-            Dim bmp As New Bitmap(bezier_drawing.Width, bezier_drawing.Height)
-            Using g As Graphics = Graphics.FromImage(bmp)
-                g.Clear(Color.White)
-            End Using
-            bezier_drawing.Image = bmp
-        End If
         Using g As Graphics = Graphics.FromImage(bezier_drawing.Image)
             g.DrawLine(pen, conversionFromMarker(start_point_marker), conversionFromMarker(end_point_marker))
         End Using
-        bezier_drawing.Invalidate()
-
     End Sub
 
     ' From -1 to +1 => To canvas

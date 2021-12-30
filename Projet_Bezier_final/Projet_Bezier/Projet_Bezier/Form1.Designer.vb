@@ -349,7 +349,7 @@ Partial Class Form1
         resources.ApplyResources(Me.segment_nud, "segment_nud")
         Me.segment_nud.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.segment_nud.Name = "segment_nud"
-        Me.segment_nud.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.segment_nud.Value = New Decimal(New Integer() {50, 0, 0, 0})
         '
         'selected_tb
         '
@@ -707,10 +707,11 @@ Partial Class Form1
         '
         'trace_pb
         '
-        Me.trace_pb.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.trace_pb.BackColor = System.Drawing.Color.White
         Me.trace_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.trace_pb.Image = Global.Projet_Bezier.My.Resources.Resources.BG
         resources.ApplyResources(Me.trace_pb, "trace_pb")
+        Me.trace_pb.InitialImage = Global.Projet_Bezier.My.Resources.Resources.BG
         Me.trace_pb.Name = "trace_pb"
         Me.trace_pb.TabStop = False
         '
@@ -787,10 +788,10 @@ Partial Class Form1
         Me.Controls.Add(Me.zoom_reset_btn)
         Me.Controls.Add(Me.x_nud_start)
         Me.Controls.Add(Me.zoom_in_btn)
-        Me.Controls.Add(Me.trace_pb)
         Me.Controls.Add(Me.x_Xind_lb_start)
         Me.Controls.Add(Me.x_X_lb_end)
         Me.Controls.Add(Me.x_X_lb_start)
+        Me.Controls.Add(Me.trace_pb)
         Me.MainMenuStrip = Me.main_menu_ms
         Me.Name = "Form1"
         CType(Me.x_nud_start, System.ComponentModel.ISupportInitialize).EndInit()

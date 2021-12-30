@@ -44,7 +44,6 @@ C:\Users\oreil\Desktop\Projet_Bezier\Projet_Bezier\Projet_Bezier\obj\Debug\fr\Pr
 C:\Users\oreil\Desktop\Projet_Bezier\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.exe
 C:\Users\oreil\Desktop\Projet_Bezier\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.xml
 C:\Users\oreil\Desktop\Projet_Bezier\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.pdb
-C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.vbprojAssemblyReference.cache
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.exe
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.xml
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.pdb
@@ -70,3 +69,4 @@ C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bez
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\en\Projet_Bezier.resources.dll
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\fr-FR\Projet_Bezier.resources.dll
 C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\fr\Projet_Bezier.resources.dll
+C:\Users\oreil\Documents\Cours\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.vbprojAssemblyReference.cache
