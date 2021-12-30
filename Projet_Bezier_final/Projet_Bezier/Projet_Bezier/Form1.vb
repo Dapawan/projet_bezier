@@ -300,6 +300,11 @@ Public Class Form1
     End Sub
 
     Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles list_curve_clb.ItemCheck
+        ' Avoid trigger 
+        If check_selected_index_value_changed_trigger.Equals(False) Then
+            Return
+        End If
+
         Dim state As CheckState = e.NewValue
         Dim index As Integer = e.Index
 
@@ -585,15 +590,21 @@ Public Class Form1
 
         'Clear all last items 
         list_curve_clb.Items.Clear()
-
+        Dim bezier_tmp_ As Bezier = Nothing
         For Each bezier_tmp As Bezier In bezier_list
             ' Add it through our list display
             list_curve_clb.Items.Add(getItemListName(bezier_tmp)) ' "Courbe de bézier n° " + Bezier.uid.ToString())
-            list_curve_clb.SetItemChecked(list_curve_clb.Items.Count() - 1, bezier_tmp.show) ' Set default checked
+            list_curve_clb.SetItemChecked(list_curve_clb.Items.Count() - 1, bezier_tmp.show)
+            If (bezier_tmp.currentlySelected = True) Then
+                bezier_tmp_ = bezier_tmp
+            End If
         Next
 
-        SetSelectedBezier(bezier_list(bezier_list.Count - 1), True)
-
+        If Not bezier_tmp_ Is Nothing Then
+            SetSelectedBezier(bezier_tmp_, True)
+        Else
+            allowUserCtrl(False)
+        End If
 
         check_selected_index_value_changed_trigger = True
 

@@ -88,7 +88,7 @@ Public Class Bezier
                 uid = Single.Parse(array_string(10))
                 Dim hide_show As Boolean = Boolean.Parse(array_string(11))
                 Dim nom As String = (array_string(12))
-                Dim currently_selected As Boolean = Boolean.Parse(array_string(12))
+                Dim currently_selected As Boolean = Boolean.Parse(array_string(13))
                 ' Set UID courbe
                 Dim bezier As Bezier = New Bezier(p_deb, p_fin, p_tg_deb, p_tg_fin, nombre_segment, couleur, nom) With {
                     .uid = uid,
