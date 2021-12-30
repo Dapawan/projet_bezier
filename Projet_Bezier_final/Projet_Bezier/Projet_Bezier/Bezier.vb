@@ -21,7 +21,8 @@ Public Class Bezier
     Dim nbr_segment As Single
     'Couleur
     Dim couleur_courbe As Color
-
+    'Nom
+    Public nom As String
     ' Liste de points
     Dim liste_points As PointF()
     ' Longueur
@@ -46,7 +47,7 @@ Public Class Bezier
     End Function
 
     Public Overrides Function ToString() As String
-        Return ("courbe n° " + uid.ToString() + "   pt_deb" + pointToString(p_deb) + " pt_fin" + pointToString(p_fin) + " pt_tg_deb" + pointToString(p_tg_deb) + " pt_tg_fin" + pointToString(p_tg_fin) + " couleur : " + ColorTranslator.ToHtml(couleur) + " nbr_seg = " + nombre_segment.ToString() + " longueur = " + longueur.ToString("0.0#") + " affiché : " + show.ToString())
+        Return ("courbe n° " + uid.ToString() + " nom : " + nom + "   pt_deb" + pointToString(p_deb) + " pt_fin" + pointToString(p_fin) + " pt_tg_deb" + pointToString(p_tg_deb) + " pt_tg_fin" + pointToString(p_tg_fin) + " couleur : " + ColorTranslator.ToHtml(couleur) + " nbr_seg = " + nombre_segment.ToString() + " longueur = " + longueur.ToString("0.0#") + " affiché : " + show.ToString())
     End Function
 
 
@@ -58,7 +59,7 @@ Public Class Bezier
     Shared Sub Write(ByVal path As String, ByRef bezier As Bezier)
         Dim file As System.IO.StreamWriter
         file = My.Computer.FileSystem.OpenTextFileWriter(path, True)
-        Dim str As String = (bezier.p_deb.X.ToString() + ";" + bezier.p_deb.Y.ToString() + ";" + bezier.p_fin.X.ToString() + ";" + bezier.p_fin.Y.ToString() + ";" + bezier.p_tg_deb.X.ToString() + ";" + bezier.p_tg_deb.Y.ToString() + ";" + bezier.p_tg_fin.X.ToString() + ";" + bezier.p_tg_fin.Y.ToString() + ";" + bezier.couleur.ToArgb.ToString() + ";" + bezier.nombre_segment.ToString() + ";" + bezier.uid.ToString() + ";" + bezier.hide_show.ToString())
+        Dim str As String = (bezier.p_deb.X.ToString() + ";" + bezier.p_deb.Y.ToString() + ";" + bezier.p_fin.X.ToString() + ";" + bezier.p_fin.Y.ToString() + ";" + bezier.p_tg_deb.X.ToString() + ";" + bezier.p_tg_deb.Y.ToString() + ";" + bezier.p_tg_fin.X.ToString() + ";" + bezier.p_tg_fin.Y.ToString() + ";" + bezier.couleur.ToArgb.ToString() + ";" + bezier.nombre_segment.ToString() + ";" + bezier.uid.ToString() + ";" + bezier.hide_show.ToString() + ";" + bezier.nom + ";" + bezier.currentlySelected.ToString())
         file.WriteLine(str)
         file.Close()
     End Sub
@@ -86,10 +87,13 @@ Public Class Bezier
                 Dim nombre_segment As Single = Single.Parse(array_string(9))
                 uid = Single.Parse(array_string(10))
                 Dim hide_show As Boolean = Boolean.Parse(array_string(11))
+                Dim nom As String = (array_string(12))
+                Dim currently_selected As Boolean = Boolean.Parse(array_string(12))
                 ' Set UID courbe
-                Dim bezier As Bezier = New Bezier(p_deb, p_fin, p_tg_deb, p_tg_fin, nombre_segment, couleur) With {
+                Dim bezier As Bezier = New Bezier(p_deb, p_fin, p_tg_deb, p_tg_fin, nombre_segment, couleur, nom) With {
                     .uid = uid,
-                    .hide_show = hide_show
+                    .hide_show = hide_show,
+                    .currentlySelected = currently_selected
                 }
                 list_bezier.Add(bezier)
             Loop
@@ -102,13 +106,14 @@ Public Class Bezier
 
         Return list_bezier
     End Function
-    Public Sub New(p_deb As PointF, p_fin As PointF, p_tg_deb As PointF, p_tg_fin As PointF, nbr_segment As Single, couleur_courbe As Color)
+    Public Sub New(p_deb As PointF, p_fin As PointF, p_tg_deb As PointF, p_tg_fin As PointF, nbr_segment As Single, couleur_courbe As Color, ByVal nom As String)
         Me.p_deb = p_deb
         Me.p_fin = p_fin
         Me.p_tg_deb = p_tg_deb
         Me.p_tg_fin = p_tg_fin
         Me.nbr_segment = nbr_segment
         Me.couleur_courbe = couleur_courbe
+        Me.nom = nom
 
         point_selectionne_enum = pointEnum.aucun
         Me.currentlySelected = True 'By default => New bezier is showed + selected

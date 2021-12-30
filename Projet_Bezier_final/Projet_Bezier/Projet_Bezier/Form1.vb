@@ -27,6 +27,7 @@ Public Class Form1
 
     Dim numeric_indicator_value_changed_trigger As Boolean = False
     Dim check_selected_index_value_changed_trigger As Boolean = False
+    Dim name_changed_trigger As Boolean = True
 
     Dim show_name_bezier As Boolean = True
 
@@ -324,9 +325,8 @@ Public Class Form1
         End If
 
         'Get back uid from string
-        Dim uid As Single = Single.Parse(list_curve_clb.SelectedItem)
         For Each bezier_tmp In bezier_list
-            If bezier_tmp.uid.Equals(uid) Then
+            If getItemListName(bezier_tmp).Equals(list_curve_clb.SelectedItem) Then
                 SetSelectedBezier(bezier_tmp, False) ' Don't select item => It's already done
                 drawer.drawBeziers(bezier_list, show_name_bezier)
                 Return 'Do it only once
@@ -342,11 +342,11 @@ Public Class Form1
         'Avoid selected index trigger
         check_selected_index_value_changed_trigger = False
 
-        Dim bezier_tmp As New Bezier(New PointF(0, 0), New PointF(0.5, -0.5), New PointF(0.5, 0.8), New PointF(0.5, -0.8), segment_nud.Value, ColorTranslator.FromHtml(hexacode_tb.Text))
+        Dim bezier_tmp As New Bezier(New PointF(0, 0), New PointF(0.5, -0.5), New PointF(0.5, 0.8), New PointF(0.5, -0.8), segment_nud.Value, ColorTranslator.FromHtml(hexacode_tb.Text), selected_tb.Text)
         bezier_list.Add(bezier_tmp)
 
         ' Add it through our list display
-        list_curve_clb.Items.Add(bezier_tmp.uid.ToString()) ' "Courbe de bézier n° " + Bezier.uid.ToString())
+        list_curve_clb.Items.Add(getItemListName(bezier_tmp)) ' "Courbe de bézier n° " + Bezier.uid.ToString())
         list_curve_clb.SetItemChecked(bezier_list.Count() - 1, True) ' Set default checked
 
 
@@ -417,6 +417,9 @@ Public Class Form1
         numeric_indicator_value_changed_trigger = False
         'Avoid selected index trigger
         check_selected_index_value_changed_trigger = False
+        'Avoid text changed trigger on name
+        name_changed_trigger = False
+
         ' Set bezier selected as this one 
         bezier = bezier_selected
         bezier.currentlySelected = True
@@ -435,6 +438,8 @@ Public Class Form1
 
         segment_nud.Value = bezier.nombre_segment
         curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
+        selected_tb.Text = bezier.nom
+
 
         Dim i As Single = 0
         Dim index As Single
@@ -454,18 +459,31 @@ Public Class Form1
 
         numeric_indicator_value_changed_trigger = True
         check_selected_index_value_changed_trigger = True
+        name_changed_trigger = True
     End Sub
 
     ' Return index on list box of specified uid
     Private Function getIndexListBox(ByVal uid As String)
         Dim i As Single = 0
+        'For Each item In list_curve_clb.Items
+        'If item.Equals(bezier.uid.ToString()) Then
+        'Return i
+        'End If
+        'i += 1
+        'Next
+
         For Each item In list_curve_clb.Items
-            If item.Equals(bezier.uid.ToString()) Then
+            If item.Equals(getItemListName(bezier)) Then
                 Return i
             End If
             i += 1
         Next
+
         Return -1 'Not found
+    End Function
+
+    Private Function getItemListName(ByRef bezier_tmp As Bezier) As String
+        Return (bezier_tmp.uid.ToString() + " : " + bezier_tmp.nom)
     End Function
 
     'Ajout de courbe de bezier
@@ -570,7 +588,7 @@ Public Class Form1
 
         For Each bezier_tmp As Bezier In bezier_list
             ' Add it through our list display
-            list_curve_clb.Items.Add(bezier_tmp.uid.ToString()) ' "Courbe de bézier n° " + Bezier.uid.ToString())
+            list_curve_clb.Items.Add(getItemListName(bezier_tmp)) ' "Courbe de bézier n° " + Bezier.uid.ToString())
             list_curve_clb.SetItemChecked(list_curve_clb.Items.Count() - 1, bezier_tmp.show) ' Set default checked
         Next
 
@@ -1121,5 +1139,20 @@ Public Class Form1
 
 
         drawer.drawBeziers(bezier_list, show_name_bezier)
+    End Sub
+
+    Private Sub selected_tb_TextChanged(sender As Object, e As EventArgs) Handles selected_tb.TextChanged
+        If (bezier Is Nothing Or name_changed_trigger = False) Then
+            Return
+        End If
+
+        'Update list item
+        Dim index As Integer = getIndexListBox(bezier.uid)
+
+        bezier.nom = selected_tb.Text 'Change name after getting index (depend of name)
+
+        check_selected_index_value_changed_trigger = False
+        list_curve_clb.Items(index) = getItemListName(bezier)
+        check_selected_index_value_changed_trigger = True
     End Sub
 End Class
