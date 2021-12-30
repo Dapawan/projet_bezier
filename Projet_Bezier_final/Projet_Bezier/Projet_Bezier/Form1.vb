@@ -20,7 +20,7 @@ Public Class Form1
     Dim new_b As Bitmap
     Dim g As Graphics
 
-
+    Dim ToolTip1 As System.Windows.Forms.ToolTip
     Dim drawer As Drawer
     Dim bezier As Bezier 'Current bezier
     Dim bezier_list As New List(Of Bezier)
@@ -57,6 +57,7 @@ Public Class Form1
 
         'trace_pb.BackgroundImage = New Bitmap(Projet_Bezier.My.Resources.Resources.BG, trace_pb.Width, trace_pb.Height)
         '
+        setToolTipButton()
 
         drawer = New Drawer(trace_pb)
 
@@ -993,6 +994,8 @@ Public Class Form1
     Private Sub ChangeLanguage(ByVal Language As String)
         Me.language = Language
 
+        setToolTipButton()
+
         Dim crmLang As ComponentResourceManager = New ComponentResourceManager(GetType(Form1))
 
         'Change all Form1 Controls language
@@ -1031,6 +1034,29 @@ Public Class Form1
         ChangeLanguage("fr-FR")
     End Sub
 
+    Private Sub setToolTipButton()
+        Dim button_list As Button() = {load_file_btn, save_file_btn, take_screenshot_btn, browse_screenshot_btn, delete_file_btn, zoom_in_btn, zoom_out_btn, zoom_reset_btn, hide_grid_btn, add_curve_btn, hide_curve_btn, delete_curve_btn, delete_all_curve_btn, curve_info_btn, curve_list_btn, parameter_btn, pick_color_btn}
+        Dim french_text_list As String() = {"Ouvrir Bezier", "Enregistrer Bezier", "Prendre une capture", "Parcourir les captures", "Supprimer fichiers Bezier", "Zoom +", "Zoom -", "Zoom défaut", "Afficher/ Cacher grille", "Ajouter courbe", "Masquer courbe", "Supprimer courbe", "Supprimer toutes les courbes", "Numéro courbes", "Info courbes", "Paramètres", "Choix couleur courbe"}
+        Dim english_text_list As String() = {"Open Bezier", "Save Bezier", "Take screenshot", "Browse screenshots", "Delete Bezier File", "Zoom +", "Zoom -", "Zoom default", "Show/ Hide grid", "Add curve", "Hide curve", "Delete curve", "Delete all curves", "Curves index", "Curves list info", "Settings", "Curves color"}
+
+        If (Not ToolTip1 Is Nothing) Then
+            ToolTip1.Dispose()
+        End If
+
+        ToolTip1 = New System.Windows.Forms.ToolTip()
+
+        ToolTip1.RemoveAll()
+
+        For i As Single = 0 To button_list.Length - 1
+            If (Me.language.Equals("fr-FR")) Then
+                ToolTip1.SetToolTip(button_list(i), french_text_list(i))
+            Else
+                ToolTip1.SetToolTip(button_list(i), english_text_list(i))
+            End If
+
+        Next
+    End Sub
+
     Private Sub AnglaisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnglaisToolStripMenuItem.Click
         ChangeLanguage("en")
     End Sub
@@ -1051,7 +1077,7 @@ Public Class Form1
         If (FolderBrowserDialog1.ShowDialog() = DialogResult.OK) Then
             path = FolderBrowserDialog1.SelectedPath
             If language.Equals("fr-FR") Then
-                MessageBox.Show("La notice à été sauvegrder à l'endroit suivant : " & vbCrLf & path, "Information")
+                MessageBox.Show("La notice à été sauvegarder à l'endroit suivant : " & vbCrLf & path, "Information")
             Else
                 MessageBox.Show("The notice was saved at the following location : " & vbCrLf & path, "Information")
             End If

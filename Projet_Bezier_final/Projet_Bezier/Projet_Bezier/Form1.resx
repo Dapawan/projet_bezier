@@ -1142,12 +1142,6 @@
   <data name="&gt;&gt;selected_tb.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
-  <data name="FichierToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fichier</value>
-  </data>
   <data name="OuvrirBezierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
   </data>
@@ -1184,11 +1178,11 @@
   <data name="ParamètresToolStripMenuItem.Text" xml:space="preserve">
     <value>Paramètres</value>
   </data>
-  <data name="EditionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
+  <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
   </data>
-  <data name="EditionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Editions</value>
+  <data name="FichierToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fichier</value>
   </data>
   <data name="AjouterCourbeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>227, 22</value>
@@ -1220,9 +1214,99 @@
   <data name="CouleurToolStripMenuItem.Text" xml:space="preserve">
     <value>Couleur</value>
   </data>
+  <data name="EditionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="EditionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Editions</value>
+  </data>
   <metadata name="main_menu_ms.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>140, 3</value>
   </metadata>
+  <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
+    <value>Zoom +</value>
+  </data>
+  <data name="ZoomToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ZoomToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Zoom -</value>
+  </data>
+  <data name="ZoomDefautToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ZoomDefautToolStripMenuItem.Text" xml:space="preserve">
+    <value>Zoom defaut</value>
+  </data>
+  <data name="AfficherGrilleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="AfficherGrilleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Afficher grille</value>
+  </data>
+  <data name="InfoCoubesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="InfoCoubesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Numéro coubes</value>
+  </data>
+  <data name="InfoCourbesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="InfoCourbesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Info courbes</value>
+  </data>
+  <data name="AffichageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="AffichageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Affichage</value>
+  </data>
+  <data name="ControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="ControlToolStripMenuItem.Text" xml:space="preserve">
+    <value>Control</value>
+  </data>
+  <data name="NoticeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="NoticeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Notice</value>
+  </data>
+  <data name="VersionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="VersionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="FrançaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 22</value>
+  </data>
+  <data name="FrançaisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="AnglaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 22</value>
+  </data>
+  <data name="AnglaisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="LangueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="LangueToolStripMenuItem.Text" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
   <data name="main_menu_ms.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -1243,90 +1327,6 @@
   </data>
   <data name="&gt;&gt;main_menu_ms.ZOrder" xml:space="preserve">
     <value>12</value>
-  </data>
-  <data name="AffichageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 20</value>
-  </data>
-  <data name="AffichageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Affichage</value>
-  </data>
-  <data name="ZoomToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
-  </data>
-  <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
-    <value>Zoom +</value>
-  </data>
-  <data name="ZoomToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
-  </data>
-  <data name="ZoomToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Zoom -</value>
-  </data>
-  <data name="ZoomDefautToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
-  </data>
-  <data name="ZoomDefautToolStripMenuItem.Text" xml:space="preserve">
-    <value>Zoom defaut</value>
-  </data>
-  <data name="AfficherGrilleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
-  </data>
-  <data name="AfficherGrilleToolStripMenuItem.Text" xml:space="preserve">
-    <value>Afficher grille</value>
-  </data>
-  <data name="InfoCoubesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
-  </data>
-  <data name="InfoCoubesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Numéro coubes</value>
-  </data>
-  <data name="InfoCourbesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
-  </data>
-  <data name="InfoCourbesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Info courbes</value>
-  </data>
-  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
-  <data name="ControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="ControlToolStripMenuItem.Text" xml:space="preserve">
-    <value>Control</value>
-  </data>
-  <data name="NoticeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="NoticeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Notice</value>
-  </data>
-  <data name="VersionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="VersionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Version</value>
-  </data>
-  <data name="LangueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="LangueToolStripMenuItem.Text" xml:space="preserve">
-    <value>Langue</value>
-  </data>
-  <data name="FrançaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="FrançaisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Français</value>
-  </data>
-  <data name="AnglaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="AnglaisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Anglais</value>
   </data>
   <data name="x_Xind_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2063,6 +2063,9 @@
   </data>
   <metadata name="FolderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>140, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
