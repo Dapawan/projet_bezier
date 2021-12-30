@@ -137,8 +137,8 @@ Partial Class Form1
         '
         'x_nud_start
         '
-        Me.x_nud_start.DecimalPlaces = 2
         resources.ApplyResources(Me.x_nud_start, "x_nud_start")
+        Me.x_nud_start.DecimalPlaces = 2
         Me.x_nud_start.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.x_nud_start.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.x_nud_start.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
@@ -167,8 +167,8 @@ Partial Class Form1
         '
         'y_nud_start
         '
-        Me.y_nud_start.DecimalPlaces = 2
         resources.ApplyResources(Me.y_nud_start, "y_nud_start")
+        Me.y_nud_start.DecimalPlaces = 2
         Me.y_nud_start.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.y_nud_start.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.y_nud_start.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
@@ -176,8 +176,8 @@ Partial Class Form1
         '
         'xtg_nud_start
         '
-        Me.xtg_nud_start.DecimalPlaces = 2
         resources.ApplyResources(Me.xtg_nud_start, "xtg_nud_start")
+        Me.xtg_nud_start.DecimalPlaces = 2
         Me.xtg_nud_start.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.xtg_nud_start.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.xtg_nud_start.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
@@ -185,8 +185,8 @@ Partial Class Form1
         '
         'ytg_nud_start
         '
-        Me.ytg_nud_start.DecimalPlaces = 2
         resources.ApplyResources(Me.ytg_nud_start, "ytg_nud_start")
+        Me.ytg_nud_start.DecimalPlaces = 2
         Me.ytg_nud_start.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.ytg_nud_start.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.ytg_nud_start.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
@@ -244,8 +244,8 @@ Partial Class Form1
         '
         'y_nud_end
         '
-        Me.y_nud_end.DecimalPlaces = 2
         resources.ApplyResources(Me.y_nud_end, "y_nud_end")
+        Me.y_nud_end.DecimalPlaces = 2
         Me.y_nud_end.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.y_nud_end.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.y_nud_end.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
@@ -253,8 +253,8 @@ Partial Class Form1
         '
         'x_nud_end
         '
-        Me.x_nud_end.DecimalPlaces = 2
         resources.ApplyResources(Me.x_nud_end, "x_nud_end")
+        Me.x_nud_end.DecimalPlaces = 2
         Me.x_nud_end.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.x_nud_end.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.x_nud_end.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
@@ -272,8 +272,8 @@ Partial Class Form1
         '
         'ytg_nud_end
         '
-        Me.ytg_nud_end.DecimalPlaces = 2
         resources.ApplyResources(Me.ytg_nud_end, "ytg_nud_end")
+        Me.ytg_nud_end.DecimalPlaces = 2
         Me.ytg_nud_end.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.ytg_nud_end.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.ytg_nud_end.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
@@ -281,8 +281,8 @@ Partial Class Form1
         '
         'xtg_nud_end
         '
-        Me.xtg_nud_end.DecimalPlaces = 2
         resources.ApplyResources(Me.xtg_nud_end, "xtg_nud_end")
+        Me.xtg_nud_end.DecimalPlaces = 2
         Me.xtg_nud_end.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.xtg_nud_end.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.xtg_nud_end.Minimum = New Decimal(New Integer() {1, 0, 0, -2147483648})
@@ -358,173 +358,173 @@ Partial Class Form1
         '
         'FichierToolStripMenuItem
         '
+        resources.ApplyResources(Me.FichierToolStripMenuItem, "FichierToolStripMenuItem")
         Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OuvrirBezierToolStripMenuItem, Me.EnregistrerBezierToolStripMenuItem, Me.SupprimerFichiersBezierToolStripMenuItem, Me.PrendreUnCaptureToolStripMenuItem, Me.ParcourirCaptureToolStripMenuItem, Me.ParamètresToolStripMenuItem})
         Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
-        resources.ApplyResources(Me.FichierToolStripMenuItem, "FichierToolStripMenuItem")
         '
         'OuvrirBezierToolStripMenuItem
         '
+        resources.ApplyResources(Me.OuvrirBezierToolStripMenuItem, "OuvrirBezierToolStripMenuItem")
         Me.OuvrirBezierToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.computer_folder_open_resized_3_color
         Me.OuvrirBezierToolStripMenuItem.Name = "OuvrirBezierToolStripMenuItem"
-        resources.ApplyResources(Me.OuvrirBezierToolStripMenuItem, "OuvrirBezierToolStripMenuItem")
         '
         'EnregistrerBezierToolStripMenuItem
         '
+        resources.ApplyResources(Me.EnregistrerBezierToolStripMenuItem, "EnregistrerBezierToolStripMenuItem")
         Me.EnregistrerBezierToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.save_resized_color_2
         Me.EnregistrerBezierToolStripMenuItem.Name = "EnregistrerBezierToolStripMenuItem"
-        resources.ApplyResources(Me.EnregistrerBezierToolStripMenuItem, "EnregistrerBezierToolStripMenuItem")
         '
         'SupprimerFichiersBezierToolStripMenuItem
         '
+        resources.ApplyResources(Me.SupprimerFichiersBezierToolStripMenuItem, "SupprimerFichiersBezierToolStripMenuItem")
         Me.SupprimerFichiersBezierToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.recycle_bin_line_resized_color
         Me.SupprimerFichiersBezierToolStripMenuItem.Name = "SupprimerFichiersBezierToolStripMenuItem"
-        resources.ApplyResources(Me.SupprimerFichiersBezierToolStripMenuItem, "SupprimerFichiersBezierToolStripMenuItem")
         '
         'PrendreUnCaptureToolStripMenuItem
         '
+        resources.ApplyResources(Me.PrendreUnCaptureToolStripMenuItem, "PrendreUnCaptureToolStripMenuItem")
         Me.PrendreUnCaptureToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.camera_aperture
         Me.PrendreUnCaptureToolStripMenuItem.Name = "PrendreUnCaptureToolStripMenuItem"
-        resources.ApplyResources(Me.PrendreUnCaptureToolStripMenuItem, "PrendreUnCaptureToolStripMenuItem")
         '
         'ParcourirCaptureToolStripMenuItem
         '
+        resources.ApplyResources(Me.ParcourirCaptureToolStripMenuItem, "ParcourirCaptureToolStripMenuItem")
         Me.ParcourirCaptureToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.pictures_resized_color
         Me.ParcourirCaptureToolStripMenuItem.Name = "ParcourirCaptureToolStripMenuItem"
-        resources.ApplyResources(Me.ParcourirCaptureToolStripMenuItem, "ParcourirCaptureToolStripMenuItem")
         '
         'ParamètresToolStripMenuItem
         '
+        resources.ApplyResources(Me.ParamètresToolStripMenuItem, "ParamètresToolStripMenuItem")
         Me.ParamètresToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.settings_gear_color_2
         Me.ParamètresToolStripMenuItem.Name = "ParamètresToolStripMenuItem"
-        resources.ApplyResources(Me.ParamètresToolStripMenuItem, "ParamètresToolStripMenuItem")
         '
         'EditionsToolStripMenuItem
         '
+        resources.ApplyResources(Me.EditionsToolStripMenuItem, "EditionsToolStripMenuItem")
         Me.EditionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AjouterCourbeToolStripMenuItem, Me.MasquerCourbeToolStripMenuItem, Me.SupprimerCourbeToolStripMenuItem, Me.SupprimerToutesLesCourbesToolStripMenuItem, Me.CouleurToolStripMenuItem})
         Me.EditionsToolStripMenuItem.Name = "EditionsToolStripMenuItem"
-        resources.ApplyResources(Me.EditionsToolStripMenuItem, "EditionsToolStripMenuItem")
         '
         'AjouterCourbeToolStripMenuItem
         '
+        resources.ApplyResources(Me.AjouterCourbeToolStripMenuItem, "AjouterCourbeToolStripMenuItem")
         Me.AjouterCourbeToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.collapse_plus
         Me.AjouterCourbeToolStripMenuItem.Name = "AjouterCourbeToolStripMenuItem"
-        resources.ApplyResources(Me.AjouterCourbeToolStripMenuItem, "AjouterCourbeToolStripMenuItem")
         '
         'MasquerCourbeToolStripMenuItem
         '
+        resources.ApplyResources(Me.MasquerCourbeToolStripMenuItem, "MasquerCourbeToolStripMenuItem")
         Me.MasquerCourbeToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.check_mark_box_line
         Me.MasquerCourbeToolStripMenuItem.Name = "MasquerCourbeToolStripMenuItem"
-        resources.ApplyResources(Me.MasquerCourbeToolStripMenuItem, "MasquerCourbeToolStripMenuItem")
         '
         'SupprimerCourbeToolStripMenuItem
         '
+        resources.ApplyResources(Me.SupprimerCourbeToolStripMenuItem, "SupprimerCourbeToolStripMenuItem")
         Me.SupprimerCourbeToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.expand_minus
         Me.SupprimerCourbeToolStripMenuItem.Name = "SupprimerCourbeToolStripMenuItem"
-        resources.ApplyResources(Me.SupprimerCourbeToolStripMenuItem, "SupprimerCourbeToolStripMenuItem")
         '
         'SupprimerToutesLesCourbesToolStripMenuItem
         '
+        resources.ApplyResources(Me.SupprimerToutesLesCourbesToolStripMenuItem, "SupprimerToutesLesCourbesToolStripMenuItem")
         Me.SupprimerToutesLesCourbesToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.close_window
         Me.SupprimerToutesLesCourbesToolStripMenuItem.Name = "SupprimerToutesLesCourbesToolStripMenuItem"
-        resources.ApplyResources(Me.SupprimerToutesLesCourbesToolStripMenuItem, "SupprimerToutesLesCourbesToolStripMenuItem")
         '
         'CouleurToolStripMenuItem
         '
+        resources.ApplyResources(Me.CouleurToolStripMenuItem, "CouleurToolStripMenuItem")
         Me.CouleurToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.paint_brush_drawing_color_v2
         Me.CouleurToolStripMenuItem.Name = "CouleurToolStripMenuItem"
-        resources.ApplyResources(Me.CouleurToolStripMenuItem, "CouleurToolStripMenuItem")
         '
         'main_menu_ms
         '
+        resources.ApplyResources(Me.main_menu_ms, "main_menu_ms")
         Me.main_menu_ms.BackColor = System.Drawing.Color.Transparent
         Me.main_menu_ms.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FichierToolStripMenuItem, Me.EditionsToolStripMenuItem, Me.AffichageToolStripMenuItem, Me.HelpToolStripMenuItem})
-        resources.ApplyResources(Me.main_menu_ms, "main_menu_ms")
         Me.main_menu_ms.Name = "main_menu_ms"
         '
         'AffichageToolStripMenuItem
         '
+        resources.ApplyResources(Me.AffichageToolStripMenuItem, "AffichageToolStripMenuItem")
         Me.AffichageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ZoomToolStripMenuItem, Me.ZoomToolStripMenuItem1, Me.ZoomDefautToolStripMenuItem, Me.AfficherGrilleToolStripMenuItem, Me.InfoCoubesToolStripMenuItem, Me.InfoCourbesToolStripMenuItem})
         Me.AffichageToolStripMenuItem.Name = "AffichageToolStripMenuItem"
-        resources.ApplyResources(Me.AffichageToolStripMenuItem, "AffichageToolStripMenuItem")
         '
         'ZoomToolStripMenuItem
         '
+        resources.ApplyResources(Me.ZoomToolStripMenuItem, "ZoomToolStripMenuItem")
         Me.ZoomToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_color
         Me.ZoomToolStripMenuItem.Name = "ZoomToolStripMenuItem"
-        resources.ApplyResources(Me.ZoomToolStripMenuItem, "ZoomToolStripMenuItem")
         '
         'ZoomToolStripMenuItem1
         '
+        resources.ApplyResources(Me.ZoomToolStripMenuItem1, "ZoomToolStripMenuItem1")
         Me.ZoomToolStripMenuItem1.Image = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_out_color
         Me.ZoomToolStripMenuItem1.Name = "ZoomToolStripMenuItem1"
-        resources.ApplyResources(Me.ZoomToolStripMenuItem1, "ZoomToolStripMenuItem1")
         '
         'ZoomDefautToolStripMenuItem
         '
+        resources.ApplyResources(Me.ZoomDefautToolStripMenuItem, "ZoomDefautToolStripMenuItem")
         Me.ZoomDefautToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_reset_color
         Me.ZoomDefautToolStripMenuItem.Name = "ZoomDefautToolStripMenuItem"
-        resources.ApplyResources(Me.ZoomDefautToolStripMenuItem, "ZoomDefautToolStripMenuItem")
         '
         'AfficherGrilleToolStripMenuItem
         '
+        resources.ApplyResources(Me.AfficherGrilleToolStripMenuItem, "AfficherGrilleToolStripMenuItem")
         Me.AfficherGrilleToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.grid_2_color
         Me.AfficherGrilleToolStripMenuItem.Name = "AfficherGrilleToolStripMenuItem"
-        resources.ApplyResources(Me.AfficherGrilleToolStripMenuItem, "AfficherGrilleToolStripMenuItem")
         '
         'InfoCoubesToolStripMenuItem
         '
+        resources.ApplyResources(Me.InfoCoubesToolStripMenuItem, "InfoCoubesToolStripMenuItem")
         Me.InfoCoubesToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.info
         Me.InfoCoubesToolStripMenuItem.Name = "InfoCoubesToolStripMenuItem"
-        resources.ApplyResources(Me.InfoCoubesToolStripMenuItem, "InfoCoubesToolStripMenuItem")
         '
         'InfoCourbesToolStripMenuItem
         '
+        resources.ApplyResources(Me.InfoCourbesToolStripMenuItem, "InfoCourbesToolStripMenuItem")
         Me.InfoCourbesToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.list_view_resized_3_color_2
         Me.InfoCourbesToolStripMenuItem.Name = "InfoCourbesToolStripMenuItem"
-        resources.ApplyResources(Me.InfoCourbesToolStripMenuItem, "InfoCourbesToolStripMenuItem")
         '
         'HelpToolStripMenuItem
         '
+        resources.ApplyResources(Me.HelpToolStripMenuItem, "HelpToolStripMenuItem")
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ControlToolStripMenuItem, Me.NoticeToolStripMenuItem, Me.VersionsToolStripMenuItem, Me.LangueToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        resources.ApplyResources(Me.HelpToolStripMenuItem, "HelpToolStripMenuItem")
         '
         'ControlToolStripMenuItem
         '
+        resources.ApplyResources(Me.ControlToolStripMenuItem, "ControlToolStripMenuItem")
         Me.ControlToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.ctrl_control_button
         Me.ControlToolStripMenuItem.Name = "ControlToolStripMenuItem"
-        resources.ApplyResources(Me.ControlToolStripMenuItem, "ControlToolStripMenuItem")
         '
         'NoticeToolStripMenuItem
         '
+        resources.ApplyResources(Me.NoticeToolStripMenuItem, "NoticeToolStripMenuItem")
         Me.NoticeToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.article
         Me.NoticeToolStripMenuItem.Name = "NoticeToolStripMenuItem"
-        resources.ApplyResources(Me.NoticeToolStripMenuItem, "NoticeToolStripMenuItem")
         '
         'VersionsToolStripMenuItem
         '
+        resources.ApplyResources(Me.VersionsToolStripMenuItem, "VersionsToolStripMenuItem")
         Me.VersionsToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.open_book
         Me.VersionsToolStripMenuItem.Name = "VersionsToolStripMenuItem"
-        resources.ApplyResources(Me.VersionsToolStripMenuItem, "VersionsToolStripMenuItem")
         '
         'LangueToolStripMenuItem
         '
+        resources.ApplyResources(Me.LangueToolStripMenuItem, "LangueToolStripMenuItem")
         Me.LangueToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FrançaisToolStripMenuItem, Me.AnglaisToolStripMenuItem})
         Me.LangueToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.earth
         Me.LangueToolStripMenuItem.Name = "LangueToolStripMenuItem"
-        resources.ApplyResources(Me.LangueToolStripMenuItem, "LangueToolStripMenuItem")
         '
         'FrançaisToolStripMenuItem
         '
+        resources.ApplyResources(Me.FrançaisToolStripMenuItem, "FrançaisToolStripMenuItem")
         Me.FrançaisToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.fr_language
         Me.FrançaisToolStripMenuItem.Name = "FrançaisToolStripMenuItem"
-        resources.ApplyResources(Me.FrançaisToolStripMenuItem, "FrançaisToolStripMenuItem")
         '
         'AnglaisToolStripMenuItem
         '
+        resources.ApplyResources(Me.AnglaisToolStripMenuItem, "AnglaisToolStripMenuItem")
         Me.AnglaisToolStripMenuItem.Image = Global.Projet_Bezier.My.Resources.Resources.en_language
         Me.AnglaisToolStripMenuItem.Name = "AnglaisToolStripMenuItem"
-        resources.ApplyResources(Me.AnglaisToolStripMenuItem, "AnglaisToolStripMenuItem")
         '
         'x_Xind_lb_start
         '
@@ -581,136 +581,136 @@ Partial Class Form1
         '
         'parameter_btn
         '
-        Me.parameter_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.settings_gear_color_2
         resources.ApplyResources(Me.parameter_btn, "parameter_btn")
+        Me.parameter_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.settings_gear_color_2
         Me.parameter_btn.Name = "parameter_btn"
         Me.parameter_btn.UseVisualStyleBackColor = True
         '
         'save_file_btn
         '
-        Me.save_file_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.save_resized_color_2
         resources.ApplyResources(Me.save_file_btn, "save_file_btn")
+        Me.save_file_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.save_resized_color_2
         Me.save_file_btn.Name = "save_file_btn"
         Me.save_file_btn.UseVisualStyleBackColor = True
         '
         'browse_screenshot_btn
         '
-        Me.browse_screenshot_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.pictures_resized_color
         resources.ApplyResources(Me.browse_screenshot_btn, "browse_screenshot_btn")
+        Me.browse_screenshot_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.pictures_resized_color
         Me.browse_screenshot_btn.Name = "browse_screenshot_btn"
         Me.browse_screenshot_btn.UseVisualStyleBackColor = True
         '
         'load_file_btn
         '
-        Me.load_file_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.computer_folder_open_resized_3_color
         resources.ApplyResources(Me.load_file_btn, "load_file_btn")
+        Me.load_file_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.computer_folder_open_resized_3_color
         Me.load_file_btn.Name = "load_file_btn"
         Me.load_file_btn.UseVisualStyleBackColor = True
         '
         'curve_list_btn
         '
-        Me.curve_list_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.list_view_resized_3_color_2
         resources.ApplyResources(Me.curve_list_btn, "curve_list_btn")
+        Me.curve_list_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.list_view_resized_3_color_2
         Me.curve_list_btn.Name = "curve_list_btn"
         Me.curve_list_btn.UseVisualStyleBackColor = True
         '
         'curve_info_btn
         '
-        Me.curve_info_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.info_color
         resources.ApplyResources(Me.curve_info_btn, "curve_info_btn")
+        Me.curve_info_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.info_color
         Me.curve_info_btn.Name = "curve_info_btn"
         Me.curve_info_btn.UseVisualStyleBackColor = True
         '
         'hide_curve_btn
         '
-        Me.hide_curve_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.check_mark_box_line
         resources.ApplyResources(Me.hide_curve_btn, "hide_curve_btn")
+        Me.hide_curve_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.check_mark_box_line
         Me.hide_curve_btn.Name = "hide_curve_btn"
         Me.hide_curve_btn.UseVisualStyleBackColor = True
         '
         'delete_all_curve_btn
         '
-        Me.delete_all_curve_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.close_window
         resources.ApplyResources(Me.delete_all_curve_btn, "delete_all_curve_btn")
+        Me.delete_all_curve_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.close_window
         Me.delete_all_curve_btn.Name = "delete_all_curve_btn"
         Me.delete_all_curve_btn.UseVisualStyleBackColor = True
         '
         'color_pb
         '
-        Me.color_pb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         resources.ApplyResources(Me.color_pb, "color_pb")
+        Me.color_pb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.color_pb.Name = "color_pb"
         Me.color_pb.TabStop = False
         '
         'pick_color_btn
         '
-        Me.pick_color_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.paint_brush_drawing_color_v2
         resources.ApplyResources(Me.pick_color_btn, "pick_color_btn")
+        Me.pick_color_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.paint_brush_drawing_color_v2
         Me.pick_color_btn.Name = "pick_color_btn"
         Me.pick_color_btn.UseVisualStyleBackColor = True
         '
         'take_screenshot_btn
         '
-        Me.take_screenshot_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.camera_aperture
         resources.ApplyResources(Me.take_screenshot_btn, "take_screenshot_btn")
+        Me.take_screenshot_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.camera_aperture
         Me.take_screenshot_btn.Name = "take_screenshot_btn"
         Me.take_screenshot_btn.UseVisualStyleBackColor = True
         '
         'delete_curve_btn
         '
-        Me.delete_curve_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.expand_minus
         resources.ApplyResources(Me.delete_curve_btn, "delete_curve_btn")
+        Me.delete_curve_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.expand_minus
         Me.delete_curve_btn.Name = "delete_curve_btn"
         Me.delete_curve_btn.UseVisualStyleBackColor = True
         '
         'add_curve_btn
         '
-        Me.add_curve_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.collapse_plus
         resources.ApplyResources(Me.add_curve_btn, "add_curve_btn")
+        Me.add_curve_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.collapse_plus
         Me.add_curve_btn.Name = "add_curve_btn"
         Me.add_curve_btn.UseVisualStyleBackColor = True
         '
         'delete_file_btn
         '
-        Me.delete_file_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.recycle_bin_line_resized_color
         resources.ApplyResources(Me.delete_file_btn, "delete_file_btn")
+        Me.delete_file_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.recycle_bin_line_resized_color
         Me.delete_file_btn.Name = "delete_file_btn"
         Me.delete_file_btn.UseVisualStyleBackColor = True
         '
         'zoom_out_btn
         '
-        Me.zoom_out_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_out_color
         resources.ApplyResources(Me.zoom_out_btn, "zoom_out_btn")
+        Me.zoom_out_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_out_color
         Me.zoom_out_btn.Name = "zoom_out_btn"
         Me.zoom_out_btn.UseVisualStyleBackColor = True
         '
         'hide_grid_btn
         '
-        Me.hide_grid_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.grid_2_color
         resources.ApplyResources(Me.hide_grid_btn, "hide_grid_btn")
+        Me.hide_grid_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.grid_2_color
         Me.hide_grid_btn.Name = "hide_grid_btn"
         Me.hide_grid_btn.UseVisualStyleBackColor = True
         '
         'zoom_reset_btn
         '
-        Me.zoom_reset_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_reset_color
         resources.ApplyResources(Me.zoom_reset_btn, "zoom_reset_btn")
+        Me.zoom_reset_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_reset_color
         Me.zoom_reset_btn.Name = "zoom_reset_btn"
         Me.zoom_reset_btn.UseVisualStyleBackColor = True
         '
         'zoom_in_btn
         '
-        Me.zoom_in_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_color
         resources.ApplyResources(Me.zoom_in_btn, "zoom_in_btn")
+        Me.zoom_in_btn.BackgroundImage = Global.Projet_Bezier.My.Resources.Resources.magnifier_glass_zoom_color
         Me.zoom_in_btn.Name = "zoom_in_btn"
         Me.zoom_in_btn.UseVisualStyleBackColor = True
         '
         'trace_pb
         '
+        resources.ApplyResources(Me.trace_pb, "trace_pb")
         Me.trace_pb.BackColor = System.Drawing.Color.White
         Me.trace_pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.trace_pb.Image = Global.Projet_Bezier.My.Resources.Resources.BG
-        resources.ApplyResources(Me.trace_pb, "trace_pb")
         Me.trace_pb.InitialImage = Global.Projet_Bezier.My.Resources.Resources.BG
         Me.trace_pb.Name = "trace_pb"
         Me.trace_pb.TabStop = False
@@ -719,6 +719,10 @@ Partial Class Form1
         '
         resources.ApplyResources(Me.curve_select_name_lb, "curve_select_name_lb")
         Me.curve_select_name_lb.Name = "curve_select_name_lb"
+        '
+        'FolderBrowserDialog1
+        '
+        resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
         '
         'Form1
         '

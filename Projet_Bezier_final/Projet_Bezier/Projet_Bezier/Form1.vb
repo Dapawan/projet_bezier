@@ -471,11 +471,11 @@ Public Class Form1
     End Function
 
     'Ajout de courbe de bezier
-    Private Sub AddCurve_Click(sender As Object, e As EventArgs) Handles add_curve_btn.Click
+    Private Sub AddCurve_Click(sender As Object, e As EventArgs) Handles add_curve_btn.Click, AjouterCourbeToolStripMenuItem.Click
         AddBezier()
     End Sub
     'Remove bezier
-    Private Sub DeleteCurve_Click(sender As Object, e As EventArgs) Handles delete_curve_btn.Click
+    Private Sub DeleteCurve_Click(sender As Object, e As EventArgs) Handles delete_curve_btn.Click, SupprimerCourbeToolStripMenuItem.Click
         'Remove selected bezier
         Dim index As Single
 
@@ -502,13 +502,13 @@ Public Class Form1
         End If
     End Sub
     ' Show bezier name on each
-    Private Sub CurveInfo_Click(sender As Object, e As EventArgs) Handles curve_info_btn.Click
+    Private Sub CurveInfo_Click(sender As Object, e As EventArgs) Handles curve_info_btn.Click, InfoCoubesToolStripMenuItem.Click
         show_name_bezier = Not show_name_bezier
         drawer.drawBeziers(bezier_list, show_name_bezier)
     End Sub
 
     ' Save jpeg
-    Private Sub TakeScreenshot_Click(sender As Object, e As EventArgs) Handles take_screenshot_btn.Click
+    Private Sub TakeScreenshot_Click(sender As Object, e As EventArgs) Handles take_screenshot_btn.Click, PrendreUnCaptureToolStripMenuItem.Click
         ' Si nom empty => On ouvre l'explorateur et l'utiisateur choisit
         If (auto_incr_screenshot.Equals(False)) Then
             drawer.saveDrawing(default_path_screenshot)
@@ -525,7 +525,7 @@ Public Class Form1
 
 
     ' Read
-    Private Sub LoadFile_Click(sender As Object, e As EventArgs) Handles load_file_btn.Click
+    Private Sub LoadFile_Click(sender As Object, e As EventArgs) Handles load_file_btn.Click, OuvrirBezierToolStripMenuItem.Click
 
         Dim sfdPic As New OpenFileDialog()
         Dim Path As String = default_path_file
@@ -585,7 +585,7 @@ Public Class Form1
     End Sub
 
     'Save bezier list
-    Private Sub SaveFile_Click(sender As Object, e As EventArgs) Handles save_file_btn.Click
+    Private Sub SaveFile_Click(sender As Object, e As EventArgs) Handles save_file_btn.Click, EnregistrerBezierToolStripMenuItem.Click
         ' Using params for file section
 
         ' Si nom empty => On ouvre l'explorateur et l'utiisateur choisit
@@ -633,7 +633,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button_params_Click(sender As Object, e As EventArgs) Handles parameter_btn.Click
+    Private Sub Button_params_Click(sender As Object, e As EventArgs) Handles parameter_btn.Click, ParamètresToolStripMenuItem.Click
         form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
 
         form_params.Owner = Me
@@ -647,7 +647,7 @@ Public Class Form1
         save_settings()
     End Sub
 
-    Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles delete_file_btn.Click
+    Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles delete_file_btn.Click, SupprimerFichiersBezierToolStripMenuItem.Click
         Dim form As Form_delete = New Form_delete()
 
         form.Owner = Me
@@ -687,7 +687,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button_list_bezier_Click(sender As Object, e As EventArgs) Handles curve_list_btn.Click
+    Private Sub Button_list_bezier_Click(sender As Object, e As EventArgs) Handles curve_list_btn.Click, InfoCourbesToolStripMenuItem.Click
         Dim form As FormListDisplayBezier = New FormListDisplayBezier(bezier_list)
 
         form.Owner = Me
@@ -760,13 +760,6 @@ Public Class Form1
 
     End Sub
 
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        trace_pb.Image.Dispose()
-    End Sub
-
-
-
     Public Sub ZoomImage(ByRef ZoomValue As Int32)
         Dim original As Image
         'Get our original image
@@ -804,7 +797,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles pick_color_btn.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles pick_color_btn.Click, CouleurToolStripMenuItem.Click
         Dim cDialog As New ColorDialog()
         cDialog.Color = curve_length_lb.BackColor ' initial selection is current color.
 
@@ -1086,11 +1079,11 @@ Public Class Form1
 
     End Sub
 
-    Private Sub browse_screenshot_btn_Click(sender As Object, e As EventArgs) Handles browse_screenshot_btn.Click
+    Private Sub browse_screenshot_btn_Click(sender As Object, e As EventArgs) Handles browse_screenshot_btn.Click, ParcourirCaptureToolStripMenuItem.Click
         Process.Start("explorer.exe", String.Format("/n, /e, {0}", default_path_screenshot)) 'Open explorer with screenshot path
     End Sub
 
-    Private Sub hide_grid_btn_Click(sender As Object, e As EventArgs) Handles hide_grid_btn.Click
+    Private Sub hide_grid_btn_Click(sender As Object, e As EventArgs) Handles hide_grid_btn.Click, AfficherGrilleToolStripMenuItem.Click
         hide_show_grid = Not hide_show_grid
         drawer.HideShowGrid(hide_show_grid)
     End Sub

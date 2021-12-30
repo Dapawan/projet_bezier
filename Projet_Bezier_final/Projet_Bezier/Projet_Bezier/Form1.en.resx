@@ -221,15 +221,6 @@
   <data name="point_begin_tan_lb.Text" xml:space="preserve">
     <value>Starting points :</value>
   </data>
-  <data name="curve_select_name_lb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="curve_select_name_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 26</value>
-  </data>
-  <data name="curve_select_name_lb.Text" xml:space="preserve">
-    <value>Selected curve / Name :</value>
-  </data>
   <data name="coord_thin_tb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -272,12 +263,6 @@
   <data name="selected_tb.Text" xml:space="preserve">
     <value>Curve 1</value>
   </data>
-  <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="FichierToolStripMenuItem.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
   <data name="OuvrirBezierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
@@ -314,11 +299,11 @@
   <data name="ParamètresToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="EditionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 20</value>
+  <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
   </data>
-  <data name="EditionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Edit</value>
+  <data name="FichierToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
   </data>
   <data name="AjouterCourbeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
@@ -350,53 +335,56 @@
   <data name="CouleurToolStripMenuItem.Text" xml:space="preserve">
     <value>Color</value>
   </data>
+  <data name="EditionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 20</value>
+  </data>
+  <data name="EditionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ZoomDefautToolStripMenuItem.Text" xml:space="preserve">
+    <value>Zoom default</value>
+  </data>
+  <data name="AfficherGrilleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show / Hide Grid</value>
+  </data>
+  <data name="InfoCoubesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Curves index</value>
+  </data>
+  <data name="InfoCourbesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Curves list info</value>
+  </data>
   <data name="AffichageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 20</value>
   </data>
   <data name="AffichageToolStripMenuItem.Text" xml:space="preserve">
     <value>Display</value>
   </data>
-  <data name="ZoomDefautToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="ZoomDefautToolStripMenuItem.Text" xml:space="preserve">
-    <value>Zoom default</value>
-  </data>
-  <data name="AfficherGrilleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="AfficherGrilleToolStripMenuItem.Text" xml:space="preserve">
-    <value>Show / Hide Grid</value>
-  </data>
-  <data name="InfoCoubesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="InfoCoubesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Curves index</value>
-  </data>
-  <data name="InfoCourbesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="InfoCourbesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Curves list info</value>
-  </data>
   <data name="ControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="NoticeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="VersionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
+    <value>180, 22</value>
   </data>
-  <data name="LangueToolStripMenuItem.Text" xml:space="preserve">
-    <value>Language</value>
+  <data name="FrançaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 22</value>
   </data>
   <data name="FrançaisToolStripMenuItem.Text" xml:space="preserve">
     <value>French</value>
   </data>
+  <data name="AnglaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 22</value>
+  </data>
   <data name="AnglaisToolStripMenuItem.Text" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="LangueToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="LangueToolStripMenuItem.Text" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="x_Xind_lb_start.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -479,8 +467,11 @@
   <data name="zoom_in_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="trace_pb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="curve_select_name_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 26</value>
+  </data>
+  <data name="curve_select_name_lb.Text" xml:space="preserve">
+    <value>Selected curve / Name :</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
