@@ -299,8 +299,6 @@ Public Class Form1
     End Sub
 
     Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles list_curve_clb.ItemCheck
-        'Get new selected item
-        ' Dim test As Object = list_curve_clb.SelectedItem
         Dim state As CheckState = e.NewValue
         Dim index As Integer = e.Index
 
@@ -1086,5 +1084,42 @@ Public Class Form1
     Private Sub hide_grid_btn_Click(sender As Object, e As EventArgs) Handles hide_grid_btn.Click, AfficherGrilleToolStripMenuItem.Click
         hide_show_grid = Not hide_show_grid
         drawer.HideShowGrid(hide_show_grid)
+    End Sub
+
+    Private Sub hide_curve_btn_Click(sender As Object, e As EventArgs) Handles hide_curve_btn.Click, MasquerCourbeToolStripMenuItem.Click
+        check_selected_index_value_changed_trigger = False
+
+        Dim index As Integer = getIndexListBox(bezier.uid)
+
+        If index = -1 Then
+            Return
+        End If
+
+        If bezier.show.Equals(False) Then
+            bezier.show = True
+            ' Set new shown bezier as current bezier
+            SetSelectedBezier(bezier, True)
+        Else
+            bezier.show = False
+            bezier.point_selectionne_enum = Bezier.pointEnum.aucun
+        End If
+
+        list_curve_clb.SetItemChecked(index, bezier.show)
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
+        check_selected_index_value_changed_trigger = True
+    End Sub
+
+    Private Sub delete_all_curve_btn_Click(sender As Object, e As EventArgs) Handles delete_all_curve_btn.Click, SupprimerToutesLesCourbesToolStripMenuItem.Click
+        'Avoid selected index trigger
+        check_selected_index_value_changed_trigger = False
+
+        list_curve_clb.Items.Clear()
+        bezier_list.Clear()
+        Bezier.compteur_courbe = 0 'Reset counter
+        check_selected_index_value_changed_trigger = True
+
+
+        drawer.drawBeziers(bezier_list, show_name_bezier)
     End Sub
 End Class

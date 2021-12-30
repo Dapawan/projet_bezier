@@ -130,9 +130,8 @@
   <data name="EditionsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ytg_Y_lb_end.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;take_screenshot_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;list_curve_clb.Name" xml:space="preserve">
     <value>list_curve_clb</value>
@@ -152,6 +151,7 @@
   <data name="curve_lenght_L_lb.Text" xml:space="preserve">
     <value>L = </value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="y_Yind_lb_start.TabIndex" type="System.Int32, mscorlib">
     <value>216</value>
   </data>
@@ -201,9 +201,6 @@
   <data name="delete_file_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="add_curve_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
   <data name="segment_nud.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 26</value>
   </data>
@@ -227,6 +224,9 @@
   </data>
   <data name="&gt;&gt;diz_selector_lb.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="point_begin_tan_lb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>940, 255</value>
   </data>
   <data name="&gt;&gt;ParcourirCaptureToolStripMenuItem.Name" xml:space="preserve">
     <value>ParcourirCaptureToolStripMenuItem</value>
@@ -261,14 +261,17 @@
   <data name="&gt;&gt;coord_large_tb.ZOrder" xml:space="preserve">
     <value>38</value>
   </data>
-  <data name="xtg_X_lb_end.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 26</value>
+  <data name="&gt;&gt;ytg_Yind_lb_start.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;xtg_nud_end.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;LargeLB.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="x_Xind_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;xtg_Xind_lb_start.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="LargeLB.TabIndex" type="System.Int32, mscorlib">
     <value>203</value>
@@ -309,14 +312,11 @@
   <data name="&gt;&gt;x_Xind_lb_end.Name" xml:space="preserve">
     <value>x_Xind_lb_end</value>
   </data>
-  <data name="curve_info_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 51</value>
-  </data>
   <data name="InfoCoubesToolStripMenuItem.Text" xml:space="preserve">
     <value>Numéro coubes</value>
   </data>
-  <data name="&gt;&gt;y_Yind_lb_end.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;delete_curve_btn.Name" xml:space="preserve">
+    <value>delete_curve_btn</value>
   </data>
   <data name="zoom_in_btn.Location" type="System.Drawing.Point, System.Drawing">
     <value>295, 628</value>
@@ -327,9 +327,6 @@
   <data name="trace_pb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="AjouterCourbeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ajouter courbe</value>
-  </data>
   <data name="browse_screenshot_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
@@ -339,8 +336,8 @@
   <data name="&gt;&gt;main_menu_ms.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="point_begin_ext_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 20</value>
+  <data name="&gt;&gt;delete_all_curve_btn.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>Couleur : </value>
@@ -372,8 +369,8 @@
   <data name="y_Yind_lb_start.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 13</value>
   </data>
-  <data name="ParcourirCaptureToolStripMenuItem.Text" xml:space="preserve">
-    <value>Parcourir Capture</value>
+  <data name="xtg_Xind_lb_end.Location" type="System.Drawing.Point, System.Drawing">
+    <value>965, 351</value>
   </data>
   <data name="&gt;&gt;xtg_nud_end.Parent" xml:space="preserve">
     <value>$this</value>
@@ -381,11 +378,17 @@
   <data name="&gt;&gt;xtg_X_lb_start.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;add_curve_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;CouleurToolStripMenuItem.Name" xml:space="preserve">
+    <value>CouleurToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;selected_tb.ZOrder" xml:space="preserve">
-    <value>14</value>
+  <data name="&gt;&gt;take_screenshot_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="x_Xind_lb_end.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
+  </data>
+  <data name="y_Y_lb_end.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 26</value>
   </data>
   <data name="&gt;&gt;cent_selector_lb.ZOrder" xml:space="preserve">
     <value>24</value>
@@ -408,9 +411,6 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>
   </data>
-  <data name="delete_file_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 51</value>
-  </data>
   <data name="ytg_Yind_lb_start.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 13</value>
   </data>
@@ -423,17 +423,11 @@
   <data name="pick_color_btn.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 51</value>
   </data>
-  <data name="curve_list_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>809, 628</value>
-  </data>
   <data name="&gt;&gt;seg_number_lb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;hexacode_tb.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="main_menu_ms.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;y_Yind_lb_start.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -468,17 +462,14 @@
   <data name="delete_all_curve_btn.Location" type="System.Drawing.Point, System.Drawing">
     <value>682, 628</value>
   </data>
-  <data name="y_Y_lb_end.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 26</value>
-  </data>
   <data name="y_Y_lb_start.Text" xml:space="preserve">
     <value>Y         =</value>
   </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 16pt</value>
+  <data name="curve_length_lb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;ytg_Y_lb_end.Name" xml:space="preserve">
-    <value>ytg_Y_lb_end</value>
+  <data name="AjouterCourbeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ajouter courbe</value>
   </data>
   <data name="&gt;&gt;InfoCourbesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -507,8 +498,11 @@
   <data name="y_Yind_lb_end.TabIndex" type="System.Int32, mscorlib">
     <value>221</value>
   </data>
-  <data name="x_X_lb_end.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 26</value>
+  <data name="&gt;&gt;y_Yind_lb_end.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="curve_info_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="&gt;&gt;coord_large_tb.Type" xml:space="preserve">
     <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -525,8 +519,8 @@
   <data name="take_screenshot_btn.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="ytg_Yind_lb_start.Text" xml:space="preserve">
-    <value>pt_tg_deb</value>
+  <data name="&gt;&gt;y_Y_lb_end.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="x_Xind_lb_start.Location" type="System.Drawing.Point, System.Drawing">
     <value>965, 147</value>
@@ -546,20 +540,23 @@
   <data name="&gt;&gt;ytg_Y_lb_start.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;take_screenshot_btn.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;FolderBrowserDialog1.Name" xml:space="preserve">
+    <value>FolderBrowserDialog1</value>
   </data>
   <data name="&gt;&gt;coord_thin_tb.ZOrder" xml:space="preserve">
     <value>26</value>
   </data>
-  <data name="x_X_lb_end.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 16pt</value>
+  <data name="curve_lenght_L_lb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1100, 568</value>
   </data>
   <data name="&gt;&gt;hide_grid_btn.Name" xml:space="preserve">
     <value>hide_grid_btn</value>
   </data>
   <data name="selected_tb.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="diz_selector_lb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="x_X_lb_start.Location" type="System.Drawing.Point, System.Drawing">
     <value>945, 134</value>
@@ -572,6 +569,9 @@
   </data>
   <data name="&gt;&gt;FichierToolStripMenuItem.Name" xml:space="preserve">
     <value>FichierToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;add_curve_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;save_file_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -621,9 +621,6 @@
   <data name="coord_tan_lb.Location" type="System.Drawing.Point, System.Drawing">
     <value>930, 225</value>
   </data>
-  <data name="&gt;&gt;delete_curve_btn.Name" xml:space="preserve">
-    <value>delete_curve_btn</value>
-  </data>
   <data name="xtg_X_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -633,8 +630,11 @@
   <data name="&gt;&gt;xtg_X_lb_start.ZOrder" xml:space="preserve">
     <value>44</value>
   </data>
-  <data name="&gt;&gt;y_Y_lb_end.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="diz_selector_lb.Text" xml:space="preserve">
+    <value>Selecteur par dizième :</value>
+  </data>
+  <data name="seg_number_lb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="coord_extremity_lb.Location" type="System.Drawing.Point, System.Drawing">
     <value>930, 79</value>
@@ -656,9 +656,6 @@
   </data>
   <data name="seg_number_lb.Text" xml:space="preserve">
     <value>Nombre de segments :</value>
-  </data>
-  <data name="FrançaisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Français</value>
   </data>
   <data name="&gt;&gt;curve_lenght_OUTPUT_lb.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -690,9 +687,6 @@
   <data name="delete_all_curve_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="ytg_Yind_lb_start.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;cent_selector_lb.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -711,20 +705,23 @@
   <data name="list_curve_clb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="add_curve_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 51</value>
-  </data>
   <data name="&gt;&gt;ParamètresToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="seg_number_S_lb.Location" type="System.Drawing.Point, System.Drawing">
     <value>1100, 516</value>
   </data>
+  <data name="ytg_Yind_lb_start.Text" xml:space="preserve">
+    <value>pt_tg_deb</value>
+  </data>
   <data name="xtg_Xind_lb_start.Location" type="System.Drawing.Point, System.Drawing">
     <value>965, 291</value>
   </data>
-  <data name="&gt;&gt;delete_all_curve_btn.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;take_screenshot_btn.Name" xml:space="preserve">
+    <value>take_screenshot_btn</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Courbes de bezier</value>
   </data>
   <data name="&gt;&gt;seg_number_S_lb.ZOrder" xml:space="preserve">
     <value>17</value>
@@ -741,8 +738,8 @@
   <data name="&gt;&gt;FrançaisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Courbes de bezier</value>
+  <data name="&gt;&gt;AfficherGrilleToolStripMenuItem.Name" xml:space="preserve">
+    <value>AfficherGrilleToolStripMenuItem</value>
   </data>
   <data name="x_nud_end.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 26</value>
@@ -758,6 +755,9 @@
   </data>
   <data name="y_Yind_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="x_nud_start.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 26</value>
   </data>
   <data name="&gt;&gt;ytg_Y_lb_end.ZOrder" xml:space="preserve">
     <value>31</value>
@@ -780,14 +780,11 @@
   <data name="&gt;&gt;ytg_nud_end.ZOrder" xml:space="preserve">
     <value>33</value>
   </data>
-  <data name="hide_grid_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="save_file_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 628</value>
   </data>
   <data name="x_Xind_lb_end.Location" type="System.Drawing.Point, System.Drawing">
     <value>965, 205</value>
-  </data>
-  <data name="ZoomToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Zoom -</value>
   </data>
   <data name="curve_select_name_lb.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -813,8 +810,8 @@
   <data name="&gt;&gt;zoom_reset_btn.Name" xml:space="preserve">
     <value>zoom_reset_btn</value>
   </data>
-  <data name="FrançaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
+  <data name="&gt;&gt;selected_tb.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;SupprimerToutesLesCourbesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -822,8 +819,8 @@
   <data name="&gt;&gt;y_nud_start.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="save_file_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 51</value>
+  <data name="&gt;&gt;ytg_Y_lb_end.Name" xml:space="preserve">
+    <value>ytg_Y_lb_end</value>
   </data>
   <data name="&gt;&gt;ThinLB.ZOrder" xml:space="preserve">
     <value>22</value>
@@ -858,14 +855,14 @@
   <data name="ytg_nud_start.Location" type="System.Drawing.Point, System.Drawing">
     <value>1191, 278</value>
   </data>
-  <data name="&gt;&gt;trace_pb.ZOrder" xml:space="preserve">
-    <value>66</value>
-  </data>
   <data name="OuvrirBezierToolStripMenuItem.Text" xml:space="preserve">
     <value>Ouvrir Bezier</value>
   </data>
-  <data name="point_begin_tan_lb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>940, 255</value>
+  <data name="add_curve_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="delete_all_curve_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 51</value>
   </data>
   <data name="seg_number_S_lb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 16pt</value>
@@ -882,7 +879,7 @@
   <data name="&gt;&gt;curve_select_name_lb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pick_color_btn.Parent" xml:space="preserve">
+  <data name="&gt;&gt;segment_nud.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;add_curve_btn.ZOrder" xml:space="preserve">
@@ -903,8 +900,8 @@
   <data name="y_Yind_lb_end.Text" xml:space="preserve">
     <value>pt_fin</value>
   </data>
-  <data name="x_Xind_lb_end.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
+  <data name="&gt;&gt;xtg_nud_end.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;point_begin_tan_lb.Parent" xml:space="preserve">
     <value>$this</value>
@@ -930,6 +927,9 @@
   <data name="&gt;&gt;point_end_tan_lb.ZOrder" xml:space="preserve">
     <value>27</value>
   </data>
+  <data name="&gt;&gt;x_X_lb_end.ZOrder" xml:space="preserve">
+    <value>64</value>
+  </data>
   <data name="&gt;&gt;hide_curve_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -938,6 +938,9 @@
   </data>
   <data name="&gt;&gt;OuvrirBezierToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;hide_curve_btn.Name" xml:space="preserve">
+    <value>hide_curve_btn</value>
   </data>
   <data name="list_curve_clb.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -954,8 +957,8 @@
   <data name="&gt;&gt;hide_curve_btn.ZOrder" xml:space="preserve">
     <value>47</value>
   </data>
-  <data name="&gt;&gt;main_menu_ms.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="curve_list_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>809, 628</value>
   </data>
   <data name="&gt;&gt;coord_thin_tb.Parent" xml:space="preserve">
     <value>$this</value>
@@ -969,8 +972,11 @@
   <data name="&gt;&gt;PrendreUnCaptureToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;LargeLB.Parent" xml:space="preserve">
+  <data name="&gt;&gt;curve_info_btn.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cent_selector_lb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;list_curve_clb.ZOrder" xml:space="preserve">
     <value>15</value>
@@ -1002,14 +1008,14 @@
   <data name="&gt;&gt;y_Y_lb_start.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;xtg_Xind_lb_start.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="FrançaisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Français</value>
   </data>
   <data name="coord_thin_tb.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="InfoCourbesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Info courbes</value>
+  <data name="ytg_Yind_lb_start.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;diz_selector_lb.ZOrder" xml:space="preserve">
     <value>25</value>
@@ -1029,8 +1035,8 @@
   <data name="&gt;&gt;trace_pb.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cent_selector_lb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="delete_file_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 51</value>
   </data>
   <data name="&gt;&gt;save_file_btn.ZOrder" xml:space="preserve">
     <value>19</value>
@@ -1041,11 +1047,11 @@
   <data name="ControlToolStripMenuItem.Text" xml:space="preserve">
     <value>Control</value>
   </data>
-  <data name="xtg_Xind_lb_end.Location" type="System.Drawing.Point, System.Drawing">
-    <value>965, 351</value>
-  </data>
   <data name="&gt;&gt;ytg_Yind_lb_end.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="xtg_nud_end.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1041, 338</value>
   </data>
   <data name="point_end_tan_lb.Location" type="System.Drawing.Point, System.Drawing">
     <value>940, 315</value>
@@ -1055,9 +1061,6 @@
   </data>
   <data name="&gt;&gt;AffichageToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="save_file_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 628</value>
   </data>
   <data name="y_Y_lb_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 16pt</value>
@@ -1071,11 +1074,11 @@
   <data name="&gt;&gt;parameter_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;selected_tb.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="coord_large_tb.Size" type="System.Drawing.Size, System.Drawing">
     <value>334, 45</value>
+  </data>
+  <data name="&gt;&gt;selected_tb.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="ytg_Y_lb_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 16pt</value>
@@ -1149,8 +1152,8 @@
   <data name="ytg_Y_lb_start.Text" xml:space="preserve">
     <value>Y         =</value>
   </data>
-  <data name="&gt;&gt;x_nud_start.ZOrder" xml:space="preserve">
-    <value>61</value>
+  <data name="point_end_tan_lb.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
   </data>
   <data name="ytg_Yind_lb_end.Text" xml:space="preserve">
     <value>pt_tg_fin</value>
@@ -1182,8 +1185,8 @@
   <data name="y_Yind_lb_start.Text" xml:space="preserve">
     <value>pt_deb</value>
   </data>
-  <data name="xtg_nud_end.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1041, 338</value>
+  <data name="SupprimerToutesLesCourbesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Supprimer toutes les courbes</value>
   </data>
   <data name="&gt;&gt;xtg_Xind_lb_end.Name" xml:space="preserve">
     <value>xtg_Xind_lb_end</value>
@@ -1203,11 +1206,8 @@
   <data name="curve_length_lb.Location" type="System.Drawing.Point, System.Drawing">
     <value>1090, 545</value>
   </data>
-  <data name="&gt;&gt;AfficherGrilleToolStripMenuItem.Name" xml:space="preserve">
-    <value>AfficherGrilleToolStripMenuItem</value>
-  </data>
-  <data name="SupprimerToutesLesCourbesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Supprimer toutes les courbes</value>
+  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
   </data>
   <data name="coord_tan_lb.Size" type="System.Drawing.Size, System.Drawing">
     <value>296, 26</value>
@@ -1224,11 +1224,11 @@
   <data name="&gt;&gt;xtg_nud_start.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;hide_curve_btn.Name" xml:space="preserve">
-    <value>hide_curve_btn</value>
+  <data name="&gt;&gt;main_menu_ms.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="x_nud_start.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
+  <data name="add_curve_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 51</value>
   </data>
   <data name="x_nud_start.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1254,17 +1254,14 @@
   <data name="ytg_nud_start.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="curve_lenght_L_lb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1100, 568</value>
-  </data>
   <data name="ytg_nud_start.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="parameter_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="trace_pb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 27</value>
+  <data name="x_nud_start.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="ZoomDefautToolStripMenuItem.Text" xml:space="preserve">
     <value>Zoom defaut</value>
@@ -1281,8 +1278,8 @@
   <data name="y_nud_end.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 26</value>
   </data>
-  <data name="cent_selector_lb.TabIndex" type="System.Int32, mscorlib">
-    <value>202</value>
+  <data name="&gt;&gt;HelpToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;point_end_ext_lb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1305,6 +1302,9 @@
   <data name="&gt;&gt;AfficherGrilleToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;y_nud_end.Name" xml:space="preserve">
+    <value>y_nud_end</value>
+  </data>
   <data name="&gt;&gt;zoom_in_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1313,9 +1313,6 @@
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
-  </data>
-  <data name="&gt;&gt;ytg_Yind_lb_start.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;curve_info_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1425,6 +1422,9 @@
   <data name="EnregistrerBezierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
   </data>
+  <data name="&gt;&gt;ThinLB.Name" xml:space="preserve">
+    <value>ThinLB</value>
+  </data>
   <data name="load_file_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
@@ -1443,8 +1443,8 @@
   <data name="&gt;&gt;x_X_lb_end.Name" xml:space="preserve">
     <value>x_X_lb_end</value>
   </data>
-  <data name="&gt;&gt;x_X_lb_end.ZOrder" xml:space="preserve">
-    <value>64</value>
+  <data name="x_X_lb_end.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 26</value>
   </data>
   <data name="hide_grid_btn.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1482,17 +1482,14 @@
   <data name="&gt;&gt;curve_info_btn.Name" xml:space="preserve">
     <value>curve_info_btn</value>
   </data>
-  <data name="browse_screenshot_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 51</value>
+  <data name="&gt;&gt;zoom_out_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="xtg_nud_end.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="&gt;&gt;save_file_btn.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;zoom_out_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;seg_number_S_lb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1530,9 +1527,6 @@
   <data name="&gt;&gt;x_nud_end.ZOrder" xml:space="preserve">
     <value>37</value>
   </data>
-  <data name="curve_info_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
   <data name="&gt;&gt;browse_screenshot_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1545,8 +1539,8 @@
   <data name="x_nud_end.Location" type="System.Drawing.Point, System.Drawing">
     <value>1041, 192</value>
   </data>
-  <data name="diz_selector_lb.Text" xml:space="preserve">
-    <value>Selecteur par dizième :</value>
+  <data name="x_X_lb_end.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 16pt</value>
   </data>
   <data name="diz_selector_lb.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 20</value>
@@ -1584,20 +1578,14 @@
   <data name="x_nud_start.Location" type="System.Drawing.Point, System.Drawing">
     <value>1041, 134</value>
   </data>
-  <data name="curve_length_lb.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;HelpToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;x_nud_start.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ParcourirCaptureToolStripMenuItem.Text" xml:space="preserve">
+    <value>Parcourir Capture</value>
+  </data>
   <data name="&gt;&gt;AjouterCourbeToolStripMenuItem.Name" xml:space="preserve">
     <value>AjouterCourbeToolStripMenuItem</value>
-  </data>
-  <data name="coord_tan_lb.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 16pt</value>
   </data>
   <data name="&gt;&gt;AnglaisToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1623,8 +1611,8 @@
   <data name="&gt;&gt;MasquerCourbeToolStripMenuItem.Name" xml:space="preserve">
     <value>MasquerCourbeToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;segment_nud.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="main_menu_ms.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="curve_lenght_OUTPUT_lb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -1634,6 +1622,9 @@
   </data>
   <data name="FichierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 20</value>
+  </data>
+  <data name="cent_selector_lb.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
   </data>
   <data name="x_X_lb_end.Location" type="System.Drawing.Point, System.Drawing">
     <value>945, 192</value>
@@ -1653,8 +1644,8 @@
   <data name="cent_selector_lb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="&gt;&gt;ThinLB.Name" xml:space="preserve">
-    <value>ThinLB</value>
+  <data name="coord_tan_lb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 16pt</value>
   </data>
   <data name="ZoomToolStripMenuItem.Text" xml:space="preserve">
     <value>Zoom +</value>
@@ -1668,8 +1659,8 @@
   <data name="xtg_X_lb_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 16pt</value>
   </data>
-  <data name="point_end_tan_lb.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
+  <data name="&gt;&gt;VersionsToolStripMenuItem.Name" xml:space="preserve">
+    <value>VersionsToolStripMenuItem</value>
   </data>
   <data name="point_begin_tan_lb.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 20</value>
@@ -1677,20 +1668,20 @@
   <data name="&gt;&gt;NoticeToolStripMenuItem.Name" xml:space="preserve">
     <value>NoticeToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;take_screenshot_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="curve_info_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 51</value>
   </data>
   <data name="&gt;&gt;curve_info_btn.ZOrder" xml:space="preserve">
     <value>41</value>
+  </data>
+  <data name="xtg_X_lb_end.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 26</value>
   </data>
   <data name="xtg_X_lb_start.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 16pt</value>
   </data>
   <data name="pick_color_btn.TabIndex" type="System.Int32, mscorlib">
     <value>199</value>
-  </data>
-  <data name="&gt;&gt;SupprimerFichiersBezierToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AnglaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 22</value>
@@ -1830,8 +1821,8 @@
   <data name="ytg_nud_end.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 26</value>
   </data>
-  <data name="&gt;&gt;y_nud_end.Name" xml:space="preserve">
-    <value>y_nud_end</value>
+  <data name="&gt;&gt;trace_pb.ZOrder" xml:space="preserve">
+    <value>66</value>
   </data>
   <data name="curve_select_name_lb.Text" xml:space="preserve">
     <value>Courbe selectionnée / Nom :</value>
@@ -1860,8 +1851,14 @@
   <data name="NoticeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 22</value>
   </data>
+  <data name="FrançaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 22</value>
+  </data>
   <data name="&gt;&gt;x_X_lb_end.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="browse_screenshot_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 51</value>
   </data>
   <data name="parameter_btn.Location" type="System.Drawing.Point, System.Drawing">
     <value>861, 628</value>
@@ -1871,6 +1868,9 @@
   </data>
   <data name="&gt;&gt;EditionsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="save_file_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 51</value>
   </data>
   <data name="LargeLB.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 13</value>
@@ -1890,7 +1890,7 @@
   <data name="&gt;&gt;hexacode_tb.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;curve_info_btn.Parent" xml:space="preserve">
+  <data name="&gt;&gt;x_X_lb_end.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;xtg_X_lb_end.Name" xml:space="preserve">
@@ -1920,8 +1920,8 @@
   <data name="coord_large_tb.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="add_curve_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="MasquerCourbeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Masquer courbe</value>
   </data>
   <data name="take_screenshot_btn.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 628</value>
@@ -1944,8 +1944,11 @@
   <data name="curve_length_lb.TabIndex" type="System.Int32, mscorlib">
     <value>208</value>
   </data>
-  <data name="MasquerCourbeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Masquer courbe</value>
+  <data name="&gt;&gt;SupprimerFichiersBezierToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="point_begin_ext_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 20</value>
   </data>
   <data name="&gt;&gt;xtg_nud_start.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -1998,9 +2001,6 @@
   <data name="&gt;&gt;curve_lenght_OUTPUT_lb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CouleurToolStripMenuItem.Name" xml:space="preserve">
-    <value>CouleurToolStripMenuItem</value>
-  </data>
   <data name="&gt;&gt;coord_tan_lb.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -2010,8 +2010,8 @@
   <data name="cent_selector_lb.Location" type="System.Drawing.Point, System.Drawing">
     <value>940, 428</value>
   </data>
-  <data name="curve_length_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 20</value>
+  <data name="ZoomToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Zoom -</value>
   </data>
   <data name="xtg_nud_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -2034,11 +2034,8 @@
   <data name="seg_number_S_lb.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 26</value>
   </data>
-  <data name="seg_number_lb.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="&gt;&gt;FolderBrowserDialog1.Name" xml:space="preserve">
-    <value>FolderBrowserDialog1</value>
+  <data name="trace_pb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 27</value>
   </data>
   <data name="curve_info_btn.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -2046,23 +2043,23 @@
   <data name="save_file_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="&gt;&gt;VersionsToolStripMenuItem.Name" xml:space="preserve">
-    <value>VersionsToolStripMenuItem</value>
-  </data>
-  <data name="delete_all_curve_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 51</value>
+  <data name="selected_tb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 29</value>
   </data>
   <data name="&gt;&gt;xtg_X_lb_end.ZOrder" xml:space="preserve">
     <value>32</value>
   </data>
-  <data name="&gt;&gt;take_screenshot_btn.Name" xml:space="preserve">
-    <value>take_screenshot_btn</value>
+  <data name="&gt;&gt;x_nud_start.ZOrder" xml:space="preserve">
+    <value>61</value>
   </data>
   <data name="zoom_in_btn.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 51</value>
   </data>
-  <data name="diz_selector_lb.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
+  <data name="hide_grid_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="InfoCourbesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Info courbes</value>
   </data>
   <data name="&gt;&gt;ThinLB.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2073,8 +2070,8 @@
   <data name="&gt;&gt;ParamètresToolStripMenuItem.Name" xml:space="preserve">
     <value>ParamètresToolStripMenuItem</value>
   </data>
-  <data name="x_nud_start.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 26</value>
+  <data name="add_curve_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="x_Xind_lb_start.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 13</value>
@@ -2088,8 +2085,8 @@
   <data name="x_X_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="selected_tb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 29</value>
+  <data name="ytg_Y_lb_end.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="zoom_out_btn.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 51</value>
@@ -2151,17 +2148,11 @@
   <data name="&gt;&gt;ControlToolStripMenuItem.Name" xml:space="preserve">
     <value>ControlToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;x_X_lb_end.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="trace_pb.Size" type="System.Drawing.Size, System.Drawing">
     <value>900, 600</value>
   </data>
   <data name="y_Y_lb_start.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
-  </data>
-  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
   </data>
   <data name="x_nud_end.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2196,6 +2187,9 @@
   <data name="xtg_nud_start.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 16pt</value>
+  </data>
   <data name="ThinLB.Location" type="System.Drawing.Point, System.Drawing">
     <value>1228, 444</value>
   </data>
@@ -2219,6 +2213,9 @@
   </data>
   <data name="y_Y_lb_start.Location" type="System.Drawing.Point, System.Drawing">
     <value>1094, 134</value>
+  </data>
+  <data name="&gt;&gt;pick_color_btn.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="ytg_Y_lb_end.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
@@ -2303,6 +2300,9 @@
   </data>
   <data name="&gt;&gt;pick_color_btn.ZOrder" xml:space="preserve">
     <value>51</value>
+  </data>
+  <data name="curve_length_lb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 20</value>
   </data>
   <data name="&gt;&gt;ytg_Yind_lb_end.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

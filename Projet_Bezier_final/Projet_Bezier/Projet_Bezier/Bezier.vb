@@ -30,7 +30,7 @@ Public Class Bezier
     Dim selected As Boolean
     ' Hide / show
     Dim hide_show As Boolean
-    Shared compteur_courbe As Single = 0
+    Public Shared compteur_courbe As Single = 0
     ' Numéro bezier => Valeur unique => Permet l'identification
     Dim numero As Single
 
