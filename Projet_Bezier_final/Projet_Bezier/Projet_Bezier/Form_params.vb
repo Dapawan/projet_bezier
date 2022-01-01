@@ -189,6 +189,7 @@
 
         Dim filename As String = ""
         Dim complete_path As String = ""
+        Dim prefix As String = ""
         Dim cnt As Single = 0
         If (screenshot.Equals(True)) Then
             extension_file = ".jpg"
@@ -196,18 +197,23 @@
         End If
 
         Dim dt As DateTime = DateTime.Now
-
+        Dim Folder As New IO.DirectoryInfo(path)
+        Dim number_files As Integer
         Do
             If (name.Length.Equals(0)) Then
-                filename = (prefix_file + "_" + cnt.ToString() + "__" + dt.ToString("dd_MM_yyyy__HH_mm") + extension_file)
+                prefix = (prefix_file + "_" + cnt.ToString())
+                filename = (prefix + "__" + dt.ToString("dd-MM-yyyy--HH-mm") + extension_file)
             Else
-                filename = (name + "_" + cnt.ToString() + extension_file)
+                prefix = (name + "_" + cnt.ToString())
+                filename = (prefix + extension_file)
             End If
 
             cnt += 1
 
             complete_path = path + "\" + filename
-        Loop Until (Not System.IO.File.Exists(complete_path))
+            ' We have to check if name + cnt => Already saved 
+            number_files = Folder.GetFiles(prefix + "*" + extension_file, IO.SearchOption.TopDirectoryOnly).Length
+        Loop Until (number_files = 0)
 
         Return complete_path
     End Function
