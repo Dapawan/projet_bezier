@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_nud_start.ZOrder" xml:space="preserve">
-    <value>61</value>
+    <value>62</value>
   </data>
   <metadata name="ColorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -174,7 +174,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;curve_length_lb.ZOrder" xml:space="preserve">
-    <value>53</value>
+    <value>54</value>
   </data>
   <data name="hexacode_tb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -204,7 +204,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;hexacode_tb.ZOrder" xml:space="preserve">
-    <value>52</value>
+    <value>53</value>
   </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -234,7 +234,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>49</value>
+    <value>50</value>
   </data>
   <data name="list_curve_clb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -258,7 +258,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;list_curve_clb.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="y_nud_start.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -282,7 +282,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;y_nud_start.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="xtg_nud_start.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -306,7 +306,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;xtg_nud_start.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="ytg_nud_start.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -330,7 +330,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ytg_nud_start.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="coord_extremity_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -360,7 +360,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;coord_extremity_lb.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>47</value>
   </data>
   <data name="x_X_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -390,7 +390,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_X_lb_start.ZOrder" xml:space="preserve">
-    <value>65</value>
+    <value>66</value>
   </data>
   <data name="y_Y_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -420,7 +420,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;y_Y_lb_start.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>46</value>
   </data>
   <data name="xtg_X_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -450,7 +450,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;xtg_X_lb_start.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>45</value>
   </data>
   <data name="ytg_Y_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -480,7 +480,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ytg_Y_lb_start.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>44</value>
   </data>
   <data name="coord_tan_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -510,7 +510,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;coord_tan_lb.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>43</value>
   </data>
   <data name="curve_lenght_L_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -540,7 +540,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;curve_lenght_L_lb.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>40</value>
+  </data>
+  <data name="coord_large_tb.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="coord_large_tb.Location" type="System.Drawing.Point, System.Drawing">
     <value>930, 400</value>
@@ -561,7 +564,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;coord_large_tb.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>39</value>
   </data>
   <data name="y_Y_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -591,7 +594,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;y_Y_lb_end.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>36</value>
   </data>
   <data name="x_X_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -621,7 +624,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_X_lb_end.ZOrder" xml:space="preserve">
-    <value>64</value>
+    <value>65</value>
   </data>
   <data name="y_nud_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -645,7 +648,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;y_nud_end.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>37</value>
   </data>
   <data name="x_nud_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -669,7 +672,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_nud_end.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>38</value>
   </data>
   <data name="ytg_Y_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -699,7 +702,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ytg_Y_lb_end.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>32</value>
   </data>
   <data name="xtg_X_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -729,7 +732,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;xtg_X_lb_end.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>33</value>
   </data>
   <data name="ytg_nud_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -753,7 +756,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ytg_nud_end.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>34</value>
   </data>
   <data name="xtg_nud_end.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -777,7 +780,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;xtg_nud_end.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>35</value>
   </data>
   <data name="point_begin_ext_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -807,7 +810,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;point_begin_ext_lb.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>31</value>
   </data>
   <data name="point_end_ext_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -837,7 +840,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;point_end_ext_lb.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>29</value>
   </data>
   <data name="point_end_tan_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -867,7 +870,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;point_end_tan_lb.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>28</value>
   </data>
   <data name="point_begin_tan_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -897,7 +900,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;point_begin_tan_lb.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>30</value>
+  </data>
+  <data name="coord_thin_tb.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="coord_thin_tb.Location" type="System.Drawing.Point, System.Drawing">
     <value>930, 451</value>
@@ -918,7 +924,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;coord_thin_tb.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="diz_selector_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -948,7 +954,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;diz_selector_lb.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="cent_selector_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -978,7 +984,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cent_selector_lb.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="LargeLB.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1005,7 +1011,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LargeLB.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="ThinLB.Location" type="System.Drawing.Point, System.Drawing">
     <value>1228, 444</value>
@@ -1029,7 +1035,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ThinLB.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="seg_number_S_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1059,7 +1065,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;seg_number_S_lb.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="seg_number_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1089,7 +1095,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;seg_number_lb.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="segment_nud.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -1113,7 +1119,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;segment_nud.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="selected_tb.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14pt</value>
@@ -1140,7 +1146,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;selected_tb.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="OuvrirBezierToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
@@ -1326,7 +1332,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;main_menu_ms.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="x_Xind_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1353,7 +1359,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_Xind_lb_start.ZOrder" xml:space="preserve">
-    <value>63</value>
+    <value>64</value>
   </data>
   <data name="y_Yind_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1380,7 +1386,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;y_Yind_lb_start.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="xtg_Xind_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1407,7 +1413,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;xtg_Xind_lb_start.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="ytg_Yind_lb_start.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1434,7 +1440,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ytg_Yind_lb_start.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="ytg_Yind_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1461,7 +1467,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ytg_Yind_lb_end.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="xtg_Xind_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1488,7 +1494,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;xtg_Xind_lb_end.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="y_Yind_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1515,7 +1521,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;y_Yind_lb_end.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="x_Xind_lb_end.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1542,7 +1548,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;x_Xind_lb_end.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="curve_lenght_OUTPUT_lb.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1572,7 +1578,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;curve_lenght_OUTPUT_lb.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="parameter_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -1597,7 +1603,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;parameter_btn.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="save_file_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1621,7 +1627,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;save_file_btn.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="browse_screenshot_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1645,7 +1651,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;browse_screenshot_btn.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="load_file_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1669,7 +1675,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;load_file_btn.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="curve_list_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1693,7 +1699,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;curve_list_btn.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>41</value>
   </data>
   <data name="curve_info_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1717,7 +1723,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;curve_info_btn.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>42</value>
   </data>
   <data name="hide_curve_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1741,7 +1747,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;hide_curve_btn.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>48</value>
   </data>
   <data name="delete_all_curve_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1765,7 +1771,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delete_all_curve_btn.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>49</value>
   </data>
   <data name="color_pb.Location" type="System.Drawing.Point, System.Drawing">
     <value>1105, 656</value>
@@ -1786,7 +1792,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;color_pb.ZOrder" xml:space="preserve">
-    <value>50</value>
+    <value>51</value>
   </data>
   <data name="pick_color_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1810,7 +1816,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pick_color_btn.ZOrder" xml:space="preserve">
-    <value>51</value>
+    <value>52</value>
   </data>
   <data name="take_screenshot_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1834,7 +1840,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;take_screenshot_btn.ZOrder" xml:space="preserve">
-    <value>54</value>
+    <value>55</value>
   </data>
   <data name="delete_curve_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1858,7 +1864,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delete_curve_btn.ZOrder" xml:space="preserve">
-    <value>55</value>
+    <value>56</value>
   </data>
   <data name="add_curve_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1882,7 +1888,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;add_curve_btn.ZOrder" xml:space="preserve">
-    <value>56</value>
+    <value>57</value>
   </data>
   <data name="delete_file_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1906,7 +1912,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delete_file_btn.ZOrder" xml:space="preserve">
-    <value>57</value>
+    <value>58</value>
   </data>
   <data name="zoom_out_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1930,7 +1936,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;zoom_out_btn.ZOrder" xml:space="preserve">
-    <value>58</value>
+    <value>59</value>
   </data>
   <data name="hide_grid_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1954,7 +1960,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;hide_grid_btn.ZOrder" xml:space="preserve">
-    <value>59</value>
+    <value>60</value>
   </data>
   <data name="zoom_reset_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -1978,7 +1984,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;zoom_reset_btn.ZOrder" xml:space="preserve">
-    <value>60</value>
+    <value>61</value>
   </data>
   <data name="zoom_in_btn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
@@ -2002,7 +2008,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;zoom_in_btn.ZOrder" xml:space="preserve">
-    <value>62</value>
+    <value>63</value>
   </data>
   <data name="trace_pb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2059,7 +2065,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;curve_select_name_lb.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <metadata name="FolderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>140, 17</value>
@@ -2086,7 +2092,34 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
-    <value>66</value>
+    <value>67</value>
+  </data>
+  <data name="negativ_cb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="negativ_cb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1126, 380</value>
+  </data>
+  <data name="negativ_cb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 17</value>
+  </data>
+  <data name="negativ_cb.TabIndex" type="System.Int32, mscorlib">
+    <value>225</value>
+  </data>
+  <data name="negativ_cb.Text" xml:space="preserve">
+    <value>Négatif</value>
+  </data>
+  <data name="&gt;&gt;negativ_cb.Name" xml:space="preserve">
+    <value>negativ_cb</value>
+  </data>
+  <data name="&gt;&gt;negativ_cb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;negativ_cb.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;negativ_cb.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

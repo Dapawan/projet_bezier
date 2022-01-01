@@ -46,7 +46,7 @@ Public Class Form1
     Dim auto_incr_file As Boolean
     Dim default_path_file As String = ""
 
-
+    Dim nud_selected As Object = Nothing
     Public Sub New()
 
         ' Cet appel est requis par le concepteur.
@@ -287,6 +287,10 @@ Public Class Form1
                         ytg_nud_end.Value = bezier.p_tg_fin.Y
                         curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
                 End Select
+                If (Not selectedNUD Is Nothing) Then
+                    refreshScrollValues(selectedNUD)
+                End If
+
                 'Ralenti
                 'curve_lenght_OUTPUT_lb.Text = bezier.getDistance()
             Catch ex As ArgumentOutOfRangeException
@@ -414,8 +418,12 @@ Public Class Form1
         ytg_nud_end.Enabled = enable
         pick_color_btn.Enabled = enable
         hexacode_tb.Enabled = enable
-        coord_large_tb.Enabled = enable
-        coord_thin_tb.Enabled = enable
+
+        If enable.Equals(False) Then ' To allow it we need to select a numeric control
+            coord_large_tb.Enabled = enable
+            coord_thin_tb.Enabled = enable
+        End If
+
         selected_tb.Enabled = enable
     End Sub
 
@@ -462,7 +470,9 @@ Public Class Form1
         segment_nud.Value = bezier.nombre_segment
         curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
         selected_tb.Text = bezier.nom
-
+        'update color
+        color_pb.BackColor = bezier.couleur
+        hexacode_tb.Text = ColorTranslator.ToHtml(bezier.couleur)
 
         Dim i As Single = 0
         Dim index As Single
@@ -488,12 +498,6 @@ Public Class Form1
     ' Return index on list box of specified uid
     Private Function getIndexListBox(ByVal uid As String)
         Dim i As Single = 0
-        'For Each item In list_curve_clb.Items
-        'If item.Equals(bezier.uid.ToString()) Then
-        'Return i
-        'End If
-        'i += 1
-        'Next
 
         For Each item In list_curve_clb.Items
             If item.Equals(getItemListName(bezier)) Then
@@ -911,21 +915,26 @@ Public Class Form1
         End If
 
         If Not selectedNUD Is Nothing Then
-            selectedNUD.Value = coord_large_tb.Value / 10 + coord_thin_tb.Value / 100
+            selectedNUD.Value = (coord_large_tb.Value / 10 + coord_thin_tb.Value / 100) * If(negativ_cb.Checked, -1, 1)
         End If
 
     End Sub
 
     Private Sub nud_ValueChanged(sender As Object, e As EventArgs) Handles ytg_nud_start.ValueChanged, ytg_nud_end.ValueChanged, y_nud_start.ValueChanged, y_nud_end.ValueChanged, xtg_nud_start.ValueChanged, xtg_nud_end.ValueChanged, x_nud_start.ValueChanged, x_nud_end.ValueChanged
         If Not selectedNUD Is Nothing And clickOnNUD = True Then
-            refreshScrollValues()
+            refreshScrollValues(sender)
         End If
     End Sub
 
-    Private Sub refreshScrollValues()
+    Private Sub refreshScrollValues(sender As Object)
+        If sender.Value < 0 Then
+            negativ_cb.Checked = True
+        Else
+            negativ_cb.Checked = False
+        End If
 
-        coord_large_tb.Value = Math.Truncate(selectedNUD.Value * 10)
-        coord_thin_tb.Value = (((selectedNUD.Value * 100) / 10) Mod 1) * 10
+        coord_large_tb.Value = Math.Abs(Math.Truncate(selectedNUD.Value * 10))
+        coord_thin_tb.Value = Math.Abs((((selectedNUD.Value * 100) / 10) Mod 1) * 10)
 
     End Sub
 
@@ -945,6 +954,7 @@ Public Class Form1
 
     Private Sub nudBehaviour(sender As Object)
         resetColorNud()
+
         sender.BackColor = Color.LightGreen
 
         coord_large_tb.Enabled = True
@@ -976,7 +986,7 @@ Public Class Form1
         End If
 
         clickOnNUD = True
-        refreshScrollValues()
+        refreshScrollValues(sender)
         savedValueNUD = sender.Value
     End Sub
 

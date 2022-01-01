@@ -120,6 +120,7 @@ Partial Class Form1
         Me.curve_select_name_lb = New System.Windows.Forms.Label()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.negativ_cb = New System.Windows.Forms.CheckBox()
         CType(Me.x_nud_start, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.y_nud_start, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.xtg_nud_start, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -728,11 +729,18 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.trace_pb)
         Me.Panel1.Name = "Panel1"
         '
+        'negativ_cb
+        '
+        resources.ApplyResources(Me.negativ_cb, "negativ_cb")
+        Me.negativ_cb.Name = "negativ_cb"
+        Me.negativ_cb.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
+        Me.Controls.Add(Me.negativ_cb)
         Me.Controls.Add(Me.curve_lenght_OUTPUT_lb)
         Me.Controls.Add(Me.x_Xind_lb_end)
         Me.Controls.Add(Me.y_Yind_lb_end)
@@ -920,4 +928,5 @@ Partial Class Form1
     Friend WithEvents curve_select_name_lb As Label
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents negativ_cb As CheckBox
 End Class
