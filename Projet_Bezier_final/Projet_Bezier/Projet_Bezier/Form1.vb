@@ -30,6 +30,7 @@ Public Class Form1
     Dim name_changed_trigger As Boolean = True
 
     Dim show_name_bezier As Boolean = True
+    Dim process As Process = Nothing
 
     'Params window => Only once
     Dim form_params As Form_params
@@ -132,16 +133,17 @@ Public Class Form1
     End Sub
 
     Private Sub bezier_drawing_MouseDown(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseDown
-        Dim mouse_point As Point = e.Location()
-
+        Dim sf As Single = CSng(trace_pb.ClientRectangle.Width / ScaleWidth)
+        Dim mouse_point As Point = New Point((e.Location().X / sf) + Corner.X, (e.Location().Y / sf) + Corner.Y)
+        ' 900 * 600 => 283 * 278 au centre au lieu de 450 * 300 et corner 281 135
+        'scaling factor sf = 1.68 => 283*1.68 = 475
         Dim mouse_point_converted As PointF = drawer.conversionToMarker(mouse_point)
-
 
         ' First we check if the current selected curve is still selected
         Dim point As PointF
 
         If (Not bezier Is Nothing AndAlso bezier.currentlySelected = True) Then
-            If (bezier.selectionPoint(mouse_point_converted, point) = True) Then
+            If (bezier.selectionPoint(mouse_point_converted, point, 0.1 * sf) = True) Then
                 'Our bezier is still selected
                 drawer.clearDrawing()
                 drawer.drawBeziers(bezier_list, show_name_bezier)
@@ -152,7 +154,7 @@ Public Class Form1
 
         For Each bezier_tmp In bezier_list
             If (bezier_tmp.show.Equals(True)) Then
-                If (bezier_tmp.selectionPoint(mouse_point_converted, point) = True) Then
+                If (bezier_tmp.selectionPoint(mouse_point_converted, point, 0.1 * sf) = True) Then
                     ' New bezier selected
                     If bezier Is Nothing OrElse Not bezier.Equals(bezier_tmp) Then
                         SetSelectedBezier(bezier_tmp, True) 'Set new current bezier + set as selected item
@@ -171,6 +173,11 @@ Public Class Form1
 
         ' Nothing selected 
         UnSelectBezier()
+
+        MouseDownPt = e.Location
+        MouseMovePt = e.Location
+        MouseDownCornerPt = Corner
+
         drawer.drawBeziers(bezier_list, show_name_bezier)
     End Sub
 
@@ -231,6 +238,16 @@ Public Class Form1
     'Quand la souris se déplace
     Private Sub bezier_drawing_MouseMove(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseMove
         If bezier Is Nothing Then 'Do nothing if there isn't any bezier selected
+            MouseMovePt = e.Location
+
+            If e.Button = MouseButtons.Left Then
+                'drag the screen
+                Dim sf As Double = trace_pb.ClientSize.Width / ScaleWidth
+                Dim x As Integer = CInt(MouseDownCornerPt.X - ((MouseMovePt.X - MouseDownPt.X) / sf))
+                Dim y As Integer = CInt(MouseDownCornerPt.Y - ((MouseMovePt.Y - MouseDownPt.Y) / sf))
+                Corner = New Point(x, y)
+                trace_pb.Invalidate()
+            End If
             Return
         End If
 
@@ -282,6 +299,7 @@ Public Class Form1
 
         Else
             numeric_indicator_value_changed_trigger = True
+
         End If
 
     End Sub
@@ -296,7 +314,7 @@ Public Class Form1
         bezier.point_selectionne_enum = Bezier.pointEnum.aucun
         drawer.drawBeziers(bezier_list, show_name_bezier)
 
-        curve_lenght_OUTPUT_lb.Text = bezier.getDistance()
+        curve_lenght_OUTPUT_lb.Text = bezier.longueur.ToString(pattern_print_length)
     End Sub
 
     Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles list_curve_clb.ItemCheck
@@ -501,6 +519,16 @@ Public Class Form1
         Dim index As Single
 
         If list_curve_clb.Items.Count <> 0 Then
+
+            'Ask user before
+            Dim result As DialogResult = MessageBox.Show(If(Me.language.Equals("fr-FR"), "Êtes-vous sûr de vouloir supprimer la courbe """ + getItemListName(bezier) + """ ?", "Are you sure about removing the curve """ + getItemListName(bezier) + """ ?"),
+                              If(Me.language.Equals("fr-FR"), "Information", "Information"),
+                              MessageBoxButtons.YesNo)
+
+            If (result = DialogResult.No) Then
+                Return
+            End If
+
             ' We can remove this bezier
 
             index = getIndexListBox(bezier.uid.ToString())
@@ -536,8 +564,11 @@ Public Class Form1
         Else
             ' Auto-incr checked
             Dim complete_path As String = Form_params.getCompleteFilename(default_path_screenshot, True, filename_screenshot)
-            Dim img As Bitmap = DrawFilledRectangle(1280, trace_pb.Image.Height)
+            Dim prop As Double = trace_pb.Height / trace_pb.Width
+            Dim width As Integer = 1400
+            Dim img As Bitmap = DrawFilledRectangle(width, width * prop)
             drawer.drawStringBezierList(img, bezier_list)
+            img.Save(complete_path, Imaging.ImageFormat.Jpeg)
             CombineImages(CombineBG_FG(trace_pb.BackgroundImage, trace_pb.Image), img).Save(complete_path, Imaging.ImageFormat.Jpeg)
             MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
         End If
@@ -731,7 +762,7 @@ Public Class Form1
         Dim g As Graphics = Graphics.FromImage(bmp)
 
         g.DrawImage(bg, 0, 0, bg.Width, bg.Height)
-        g.DrawImage(fg, 0, 0, bg.Width, bg.Width)
+        g.DrawImage(fg, 0, 0, bg.Width, bg.Height)
         g.Dispose()
 
         Return bmp
@@ -769,22 +800,14 @@ Public Class Form1
     End Sub
 
     Private Sub zoom_out_Click(sender As Object, e As EventArgs) Handles zoom_reset_btn.Click, zoom_out_btn.Click
-        If tracePBW > trace_pb.Width Then 'block zoomout over the orignal resolution
-
-            tracePBW = tracePBW / 1.1
-            tracePBH = tracePBH / 1.1
-            Dim imageTmp As Image
-
-            imageTmp = New Bitmap(tracePBI,
-                     tracePBW,
-                     tracePBH)
-
-            trace_pb.Image = Nothing
-            trace_pb.Image = imageTmp
-
-        End If
-
-
+        ScaleWidth = 900
+        ScaleRatio = 0
+        'Private WithEvents Pic1 As New PictureBox With {.Parent = Me, .Dock = DockStyle.Fill}
+        Corner = New PointF(0, 0)
+        MouseDownPt = New PointF(0, 0)
+        MouseMovePt = New PointF(0, 0)
+        MouseDownCornerPt = New PointF(0, 0)
+        trace_pb.Invalidate()
     End Sub
 
     Public Sub ZoomImage(ByRef ZoomValue As Int32)
@@ -1107,7 +1130,7 @@ Public Class Form1
     End Sub
 
     Private Sub browse_screenshot_btn_Click(sender As Object, e As EventArgs) Handles browse_screenshot_btn.Click, ParcourirCaptureToolStripMenuItem.Click
-        Process.Start("explorer.exe", String.Format("/n, /e, {0}", default_path_screenshot)) 'Open explorer with screenshot path
+        process = Process.Start("explorer.exe", String.Format("/n, /e, {0}", default_path_screenshot)) 'Open explorer with screenshot path
     End Sub
 
     Private Sub hide_grid_btn_Click(sender As Object, e As EventArgs) Handles hide_grid_btn.Click, AfficherGrilleToolStripMenuItem.Click
@@ -1140,6 +1163,19 @@ Public Class Form1
     End Sub
 
     Private Sub delete_all_curve_btn_Click(sender As Object, e As EventArgs) Handles delete_all_curve_btn.Click, SupprimerToutesLesCourbesToolStripMenuItem.Click
+        If list_curve_clb.Items.Count = 0 Then
+            Return
+        End If
+
+        'Ask user before
+        Dim result As DialogResult = MessageBox.Show(If(Me.language.Equals("fr-FR"), "Êtes-vous sûr de vouloir supprimer toutes les courbes ?", "Are you sure about removing all the curves ?"),
+                              If(Me.language.Equals("fr-FR"), "Information", "Information"),
+                              MessageBoxButtons.YesNo)
+
+        If (result = DialogResult.No) Then
+            Return
+        End If
+
         'Avoid selected index trigger
         check_selected_index_value_changed_trigger = False
 
@@ -1165,5 +1201,76 @@ Public Class Form1
         check_selected_index_value_changed_trigger = False
         list_curve_clb.Items(index) = getItemListName(bezier)
         check_selected_index_value_changed_trigger = True
+    End Sub
+
+    Private ScaleWidth As Double = 900
+    Private ScaleRatio As Double
+    'Private WithEvents Pic1 As New PictureBox With {.Parent = Me, .Dock = DockStyle.Fill}
+    Private Corner As New PointF(0, 0)
+    Private MouseDownPt, MouseMovePt, MouseDownCornerPt As New PointF
+
+    Private Sub trace_pb_Paint(sender As Object, e As PaintEventArgs) Handles trace_pb.Paint
+
+        With e.Graphics
+            .Clear(Color.White)
+            .SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+
+            Dim sf As Single = CSng(trace_pb.ClientRectangle.Width / ScaleWidth)
+            .ScaleTransform(sf, sf) ' zoom
+            .TranslateTransform(-Corner.X, -Corner.Y) ' translation
+
+            .DrawImage(trace_pb.BackgroundImage, New Rectangle(0, 0, trace_pb.BackgroundImage.Width, trace_pb.BackgroundImage.Height))
+            .DrawImage(trace_pb.Image, New Rectangle(0, 0, trace_pb.Image.Width, trace_pb.Image.Height))
+
+        End With
+    End Sub
+
+    Private Sub trace_pb_MouseDown(sender As Object, e As MouseEventArgs) 'Handles trace_pb.MouseDown
+        MouseDownPt = e.Location
+        MouseMovePt = e.Location
+        MouseDownCornerPt = Corner
+    End Sub
+
+    Private Sub trace_pb_MouseMove(sender As Object, e As MouseEventArgs) 'Handles trace_pb.MouseMove
+        MouseMovePt = e.Location
+
+        If e.Button = MouseButtons.Left Then
+            'drag the screen
+            Dim sf As Double = trace_pb.ClientSize.Width / ScaleWidth
+            Dim x As Integer = CInt(MouseDownCornerPt.X - ((MouseMovePt.X - MouseDownPt.X) / sf))
+            Dim y As Integer = CInt(MouseDownCornerPt.Y - ((MouseMovePt.Y - MouseDownPt.Y) / sf))
+            Corner = New Point(x, y)
+            trace_pb.Invalidate()
+        End If
+    End Sub
+
+    Private Sub trace_pb_MouseWheel(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseWheel
+        SetScaleRatio(e)
+        trace_pb.Invalidate()
+    End Sub
+
+    Private Sub trace_pb_MouseEnter(sender As Object, e As EventArgs) Handles trace_pb.MouseEnter
+        If Not trace_pb.Focused Then trace_pb.Focus()
+    End Sub
+
+    Private Sub SetScaleRatio(e As MouseEventArgs)
+        Dim x, y, s2 As Double
+        Dim w As Double = ClientSize.Width
+        Dim s As Double = CSng(ScaleWidth)
+
+        If ScaleRatio <> 0 Then
+            'calc mouse position in scaleunits
+            x = Corner.X + (e.X * ScaleRatio)
+            y = Corner.Y + (e.Y * ScaleRatio)
+
+            'calc new scale and view centered on mouse position
+            s2 = s - (Math.Sign(e.Delta) * s / 12)
+            ScaleRatio = s2 / w
+            ScaleWidth = s2
+            Corner.X = CSng(x - (e.X * ScaleRatio))
+            Corner.Y = CSng(y - (e.Y * ScaleRatio))
+        Else
+            ScaleRatio = s / w
+        End If
     End Sub
 End Class

@@ -47,7 +47,7 @@ Public Class Bezier
     End Function
 
     Public Overrides Function ToString() As String
-        Return ("courbe n° " + uid.ToString() + " nom : " + nom + "   pt_deb" + pointToString(p_deb) + " pt_fin" + pointToString(p_fin) + " pt_tg_deb" + pointToString(p_tg_deb) + " pt_tg_fin" + pointToString(p_tg_fin) + " couleur : " + ColorTranslator.ToHtml(couleur) + " nbr_seg = " + nombre_segment.ToString() + " longueur = " + longueur.ToString("0.0#") + " affiché : " + show.ToString())
+        Return ("courbe n° " + uid.ToString() + " : " + nom + "   pt_deb" + pointToString(p_deb) + " pt_fin" + pointToString(p_fin) + " pt_tg_deb" + pointToString(p_tg_deb) + " pt_tg_fin" + pointToString(p_tg_fin) + " couleur : " + ColorTranslator.ToHtml(couleur) + " nbr_seg = " + nombre_segment.ToString() + " longueur = " + longueur.ToString("0.0#") + " affiché : " + show.ToString() + " select : " + currentlySelected.ToString())
     End Function
 
 
@@ -242,19 +242,19 @@ Public Class Bezier
     End Function
 
     ' Retourne le point sélectionné parmis les 4 points du bezier
-    Public Function selectionPoint(ByVal point_de_selection As PointF, ByRef point_selectionne As PointF) As Boolean
+    Public Function selectionPoint(ByVal point_de_selection As PointF, ByRef point_selectionne As PointF, ByRef sf As Double) As Boolean
         Dim result As Boolean = True
 
-        If (getRect(Me.p_deb, 0.1, 0.1).Contains(point_de_selection)) Then
+        If (getRect(Me.p_deb, sf, sf).Contains(point_de_selection)) Then
             point_selectionne = Me.p_deb
             point_selectionne_enum = pointEnum.p_deb
-        ElseIf (getRect(Me.p_fin, 0.1, 0.1).Contains(point_de_selection)) Then
+        ElseIf (getRect(Me.p_fin, sf, sf).Contains(point_de_selection)) Then
             point_selectionne = Me.p_fin
             point_selectionne_enum = pointEnum.p_fin
-        ElseIf (getRect(Me.p_tg_deb, 0.1, 0.1).Contains(point_de_selection)) Then
+        ElseIf (getRect(Me.p_tg_deb, sf, sf).Contains(point_de_selection)) Then
             point_selectionne = Me.p_tg_deb
             point_selectionne_enum = pointEnum.p_tg_deb
-        ElseIf (getRect(Me.p_tg_fin, 0.1, 0.1).Contains(point_de_selection)) Then
+        ElseIf (getRect(Me.p_tg_fin, sf, sf).Contains(point_de_selection)) Then
             point_selectionne = Me.p_tg_fin
             point_selectionne_enum = pointEnum.p_tg_fin
         Else
