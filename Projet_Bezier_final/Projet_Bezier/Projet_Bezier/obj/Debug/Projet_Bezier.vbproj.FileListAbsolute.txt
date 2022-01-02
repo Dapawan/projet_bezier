@@ -96,3 +96,6 @@ C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\proj
 C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.exe
 C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.xml
 C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.pdb
+C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.Form_params.en.resources
+C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.Form_params.fr.resources
+C:\Users\Dapawan\Documents\Cours\TPS\Semestre_3\VB_NET\TP\Projet_bezier_git\projet_bezier\Projet_Bezier_final\Projet_Bezier\Projet_Bezier\obj\Debug\Projet_Bezier.Form_delete.fr.resources

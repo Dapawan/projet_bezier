@@ -148,8 +148,17 @@
     <EmbeddedResource Include="FormListDisplayBezier.resx">
       <DependentUpon>FormListDisplayBezier.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_delete.fr.resx">
+      <DependentUpon>Form_delete.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_delete.resx">
       <DependentUpon>Form_delete.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_params.en.resx">
+      <DependentUpon>Form_params.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_params.fr.resx">
+      <DependentUpon>Form_params.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_params.resx">
       <DependentUpon>Form_params.vb</DependentUpon>

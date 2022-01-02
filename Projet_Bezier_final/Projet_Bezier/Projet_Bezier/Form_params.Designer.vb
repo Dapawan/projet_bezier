@@ -22,6 +22,7 @@ Partial Class Form_params
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_params))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -36,135 +37,100 @@ Partial Class Form_params
         Me.Button_option_file_path = New System.Windows.Forms.Button()
         Me.CheckBox_auto_incr_screenshot = New System.Windows.Forms.CheckBox()
         Me.CheckBox_auto_incr_file = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CheckBoxHiddenCurves = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(16, 17)
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(97, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Capture d'écran"
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 151)
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(45, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Fichier"
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(40, 43)
+        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(29, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Nom"
         '
         'Label5
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(40, 85)
+        resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(173, 13)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "Chemin d'enregistrement par défaut"
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(40, 177)
+        resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(29, 13)
-        Me.Label6.TabIndex = 1
-        Me.Label6.Text = "Nom"
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(40, 222)
+        resources.ApplyResources(Me.Label8, "Label8")
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(173, 13)
-        Me.Label8.TabIndex = 1
-        Me.Label8.Text = "Chemin d'enregistrement par défaut"
         '
         'TextBox_screenshot_name
         '
-        Me.TextBox_screenshot_name.Location = New System.Drawing.Point(43, 60)
+        resources.ApplyResources(Me.TextBox_screenshot_name, "TextBox_screenshot_name")
         Me.TextBox_screenshot_name.Name = "TextBox_screenshot_name"
-        Me.TextBox_screenshot_name.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox_screenshot_name.TabIndex = 3
         '
         'TextBox_file_name
         '
-        Me.TextBox_file_name.Location = New System.Drawing.Point(43, 193)
+        resources.ApplyResources(Me.TextBox_file_name, "TextBox_file_name")
         Me.TextBox_file_name.Name = "TextBox_file_name"
-        Me.TextBox_file_name.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox_file_name.TabIndex = 3
         '
         'TextBox_file_default_path
         '
-        Me.TextBox_file_default_path.Location = New System.Drawing.Point(43, 238)
+        resources.ApplyResources(Me.TextBox_file_default_path, "TextBox_file_default_path")
         Me.TextBox_file_default_path.Name = "TextBox_file_default_path"
-        Me.TextBox_file_default_path.Size = New System.Drawing.Size(330, 20)
-        Me.TextBox_file_default_path.TabIndex = 3
         '
         'TextBox_screenshot_default_path
         '
-        Me.TextBox_screenshot_default_path.Location = New System.Drawing.Point(43, 101)
+        resources.ApplyResources(Me.TextBox_screenshot_default_path, "TextBox_screenshot_default_path")
         Me.TextBox_screenshot_default_path.Name = "TextBox_screenshot_default_path"
-        Me.TextBox_screenshot_default_path.Size = New System.Drawing.Size(330, 20)
-        Me.TextBox_screenshot_default_path.TabIndex = 3
         '
         'Button_option_screen_path
         '
-        Me.Button_option_screen_path.Location = New System.Drawing.Point(379, 98)
+        resources.ApplyResources(Me.Button_option_screen_path, "Button_option_screen_path")
         Me.Button_option_screen_path.Name = "Button_option_screen_path"
-        Me.Button_option_screen_path.Size = New System.Drawing.Size(24, 23)
-        Me.Button_option_screen_path.TabIndex = 4
-        Me.Button_option_screen_path.Text = "..."
         Me.Button_option_screen_path.UseVisualStyleBackColor = True
         '
         'Button_option_file_path
         '
-        Me.Button_option_file_path.Location = New System.Drawing.Point(379, 235)
+        resources.ApplyResources(Me.Button_option_file_path, "Button_option_file_path")
         Me.Button_option_file_path.Name = "Button_option_file_path"
-        Me.Button_option_file_path.Size = New System.Drawing.Size(24, 23)
-        Me.Button_option_file_path.TabIndex = 4
-        Me.Button_option_file_path.Text = "..."
         Me.Button_option_file_path.UseVisualStyleBackColor = True
         '
         'CheckBox_auto_incr_screenshot
         '
-        Me.CheckBox_auto_incr_screenshot.AutoSize = True
-        Me.CheckBox_auto_incr_screenshot.Location = New System.Drawing.Point(149, 63)
+        resources.ApplyResources(Me.CheckBox_auto_incr_screenshot, "CheckBox_auto_incr_screenshot")
         Me.CheckBox_auto_incr_screenshot.Name = "CheckBox_auto_incr_screenshot"
-        Me.CheckBox_auto_incr_screenshot.Size = New System.Drawing.Size(97, 17)
-        Me.CheckBox_auto_incr_screenshot.TabIndex = 5
-        Me.CheckBox_auto_incr_screenshot.Text = "Auto-incrément"
         Me.CheckBox_auto_incr_screenshot.UseVisualStyleBackColor = True
         '
         'CheckBox_auto_incr_file
         '
-        Me.CheckBox_auto_incr_file.AutoSize = True
-        Me.CheckBox_auto_incr_file.Location = New System.Drawing.Point(149, 195)
+        resources.ApplyResources(Me.CheckBox_auto_incr_file, "CheckBox_auto_incr_file")
         Me.CheckBox_auto_incr_file.Name = "CheckBox_auto_incr_file"
-        Me.CheckBox_auto_incr_file.Size = New System.Drawing.Size(97, 17)
-        Me.CheckBox_auto_incr_file.TabIndex = 5
-        Me.CheckBox_auto_incr_file.Text = "Auto-incrément"
         Me.CheckBox_auto_incr_file.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.Name = "Label4"
+        '
+        'CheckBoxHiddenCurves
+        '
+        resources.ApplyResources(Me.CheckBoxHiddenCurves, "CheckBoxHiddenCurves")
+        Me.CheckBoxHiddenCurves.Name = "CheckBoxHiddenCurves"
+        Me.CheckBoxHiddenCurves.UseVisualStyleBackColor = True
         '
         'Form_params
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(444, 312)
+        Me.Controls.Add(Me.CheckBoxHiddenCurves)
         Me.Controls.Add(Me.CheckBox_auto_incr_file)
         Me.Controls.Add(Me.CheckBox_auto_incr_screenshot)
         Me.Controls.Add(Me.Button_option_file_path)
@@ -177,10 +143,10 @@ Partial Class Form_params
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form_params"
-        Me.Text = "Form_params"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -200,4 +166,6 @@ Partial Class Form_params
     Friend WithEvents Button_option_file_path As Button
     Friend WithEvents CheckBox_auto_incr_screenshot As CheckBox
     Friend WithEvents CheckBox_auto_incr_file As CheckBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents CheckBoxHiddenCurves As CheckBox
 End Class

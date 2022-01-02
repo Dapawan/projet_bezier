@@ -1,4 +1,7 @@
-﻿Public Class Form_params
+﻿Imports System.ComponentModel
+Imports System.Globalization
+
+Public Class Form_params
 
     Dim filename_screenshot As String
     Dim auto_incr_screenshot As Boolean
@@ -6,11 +9,25 @@
     Dim filename_file As String
     Dim auto_incr_file As Boolean
     Dim default_path_file As String
+    Dim hiddenCurves As Boolean
 
     Dim trigger_value_changed As Boolean = False
 
-    Public Sub New(ByRef filename_screenshot As String, ByRef auto_incr_screenshot As Boolean, ByRef default_path_screenshot As String, ByRef filename_file As String, ByRef auto_incr_file As Boolean, ByRef default_path_file As String)
+    Public Sub New(ByRef filename_screenshot As String, ByRef auto_incr_screenshot As Boolean, ByRef default_path_screenshot As String, ByRef filename_file As String, ByRef auto_incr_file As Boolean, ByRef default_path_file As String, ByRef hiddenCurves As Boolean)
         InitializeComponent()
+
+        Dim crmLang As ComponentResourceManager = New ComponentResourceManager(GetType(Form_params))
+
+        For Each control In Me.Controls
+            crmLang.ApplyResources(control, control.Name, New CultureInfo(Form1.language))
+        Next control
+
+        If (Form1.language = "fr-FR") Then
+            Me.Text = "Paramètre"
+        Else
+            Me.Text = "Parameter"
+        End If
+
 
         Me.filename_screenshot = filename_screenshot
         Me.auto_incr_screenshot = auto_incr_screenshot
@@ -18,6 +35,7 @@
         Me.filename_file = filename_file
         Me.auto_incr_file = auto_incr_file
         Me.default_path_file = default_path_file
+        Me.hiddenCurves = hiddenCurves
 
         ' Set default path in case of nothing specified
         defaultPaths((Me.default_path_file.Length.Equals(0)), (Me.default_path_screenshot.Length.Equals(0)))
@@ -26,6 +44,7 @@
 
     End Sub
 
+
     ' 3 états :
     ' => Case auto-incr décochée : On ouvre l'explo de fichier pour choisir path + filename
     ' => Case auto-incr cochée :
@@ -33,13 +52,14 @@
     '   => Filename empty : Filename au format "bezier"/"screen" + date + [extension]
     ' Attention : On doit forcément avoir un path
 
-    Public Sub getValues(ByRef filename_screenshot As String, ByRef auto_incr_screenshot As Boolean, ByRef default_path_screenshot As String, ByRef filename_file As String, ByRef auto_incr_file As Boolean, ByRef default_path_file As String)
+    Public Sub getValues(ByRef filename_screenshot As String, ByRef auto_incr_screenshot As Boolean, ByRef default_path_screenshot As String, ByRef filename_file As String, ByRef auto_incr_file As Boolean, ByRef default_path_file As String, ByRef hiddenCurves As Boolean)
         filename_screenshot = Me.filename_screenshot
         auto_incr_screenshot = Me.auto_incr_screenshot
         default_path_screenshot = Me.default_path_screenshot
         filename_file = Me.filename_file
         auto_incr_file = Me.auto_incr_file
         default_path_file = Me.default_path_file
+        hiddenCurves = Me.hiddenCurves
     End Sub
 
     Private Sub refreshValuesDisplayed()
@@ -52,6 +72,8 @@
         TextBox_file_name.Text = Me.filename_file
         CheckBox_auto_incr_file.Checked = Me.auto_incr_file
         TextBox_file_default_path.Text = Me.default_path_file
+
+        CheckBoxHiddenCurves.Checked = Me.hiddenCurves
 
         trigger_value_changed = True
     End Sub
@@ -79,10 +101,10 @@
 
         If sender Is Button_option_screen_path Then
             path = Me.default_path_screenshot
-            title = "Répertoire d'enregistrement des images de courbes"
+            title = If(Form1.language = "fr-FR", "Répertoire d'enregistrement des images de courbes", "Curve image storage directory")
         Else
             path = Me.default_path_file
-            title = "Répertoire d'enregistrement des données de courbes"
+            title = If(Form1.language = "fr-FR", "Répertoire d'enregistrement des données de courbes", "Curve data recording directory")
         End If
 
         Try
@@ -183,31 +205,45 @@
         End If
     End Sub
 
+    Private Sub hiddenCurves_changed(sender As Object, e As EventArgs) Handles CheckBoxHiddenCurves.CheckedChanged
+        If trigger_value_changed.Equals(False) Then
+            Return
+        End If
+
+        Me.hiddenCurves = CheckBoxHiddenCurves.Checked()
+    End Sub
+
     Public Shared Function getCompleteFilename(ByVal path As String, ByVal screenshot As Boolean, ByVal name As String)
         Dim extension_file As String = ".txt"
         Dim prefix_file As String = "bezier"
 
+        Dim prefix As String = ""
         Dim filename As String = ""
         Dim complete_path As String = ""
         Dim cnt As Single = 0
         If (screenshot.Equals(True)) Then
             extension_file = ".jpg"
-            prefix_file = "screen"
+            prefix_file = "capture"
         End If
 
         Dim dt As DateTime = DateTime.Now
-
+        Dim Folder As New IO.DirectoryInfo(path)
+        Dim number_files As Integer
         Do
             If (name.Length.Equals(0)) Then
-                filename = (prefix_file + "_" + cnt.ToString() + "__" + dt.ToString("dd_MM_yyyy__HH_mm") + extension_file)
+                prefix = (prefix_file + "_" + cnt.ToString())
+                filename = (prefix + "__" + dt.ToString("dd-MM-yyyy--HH-mm") + extension_file)
             Else
-                filename = (name + "_" + cnt.ToString() + extension_file)
+                prefix = (name + "_" + cnt.ToString())
+                filename = (prefix + extension_file)
             End If
 
             cnt += 1
 
             complete_path = path + "\" + filename
-        Loop Until (Not System.IO.File.Exists(complete_path))
+            ' We have to check if name + cnt => Already saved 
+            number_files = Folder.GetFiles(prefix + "*" + extension_file, IO.SearchOption.TopDirectoryOnly).Length
+        Loop Until (number_files = 0)
 
         Return complete_path
     End Function

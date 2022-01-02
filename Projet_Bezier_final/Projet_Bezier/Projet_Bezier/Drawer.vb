@@ -28,7 +28,7 @@ Public Class Drawer
 
     End Sub
 
-    Public Sub drawStringBezierList(ByRef img As Bitmap, ByRef bezier_list As List(Of Bezier))
+    Public Sub drawStringBezierList(ByRef img As Bitmap, ByRef bezier_list As List(Of Bezier), ByRef hidden_curves As Boolean)
         Dim str As String = "Légende : " + vbNewLine
         Dim coloredPen As New Pen(Color.Black)
 
@@ -39,6 +39,9 @@ Public Class Drawer
         Dim cnt As Single = 1
 
         For Each bezier As Bezier In bezier_list
+            If hidden_curves = False AndAlso bezier.show = False Then
+                Continue For 'Skip hidden curves on legend
+            End If
             coloredPen.Color = bezier.couleur
             Using g As Graphics = Graphics.FromImage(img)
                 g.DrawString(bezier.ToString().Replace(" ", "  "), New Font("Tahoma", 11), coloredPen.Brush, New PointF(0, cnt * 14))
@@ -46,53 +49,6 @@ Public Class Drawer
             cnt += 1
         Next
     End Sub
-    Public Sub saveDrawing(ByVal default_path As String)
-        If bezier_drawing.Image Is Nothing Then
-            Return
-        Else
-            Dim sfdPic As New SaveFileDialog()
-            Dim Path As String = default_path
-
-            Dim btn = MessageBoxButtons.YesNo
-            Dim ico = MessageBoxIcon.Information
-
-            Try
-            
-                With sfdPic
-                    .Title = "Enregistre la courbe sous"
-                    .Filter = "Jpg, Jpeg Images|*.jpg;*.jpeg|PNG Image|*.png|BMP Image|*.bmp"
-                    .AddExtension = True
-                    .DefaultExt = ".jpg"
-                    .FileName = "maCourbe.jpg"
-                    .ValidateNames = True
-                    .OverwritePrompt = True
-                    .InitialDirectory = Path
-                    .RestoreDirectory = True
-
-                    If .ShowDialog = DialogResult.OK Then
-                        If .FilterIndex = 1 Then
-                            bezier_drawing.Image.Save(sfdPic.FileName, Imaging.ImageFormat.Jpeg)
-                            MessageBox.Show("Courbe enregistrée avec succès à : " + sfdPic.FileName)
-                        ElseIf .FilterIndex = 2 Then
-                            bezier_drawing.Image.Save(sfdPic.FileName, Imaging.ImageFormat.Png)
-                            MessageBox.Show("Courbe enregistrée avec succès à : " + sfdPic.FileName)
-                        ElseIf .FilterIndex = 3 Then
-                            bezier_drawing.Image.Save(sfdPic.FileName, Imaging.ImageFormat.Bmp)
-                            MessageBox.Show("Courbe enregistrée avec succès à : " + sfdPic.FileName)
-                        End If
-                    Else
-                        Return
-                    End If
-
-                End With
-            Catch ex As Exception
-                MessageBox.Show("Error: Saving Image Failed ->> " & ex.Message.ToString())
-            Finally
-                sfdPic.Dispose()
-            End Try
-        End If
-    End Sub
-
     Public Sub clearDrawing()
         If Not bezier_drawing.Image Is Nothing Then
             bezier_drawing.Image.Dispose()

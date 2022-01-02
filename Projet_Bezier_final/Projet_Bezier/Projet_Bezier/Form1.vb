@@ -45,6 +45,7 @@ Public Class Form1
     Dim filename_file As String = ""
     Dim auto_incr_file As Boolean
     Dim default_path_file As String = ""
+    Dim hidden_curves As Boolean
 
     Dim nud_selected As Object = Nothing
     Public Sub New()
@@ -70,11 +71,11 @@ Public Class Form1
         If (My.Settings.file_path.Length.Equals(0) And My.Settings.screenshot_path.Length.Equals(0)) Then
             ' SET DEFAULT VALUES
             'Init value params
-            form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+            form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file, hidden_curves)
 
             form_params.Owner = Me
             'Get back parameters
-            form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+            form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file, hidden_curves)
 
             save_settings()
         Else
@@ -87,6 +88,8 @@ Public Class Form1
             filename_file = My.Settings.file_name
             auto_incr_file = My.Settings.file_auto_incr
             default_path_file = My.Settings.file_path
+
+            hidden_curves = My.Settings.hidden_curves
         End If
 
     End Sub
@@ -99,6 +102,8 @@ Public Class Form1
         My.Settings.file_name = filename_file
         My.Settings.file_auto_incr = auto_incr_file
         My.Settings.file_path = default_path_file
+
+        My.Settings.hidden_curves = hidden_curves
 
         My.Settings.Save()
     End Sub
@@ -133,17 +138,14 @@ Public Class Form1
     End Sub
 
     Private Sub bezier_drawing_MouseDown(sender As Object, e As MouseEventArgs) Handles trace_pb.MouseDown
-        Dim sf As Single = CSng(trace_pb.ClientRectangle.Width / ScaleWidth)
-        Dim mouse_point As Point = New Point((e.Location().X / sf) + Corner.X, (e.Location().Y / sf) + Corner.Y)
-        ' 900 * 600 => 283 * 278 au centre au lieu de 450 * 300 et corner 281 135
-        'scaling factor sf = 1.68 => 283*1.68 = 475
+        Dim mouse_point As Point = New Point(e.Location().X, e.Location().Y)
         Dim mouse_point_converted As PointF = drawer.conversionToMarker(mouse_point)
 
         ' First we check if the current selected curve is still selected
         Dim point As PointF
 
         If (Not bezier Is Nothing AndAlso bezier.currentlySelected = True) Then
-            If (bezier.selectionPoint(mouse_point_converted, point, 0.1 * sf) = True) Then
+            If (bezier.selectionPoint(mouse_point_converted, point, 0.1) = True) Then
                 'Our bezier is still selected
                 drawer.clearDrawing()
                 drawer.drawBeziers(bezier_list, show_name_bezier)
@@ -154,7 +156,7 @@ Public Class Form1
 
         For Each bezier_tmp In bezier_list
             If (bezier_tmp.show.Equals(True)) Then
-                If (bezier_tmp.selectionPoint(mouse_point_converted, point, 0.1 * sf) = True) Then
+                If (bezier_tmp.selectionPoint(mouse_point_converted, point, 0.1) = True) Then
                     ' New bezier selected
                     If bezier Is Nothing OrElse Not bezier.Equals(bezier_tmp) Then
                         SetSelectedBezier(bezier_tmp, True) 'Set new current bezier + set as selected item
@@ -240,7 +242,7 @@ Public Class Form1
         If bezier Is Nothing Then 'Do nothing if there isn't any bezier selected
             MouseMovePt = e.Location
 
-            If e.Button = MouseButtons.Left Then
+            If e.Button = MouseButtons.Right Then
                 'drag the screen
                 Dim sf As Double = trace_pb.ClientSize.Width / ScaleWidth
                 Dim x As Integer = CInt(MouseDownCornerPt.X - ((MouseMovePt.X - MouseDownPt.X) / sf))
@@ -562,20 +564,58 @@ Public Class Form1
 
     ' Save jpeg
     Private Sub TakeScreenshot_Click(sender As Object, e As EventArgs) Handles take_screenshot_btn.Click, PrendreUnCaptureToolStripMenuItem.Click
+        Dim complete_path As String = ""
+
         ' Si nom empty => On ouvre l'explorateur et l'utiisateur choisit
         If (auto_incr_screenshot.Equals(False)) Then
-            drawer.saveDrawing(default_path_screenshot)
+            If trace_pb.Image Is Nothing Then
+                Return
+            Else
+                Dim sfdPic As New SaveFileDialog()
+                Dim Path As String = default_path_screenshot
+
+                Dim btn = MessageBoxButtons.YesNo
+                Dim ico = MessageBoxIcon.Information
+
+                Try
+
+                    With sfdPic
+                        .Title = If(Me.language.Equals("fr-FR"), "Enregistre la courbe sous", "Save curves in")
+                        .Filter = "Jpg, Jpeg Images|*.jpg;*.jpeg"
+                        .AddExtension = True
+                        .DefaultExt = ".jpg"
+                        .FileName = If(Me.language.Equals("fr-FR"), "maCourbe.jpg", "myCurve.jpg")
+                        .ValidateNames = True
+                        .OverwritePrompt = True
+                        .InitialDirectory = Path
+                        .RestoreDirectory = True
+
+                        If .ShowDialog = DialogResult.OK Then
+                            complete_path = sfdPic.FileName
+                        Else
+                            Return
+                        End If
+
+                    End With
+                Catch ex As Exception
+                    MessageBox.Show("Error: Saving Image Failed ->> " & ex.Message.ToString())
+                Finally
+                    sfdPic.Dispose()
+                End Try
+            End If
         Else
             ' Auto-incr checked
-            Dim complete_path As String = Form_params.getCompleteFilename(default_path_screenshot, True, filename_screenshot)
-            Dim prop As Double = trace_pb.Height / trace_pb.Width
-            Dim width As Integer = 1400
-            Dim img As Bitmap = DrawFilledRectangle(width, width * prop)
-            drawer.drawStringBezierList(img, bezier_list)
-            img.Save(complete_path, Imaging.ImageFormat.Jpeg)
-            CombineImages(CombineBG_FG(trace_pb.BackgroundImage, trace_pb.Image), img).Save(complete_path, Imaging.ImageFormat.Jpeg)
-            MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
+            complete_path = Form_params.getCompleteFilename(default_path_screenshot, True, filename_screenshot)
+
         End If
+
+        Dim prop As Double = trace_pb.Height / trace_pb.Width
+        Dim width As Integer = 1500
+        Dim img As Bitmap = DrawFilledRectangle(width, width * prop)
+        drawer.drawStringBezierList(img, bezier_list, hidden_curves)
+        img.Save(complete_path, Imaging.ImageFormat.Jpeg)
+        CombineImages(CombineBG_FG(trace_pb.BackgroundImage, trace_pb.Image), img).Save(complete_path, Imaging.ImageFormat.Jpeg)
+        MessageBox.Show(If(Me.language.Equals("fr-FR"), "Courbe enregistrée avec succès à : " + complete_path, "Curves saved with success in : " + complete_path))
 
     End Sub
 
@@ -586,18 +626,17 @@ Public Class Form1
         Dim sfdPic As New OpenFileDialog()
         Dim Path As String = default_path_file
 
-        Dim title As String = "Ouvrir l'ensemble de courbes"
+        Dim title As String = If(Me.language.Equals("fr-FR"), "Ouvrir l'ensemble de courbes", "Open bezier file")
         Dim btn = MessageBoxButtons.YesNo
         Dim ico = MessageBoxIcon.Information
 
         Try
 
             With sfdPic
-                .Title = "Ouvre les courbes sous"
+                .Title = If(Me.language.Equals("fr-FR"), "Ouvre les courbes sous", "Open bezier file in")
                 .Filter = "Fichiers texte (*.txt)|*.txt"
                 .AddExtension = True
                 .DefaultExt = ".txt"
-                '.FileName = "ma_liste_de_courbes.txt"
                 .ValidateNames = True
                 .InitialDirectory = Path
                 .RestoreDirectory = True
@@ -607,7 +646,7 @@ Public Class Form1
 
                 If .ShowDialog = DialogResult.OK Then
                     bezier_list = Bezier.ReadAll(sfdPic.FileName)
-                    MessageBox.Show("Courbes lues avec succès à : " + sfdPic.FileName)
+                    MessageBox.Show(If(Me.language.Equals("fr-FR"), "Courbes lues avec succès à : " + sfdPic.FileName, "Curves readed with succes in : " + sfdPic.FileName))
                 Else
                     Return
                 End If
@@ -655,18 +694,18 @@ Public Class Form1
             Dim sfdPic As New SaveFileDialog()
             Dim Path As String = default_path_file
 
-            Dim title As String = "Sauvegarde des courbes"
+            Dim title As String = If(Me.language.Equals("fr-FR"), "Sauvegarde des courbes", "Save curves")
             Dim btn = MessageBoxButtons.YesNo
             Dim ico = MessageBoxIcon.Information
 
             Try
 
                 With sfdPic
-                    .Title = "Enregistre les courbes sous"
+                    .Title = If(Me.language.Equals("fr-FR"), "Enregistre les courbes sous", "Save curves in")
                     .Filter = "Fichiers texte (*.txt)|*.txt"
                     .AddExtension = True
                     .DefaultExt = ".txt"
-                    .FileName = "ma_liste_de_courbes.txt"
+                    .FileName = If(Me.language.Equals("fr-FR"), "ma_liste_de_courbes.txt", "bezier.txt")
                     .ValidateNames = True
                     .OverwritePrompt = True
                     .InitialDirectory = Path
@@ -674,7 +713,7 @@ Public Class Form1
 
                     If .ShowDialog = DialogResult.OK Then
                         Bezier.WriteAll(bezier_list, sfdPic.FileName)
-                        MessageBox.Show("Courbe enregistrée avec succès à : " + sfdPic.FileName)
+                        MessageBox.Show(If(Me.language.Equals("fr-FR"), "Courbe enregistrée avec succès à : " + sfdPic.FileName, "Curves saved with success in : " + sfdPic.FileName))
                     Else
                         Return
                     End If
@@ -689,14 +728,14 @@ Public Class Form1
             ' Auto-incr checked
             Dim complete_path As String = Form_params.getCompleteFilename(default_path_file, False, filename_file)
             Bezier.WriteAll(bezier_list, complete_path)
-            MessageBox.Show("Courbe enregistrée avec succès à : " + complete_path)
+            MessageBox.Show(If(Me.language.Equals("fr-FR"), "Courbe enregistrée avec succès à : " + complete_path, "Curves saved with success in : " + complete_path))
 
         End If
 
     End Sub
 
     Private Sub Button_params_Click(sender As Object, e As EventArgs) Handles parameter_btn.Click, ParamètresToolStripMenuItem.Click
-        form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+        form_params = New Form_params(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file, hidden_curves)
 
         form_params.Owner = Me
 
@@ -704,7 +743,7 @@ Public Class Form1
         form_params.ShowDialog()
 
         'Get back parameters
-        form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file)
+        form_params.getValues(filename_screenshot, auto_incr_screenshot, default_path_screenshot, filename_file, auto_incr_file, default_path_file, hidden_curves)
 
         save_settings()
     End Sub
@@ -722,24 +761,24 @@ Public Class Form1
 
             'Remove screenshots
             If (delete_screenshot.Equals(True)) Then
-                Dim result As DialogResult = MessageBox.Show("Do you really want to remove all .jpeg files in " + default_path_screenshot + "?", "REMOVE", MessageBoxButtons.YesNo)
+                Dim result As DialogResult = MessageBox.Show(If(Me.language.Equals("fr-FR"), "Voulez-vous vraiment supprimer tous les .jpeg dans ", "Do you really want to remove all .jpeg files in ") + default_path_screenshot + "?", If(Me.language.Equals("fr-FR"), "Supression", "Remove"), MessageBoxButtons.YesNo)
                 If result = DialogResult.Yes Then
                     removeFilesPattern(True)
-                    MessageBox.Show("Files .jpeg removed successfully")
+                    MessageBox.Show(If(Me.language.Equals("fr-FR"), "Fichies .jpeg supprimés avec succès", "Files .jpeg removed successfully"))
                 Else
-                    MessageBox.Show("Operation cancelled")
+                    MessageBox.Show(If(Me.language.Equals("fr-FR"), "Opération annulée", "Operation cancelled"))
                 End If
 
             End If
 
             'Removes files
             If (delete_files.Equals(True)) Then
-                Dim result As DialogResult = MessageBox.Show("Do you really want to remove all .txt files in " + default_path_file + "?", "REMOVE", MessageBoxButtons.YesNo)
+                Dim result As DialogResult = MessageBox.Show(If(Me.language.Equals("fr-FR"), "Voulez - vous vraiment supprimer tous les .txt dans ", "Do you really want to remove all .txt files in ") + default_path_file + "?", If(Me.language.Equals("fr-FR"), "Supression", "Remove"), MessageBoxButtons.YesNo)
                 If result = DialogResult.Yes Then
                     removeFilesPattern(False)
-                    MessageBox.Show("Files .txt removed successfully")
+                    MessageBox.Show(If(Me.language.Equals("fr-FR"), "Fichies .txt supprimés avec succès", "Files .txt removed successfully"))
                 Else
-                    MessageBox.Show("Operation cancelled")
+                    MessageBox.Show(If(Me.language.Equals("fr-FR"), "Opération annulée", "Operation cancelled"))
                 End If
 
             End If
@@ -859,7 +898,7 @@ Public Class Form1
             color_pb.BackColor = cDialog.Color ' update with user selected color.
             color = cDialog.Color
 
-            'hexacode_tb.Text = "#" & String.Format("{0:00}", Hex(color.R)) & String.Format("{1:00}", Hex(color.G)) & String.Format("{2:00}", Hex(color.B))
+            'hexacode_tb.Text = "#" & String.Format("{0: 00}", Hex(color.R)) & String.Format("{1:00}", Hex(color.G)) & String.Format("{2:00}", Hex(color.B))
             hexacode_tb.Text = String.Format("#{0:X2}{1:X2}{2:X2}", color.R, color.G, color.B)
 
             'Change color
