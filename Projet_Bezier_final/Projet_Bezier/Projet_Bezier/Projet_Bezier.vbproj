@@ -89,32 +89,23 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListDisplayBezier.Designer.vb" />
+    <Compile Include="FormListDisplayBezier.Designer.vb">
+      <DependentUpon>FormListDisplayBezier.vb</DependentUpon>
+    </Compile>
     <Compile Include="FormListDisplayBezier.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListDisplayBezier1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormListDisplayBezier.resx</DependentUpon>
+    <Compile Include="Form_delete.Designer.vb">
+      <DependentUpon>Form_delete.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form_delete.Designer.vb" />
     <Compile Include="Form_delete.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_delete1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Form_delete.resx</DependentUpon>
+    <Compile Include="Form_params.Designer.vb">
+      <DependentUpon>Form_params.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form_params.Designer.vb" />
     <Compile Include="Form_params.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_params1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Form_params.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -155,16 +146,13 @@
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormListDisplayBezier.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FormListDisplayBezier1.Designer.vb</LastGenOutput>
+      <DependentUpon>FormListDisplayBezier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_delete.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Form_delete1.Designer.vb</LastGenOutput>
+      <DependentUpon>Form_delete.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_params.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Form_params1.Designer.vb</LastGenOutput>
+      <DependentUpon>Form_params.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
